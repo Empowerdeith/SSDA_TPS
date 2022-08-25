@@ -1,0 +1,82 @@
+header{
+    padding: 30px 10%;
+    background-color: #144578;
+}
+.logo{
+    cursor: pointer;
+}
+body{
+    font-family:'Poppins', sans-serif;
+    background-color: #144578;
+}
+/*
+.nav_links{
+    list-style: none;
+}
+.nav_links li{
+    display: inline-block;
+    padding: 0px 20px;
+}
+li, a, button {
+    text-decoration: none;
+}
+.nav_links li a{
+    color: white;
+    transition: all 0.3s ease 0s;
+}
+.nav_links li a:hover{
+    color: #0088a9
+}
+button {
+    padding: 9px 25px;
+    background-color: rgba(0,136,169,1);
+    border: none;
+    border-radius: 50px;
+    cursor:pointer;
+    transition: all 0.3s ease 0s;
+}
+button:hover{
+    background-color: rgba(0,136,169,0.8);
+}*/
+li, a, button, footer {
+    text-decoration: none;
+}
+footer{
+    background-color: #144578;
+}
+#login_parameters{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.blue_tps{
+    color: #144578;
+}
+
+.blue_tps_bg{
+    background-color: #144578;
+}
+.nav-item{
+    text-align: left;
+}
+.nav-link{
+    color: white;
+    font-weight: bold;
+}
+.navbar-nav .nav-link.active{
+    color: white;
+}
+.navbar-toggler{
+    color:transparent;
+}
+.dropdown-item{
+    text-align: center;
+    color:#144578;
+}
+.navbar-nav .nav-item:hover .nav-link {
+    color: goldenrod;
+}
+.form-check-input:checked{
+    background-color: #144578;
+    border-color: #144578;;
+}
