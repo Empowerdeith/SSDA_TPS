@@ -12,12 +12,20 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+/*Route::get('/', function () {
+    return view('welcome');
+});*/
 Route::get('/', function () {
     return view('Login.Login');
 });
 Route::get('/inicio', function () {
     return view('Inicio.Inicio');
 });
+/*Route::post('/',function(){
+    $credentials =  request()->only('email','password');
+    Auth::attempt($credentials);
+});*/
 Route::get('/register', function () {
     return view('auth.register');
 });
