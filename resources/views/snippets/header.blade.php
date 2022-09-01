@@ -1,40 +1,35 @@
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <img class="logo"src="https://portalweb.tps.cl/tps_online/assets/images/tpshome/logo-tps-header.svg" alt="" style="float: right; width: 100px; height: 40px; margin-top: 10px;">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="" role="button" ><i class="fa fa-bars" aria-hidden="true" style="color:#e6e6ff"></i></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <br><br>
-                <ul class="navbar-nav ms-auto mb-2 mb-md-0 justify-content-center text-uppercase">
+                <ul class="navbar-nav ms-auto mb-0 mb-md-0 justify-content-center text-uppercase">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="https://www.tps.cl/">Inicio</a>
+                        <a class="nav-link" aria-current="page" href="/">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Preguntas Frecuentes</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Acerca de Nosotros</a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">¿Quiénes Somos?</a></li>
-                            <li><a class="dropdown-item" href="#">Ayuda</a></li>
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Ayuda</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cuenta</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{auth()->user()->name ?? auth()->user()->username ?? "Cuenta"}}</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @guest
                             <li><a class="dropdown-item" href="/login">Iniciar sesión</a></li>
                             @endguest
                             @auth
+                            <li><a class="dropdown-item" href="#">Administración</a></li>
                             <li><a class="dropdown-item" href="/logout">Cerrar sesión</a></li>
                             @endauth
-
                         </ul>
                     </li>
                 </ul>
             </div>
         </div>
-      </nav>
+    </nav>
 </header>

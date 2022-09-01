@@ -1,18 +1,15 @@
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins',sans-serif;
+    box-sizing: border-box!important;
+    font-family: 'Montserrat',sans-serif;
 }
 header{
-    padding: 30px 10%;
+    padding: 10px 10%;
     background-color: #144578;
 }
 .logo{
     cursor: pointer;
 }
 body{
-    font-family:'Poppins', sans-serif;
     background-color: #144578;
 }
 li, a, button, footer {
@@ -50,6 +47,9 @@ footer{
     text-align: center;
     color:#144578;
 }
+.navbar-nav:hover{
+    color:none!important;
+}
 .navbar-nav .nav-item:hover .nav-link {
     color: goldenrod;
 }
@@ -60,4 +60,22 @@ footer{
 /*Testing features*/
 .fas{
     color:#144578;
+}
+select, option, input::placeholder, input{
+    font-size: 16px!important;
+    color: #144578!important;
+}
+.btn{
+    background-color: #144578;
+    border-color: #144578;
+}
+.link-secondary{
+    color: white!important;
+}
+.text-secondary{
+    color: white!important;
+}
+.show_underline:hover {
+    color: #144578;
+    text-decoration: underline;
 }
