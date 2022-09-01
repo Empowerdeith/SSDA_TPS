@@ -10,19 +10,19 @@
 
       <!-- Right -->
       <div>
-        <a href="" class="me-4 link-secondary">
+        <a href="https://www.facebook.com/TPSValparaiso/" class="me-4 link-secondary">
           <i class="fab fa-facebook-f"></i>
         </a>
-        <a href="" class="me-4 link-secondary">
+        <a href="https://twitter.com/TPS_Valparaiso" class="me-4 link-secondary">
           <i class="fab fa-twitter"></i>
         </a>
-        <a href="" class="me-4 link-secondary">
-          <i class="fab fa-google"></i>
+        <a href="https://www.youtube.com/channel/UCiaVT5duAI687mxOqghHCBw/featured" class="me-4 link-secondary">
+          <i class="fab fa-youtube"></i>
         </a>
-        <a href="" class="me-4 link-secondary">
+        <a href="https://www.instagram.com/tps_valparaiso/" class="me-4 link-secondary">
           <i class="fab fa-instagram"></i>
         </a>
-        <a href="" class="me-4 link-secondary">
+        <a href="https://www.linkedin.com/company/1394617?trk=tyah&trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A1394617%2Cidx%3A1-1-1%2CtarId%3A1444153826149%2Ctas%3Aterminal%20pacifico%20" class="me-4 link-secondary">
           <i class="fab fa-linkedin"></i>
         </a>
       </div>

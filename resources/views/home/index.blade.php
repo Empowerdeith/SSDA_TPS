@@ -10,7 +10,6 @@
     @include('snippets.header')
     @auth
         <p>Bienvenido, {{auth()->user()->name ?? auth()->user()->username}}</p>
-
     @endauth
     @guest
         <p>Debes iniciar Sesión, Te pillamos pos compadre.</p>
