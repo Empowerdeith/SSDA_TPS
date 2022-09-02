@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @include('snippets.links')
-    
-</head>
-<body id="update_body">
-    @include('snippets.header')
+@extends('index.index_sidebar')
+@section('content_home')
     <section class="vh-75" style="background-color: #eee;">
         <div class="container h-100">
             @include('manageUsers.validation')
@@ -79,7 +69,7 @@
                                         <div class="form-outline flex-fill mb-0">
                                             <input type="text" name=userID placeholder="Ingrese ID para confirmar">
                                             <button type="submit" class="btn btn-primary btn-lg">Borrar Usuario</button>
-                                        </div>                             
+                                        </div>
                                     </form>
                                 </div>
                                 <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
@@ -92,7 +82,4 @@
             </div>
         </div>
     </section>
-    @include('snippets.footer2')
-</body>
-
-</html>
+@endsection

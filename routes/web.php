@@ -17,9 +17,6 @@ use App\Http\Controllers\ManageUserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/inicio', function () {
-    return view('Inicio.Inicio');
-});
 Route::get('/register', [RegisterController::class, 'show']);
 Route::post('/register', [RegisterController::class, 'register']);
 

@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @include('snippets.links')
-</head>
-
-<body id="register_body">
-    @include('snippets.header')
+@extends('index.index_sidebar')
+@section('content_home')
 @can('admin.register')
     <section class="vh-75 mb-3 pt-3" style="background-color: #eee;">
         <div class="container h-100">
@@ -95,9 +85,7 @@
     </section>
 @endcan
 @cannot('admin.register')
-    <p>No posees permisos para ver esta pagina</p>
+    <p>No posees permisos para ver esta página</p>
 @endcannot
-    @include('snippets.footer2')
-</body>
+@endsection
 
-</html>
