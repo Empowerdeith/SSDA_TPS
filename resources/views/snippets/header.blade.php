@@ -23,7 +23,7 @@
                             <li><a class="dropdown-item" href="/login">Iniciar sesión</a></li>
                             @endguest
                             @auth
-                            <li><a class="dropdown-item" href="#">Administración</a></li>
+                            <li><a class="dropdown-item" href="/showUsers">Administración</a></li>
                             <li><a class="dropdown-item" href="/logout">Cerrar sesión</a></li>
                             @endauth
                         </ul>
