@@ -10,6 +10,11 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/">Inicio</a>
                     </li>
+                    @auth
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/home">Home</a>
+                    </li>
+                    @endauth
                     <li class="nav-item">
                         <a class="nav-link" href="#">Preguntas Frecuentes</a>
                     </li>
@@ -23,7 +28,6 @@
                             <li><a class="dropdown-item" href="/login">Iniciar sesión</a></li>
                             @endguest
                             @auth
-                            <li><a class="dropdown-item" href="/showUsers">Administración</a></li>
                             <li><a class="dropdown-item" href="/logout">Cerrar sesión</a></li>
                             @endauth
                         </ul>

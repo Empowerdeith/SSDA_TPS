@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @include('snippets.links')
-</head>
-<body>
-    @include('snippets.header')
+@extends('index.index_master')
+@section('content')
     <main class="mb-3" style="background-color: #eee;">
         <div class="container mt-3 pt-3">
 
@@ -149,6 +141,4 @@
             <hr class="my-5" />
         </div>
     </main>
-    @include('snippets.footer2')
-</body>
-</html>
+@endsection
