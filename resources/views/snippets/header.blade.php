@@ -16,10 +16,7 @@
                     </li>
                     @endauth
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Preguntas Frecuentes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Ayuda</a>
+                        <a class="nav-link" href="/faq">Preguntas Frecuentes</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{auth()->user()->name ?? auth()->user()->username ?? "Cuenta"}}</a>
