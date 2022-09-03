@@ -16,7 +16,8 @@
                                                 <th>Nombre Usuario</th>
                                                 <th>Email</th>
                                                 <th>Cargo</th>
-                                                <th>Acciones</th>
+                                                <th>Actualizar</th>
+                                                <th>Eliminar</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -27,7 +28,8 @@
                                                 <td>{{$user -> username}}</td>
                                                 <td>{{$user -> email}}</td>
                                                 <td>{{$user -> cargo}}</td>
-                                                <td><a href="{{route('updateUser', $user->id)}}">Ver usuario</a></td>
+                                                <td><a href="{{route('updateUserView', $user->id)}}">Actualizar</a></td>
+                                                <td><a href="{{route('deleteUserView', $user->id)}}">Eliminar</a></td>
                                             </tr>
                                             @endforeach
                                         </tbody>

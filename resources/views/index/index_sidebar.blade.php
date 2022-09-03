@@ -18,7 +18,7 @@
                                     <a href="/register" class="nav-link px-0"><i class="fa-solid fa-user-plus big_icons"></i><span class="d-none d-sm-inline font_18"> Crear Usuarios</span></a>
                                 </li>
                                 <li>
-                                    <a href="/showUsers" class="nav-link px-0"><i class="fa-solid fa-user-pen big_icons"></i><span class="d-none d-sm-inline font_18"> Editar Usuarios</span></a>
+                                    <a href="/showUsers" class="nav-link px-0"><i class="fa-solid fa-user-pen big_icons"></i><span class="d-none d-sm-inline font_18"> Ver Usuarios</span></a>
                                 </li>
                             </ul>
                         </li>

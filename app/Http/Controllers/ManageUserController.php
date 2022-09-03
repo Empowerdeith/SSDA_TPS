@@ -15,21 +15,34 @@ class ManageUserController extends Controller
     }
         
 
-    public function updateUser($id){
+    public function updateUserView($id){
 
         $user = User::findOrFail($id);      
         return view('manageUsers.updateUser', compact('user'));
     }
 
-    public function updateUser2(UpdateUserRequest $request, $id){
-        $user = User::findOrFail($id);
-        
-        $user -> name = $request->name;
-        $user -> rut = $request->rut;
-        $user -> username = $request->username;
-        $user -> email = $request->email;
-        $user -> password = $request->password;
-        $user -> cargo = $request->cargo;
+    public function updateUser(UpdateUserRequest $request, $id){
+
+        $user = User::findOrFail($id);            
+            
+        if ( ! ( $request->name == NULL )){
+            $user -> name = $request->name;
+        }
+        if ( ! ( $request->rut == NULL )){
+            $user -> rut = $request->rut;
+        }
+        if ( ! ( $request->username == NULL )){
+            $user -> username = $request->username;
+        }
+        if ( ! ( $request->email == NULL )){
+            $user -> email = $request->email;
+        }
+        if ( ! ( $request->password == NULL )){
+            $user -> password = $request->password;
+        }
+        if ( ! ( $request->cargo == NULL )){
+            $user -> cargo = $request->cargo;
+        }
 
         $user -> save();
 
@@ -37,17 +50,24 @@ class ManageUserController extends Controller
 
     }
 
-    public function deleteUser(Request $request, $id){
+    public function deleteUserView($id){
 
-        $request->validate([
-            'userID' => 'required',
-        ]);
+        $user = User::findOrFail($id);      
+        return view('manageUsers.deleteUser', compact('user'));
+    }
 
-        if($id == $request->userID){
-            $user = User::findOrFail($id);
-            $user -> delete();
-            return redirect('/showUsers');
-        }
+    public function deleteUser($id){
+
+        $user = User::findOrFail($id);
+        $user -> delete();
+        return redirect('/showUsers');
+        
         return redirect()->back()->with('danger', 'ID incorrecto, usuario no eliminado');
+    }
+
+    
+
+    public function faq(){
+        return view('faq.faq');
     }
 }
