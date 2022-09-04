@@ -7,13 +7,14 @@
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 min-vh-100 text-white">
                         <span class="fs-5 d-none d-sm-inline font_24 pt-5 pb-3">Bienvenido, {{auth()->user()->name ?? auth()->user()->username}}</span>
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                        <li class="nav-item">
+                        @can('admin.manage')
+                        <li class="nav-item pt-4">
                                 <i class="fa-solid fa-screwdriver-wrench big_icons"></i><span class="ms-1 d-none d-sm-inline font_20">Administración</span>
                         </li>
                         <li>
                             <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                 <i class="fa-solid fa-user-gear big_icons"></i><span class="ms-1 d-none d-sm-inline font_20">Gestionar usuarios</span> </a>
-                            <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                            <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                                 <li class="w-100">
                                     <a href="/register" class="nav-link px-0"><i class="fa-solid fa-user-plus big_icons"></i><span class="d-none d-sm-inline font_18"> Crear Usuarios</span></a>
                                 </li>
@@ -22,7 +23,9 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
+                        @endcan
+                        @can('operator.manage')
+                        <li class="nav-item pt-4">
                                 <i class="fa-solid fa-user-tie big_icons"></i><span class="ms-1 d-none d-sm-inline font_20">Funcionarios</span>
                         </li>
                         <li>
@@ -45,6 +48,7 @@
                             <a href="#" class="nav-link px-0 align-middle">
                                 <i class="fa-sharp fa-solid fa-circle-plus big_icons"></i><span class="ms-1 d-none d-sm-inline font_20"> Extras</span> </a>
                         </li>
+                        @endcan
                     </ul>
                     <hr>
                 </div>
