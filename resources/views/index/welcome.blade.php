@@ -24,22 +24,19 @@
                         <div class="carousel-item active">
                             <img src="{{asset('img/carousel1.jpg')}}" class="d-block w-100" alt="Slide 1">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>First slide label</h5>
-                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                <p class="font_14">Pasión es la energía que nos anima a hacer lo que hacemos con alegría y creatividad.</p>
                               </div>
                         </div>
                         <div class="carousel-item">
                             <img src="{{asset('img/carousel2.jpg')}}" class="d-block w-100" alt="Slide 2">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>First slide label</h5>
-                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                <p class="font_14">Excelencia es buscar constantemente mejorar todo lo que hacemos.</p>
                               </div>
                         </div>
                         <div class="carousel-item">
                             <img src="{{asset('img/carousel2.jpg')}}" class="d-block w-100" alt="Slide 3">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>First slide label</h5>
-                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                <p class="font_14">Proteger la vida y el medio ambiente en todas las acciones que realizamos ha de ser siempre una preocupación prioritaria.</p>
                               </div>
                         </div>
                     </div>

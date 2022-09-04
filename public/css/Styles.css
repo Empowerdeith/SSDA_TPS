@@ -99,3 +99,7 @@ select, option, input::placeholder, input{
 .font_24{
     font-size: 24px!important;
 }
+.font_14{
+    font-size: 20px!important;
+    text-shadow: 3px 3px black;
+}

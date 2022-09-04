@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @include('snippets.links')
-</head>
-<body id="login">
-    @include('snippets.header')
-    <!--Formulario de Login para la página.-->
+@extends('index.index_master')
+@section('content')
+<!--Formulario de Login para la página.-->
     <div id="login_parameters" style="background-image: url('{{ asset('img/background_pic.jpg')}}');">
         <br>
         <div class="container w-75 mt-5">
@@ -47,6 +40,4 @@
         </div>
         <br><br>
     </div>
-    @include('snippets.footer2')
-</body>
-</html>
+@endsection
