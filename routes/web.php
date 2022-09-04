@@ -32,6 +32,12 @@ Route::get('/', [IndexController::class, 'show']);
 //gestion de usuario
 
 Route::get('/showUsers',[ManageUserController::class, 'showUsers'])->name('showUsers');
-Route::get('/updateUser/{id}',[ManageUserController::class, 'updateUser'])->name('updateUser');
-Route::post('/updateUser2/{id}',[ManageUserController::class, 'updateUser2'])->name('updateUser2');
+
+Route::get('/updateUserView/{id}',[ManageUserController::class, 'updateUserView'])->name('updateUserView');
+Route::post('/updateUser/{id}',[ManageUserController::class, 'updateUser'])->name('updateUser');
+
+Route::get('/deleteUserView/{id}',[ManageUserController::class, 'deleteUserView'])->name('deleteUserView');
 Route::post('/deleteUser/{id}',[ManageUserController::class, 'deleteUser'])->name('deleteUser');
+
+//faq
+Route::get('/faq',[ManageUserController::class, 'faq'])->name('faq');
