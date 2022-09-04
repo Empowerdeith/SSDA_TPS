@@ -67,11 +67,11 @@
                                                 </select>
                                         </div>
                                     </div>
-                                        <div class="d-flex justify-content-center mx-5 mb-3 mb-lg-4">
-                                            <button type="submit" class="btn btn-primary btn-lg custom-btn px-5" name="submit">Crear Usuario</button>
-                                        </div>
+                                    @include('manageUsers.validation')
+                                    <div class="d-flex justify-content-center mx-5 mb-3 mb-lg-4">
+                                        <button type="submit" class="btn btn-primary btn-lg custom-btn px-5" name="submit">Crear Usuario</button>
+                                    </div>
                                     </form>
-
                                 </div>
                                 <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
                                     <img src="{{ asset('img/testing.jpg')}}"class="img-fluid" alt="Sample image" style="border-radius: 25px;">
