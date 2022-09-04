@@ -17,10 +17,10 @@ class UserSeed extends Seeder
     public function run()
     {
         User::create([
-            'name' => 'ManoloG',
-            'rut' => '123232-2',
-            'username' => 'ManoloGod',
-            'email' => 'ManoloGodd@gmail.com',
+            'name' => 'Manolo Sanchéz',
+            'rut' => '10563567-7',
+            'username' => 'Admin',
+            'email' => 'Admin@gmail.com',
             'password' => '12345678', // 12345678
             'cargo' => 'Administrador del sistema',
         ])->assignRole('Admin');

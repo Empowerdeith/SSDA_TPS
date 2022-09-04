@@ -2,7 +2,7 @@
 
 return[
     'required' => 'El campo :attribute es obligatorio',
-    'unique' => 'Ese :attribute ya esta en uso',
+    'unique' => 'Ese :attribute ya está en uso',
 
     'attributes' => [
         'name' => 'nombre',
