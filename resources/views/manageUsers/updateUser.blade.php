@@ -15,48 +15,51 @@
                                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="text" class="form-control" name="name" placeholder="Nombre">
+                                                <div class="alert-danger">{{$errors -> first('name')}}</div>
                                             </div>
                                         </div>
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="text" class="form-control" name="rut" placeholder="Rut">
+                                                <div class="alert-danger">{{$errors -> first('rut')}}</div>
                                             </div>
                                         </div>
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-solid fa-circle-user fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="text" class="form-control" name="username" placeholder="Nombre de usuario"/>
+                                                <div class="alert-danger">{{$errors -> first('username')}}</div>
                                             </div>
                                         </div>
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="email" class="form-control" name="email" placeholder="Email"/>
+                                                <div class="alert-danger">{{$errors -> first('email')}}</div>
                                             </div>
                                         </div>
-
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-solid fa-user-tie fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="text" class="form-control" name="cargo" placeholder="Cargo"/>
+                                                <div class="alert-danger">{{$errors -> first('cargo')}}</div>
                                             </div>
                                         </div>
-
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="password" class="form-control" name="password" placeholder="Contraseña"/>
+                                                <div class="alert-danger">{{$errors -> first('password')}}</div>
                                             </div>
                                         </div>
-
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-solid fa-lock fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="password" class="form-control" name="password_confirmation" placeholder="Repite la contraseña"/>
+                                                <div class="alert-danger">{{$errors -> first('password_confirmation')}}</div>
                                             </div>
                                         </div>
-                                        @include('manageUsers.validation')
                                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                                             <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
                                         </div>
