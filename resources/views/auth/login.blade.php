@@ -19,11 +19,11 @@
                         <div class="mb-4">
                             <label for="email" class="form-label blue_tps">Nombre de usuario:</label>
                             <input type="text" class="form-control"name="username" id="">
-                            <div class="alert-danger">{{$errors -> first('username')}}</div>
+                            <div class="alert-danger text-center">{{$errors -> first('username')}}</div>
                         </div>
                         <div class="mb-4"></div>
                             <label for="password" class="form-label blue_tps">Contraseña:</label>
-                            <input type="password" class="form-control text-center"name="password" id="">
+                            <input type="password" class="form-control"name="password" id="">
                             <div class="alert-danger text-center">{{$errors -> first('password')}}</div>
                         <br>
                         <div class="mb-4 form-check">

@@ -25,13 +25,12 @@ class UpdateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:2',
-            'rut'=> 'unique:users,rut',
+            //'name' => 'required|min:2',
             'username' => 'unique:users,username',
             'email' =>'unique:users,email',
-            'password' => 'required|min:8',
-            'password_confirmation' => 'required|same:password',
-            'cargo' => 'required|min:2'
+            //'password' => 'required|min:8',
+            //'password_confirmation' => 'required|same:password',
+            //'cargo' => 'required|min:2'
         ];
     }
     

@@ -19,13 +19,6 @@
                                             </div>
                                         </div>
                                         <div class="d-flex flex-row align-items-center mb-4">
-                                            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                                            <div class="form-outline flex-fill mb-0">
-                                                <input type="text" class="form-control" name="rut" placeholder="Rut">
-                                                <div class="alert-danger">{{$errors -> first('rut')}}</div>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-solid fa-circle-user fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="text" class="form-control" name="username" placeholder="Nombre de usuario"/>
@@ -60,9 +53,11 @@
                                                 <div class="alert-danger">{{$errors -> first('password_confirmation')}}</div>
                                             </div>
                                         </div>
+                                        @include('manageUsers.validation')
                                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                            <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
+                                            <button type="submit" class="btn btn-primary btn-lg">Guardar</button>                                        
                                         </div>
+                                        
                                     </form>
                                 </div>
                                 <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
