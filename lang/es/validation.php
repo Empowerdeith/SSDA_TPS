@@ -16,10 +16,10 @@ return[
         'string' => 'El :attribute no debe tener más de :max caracteres.',
     ],
     'between' => [
-        'array' => 'El :attribute debe estar entre :min y :max elementos.',
-        'file' => 'El :attribute debe estar entre :min and :max kilobytes.',
-        'numeric' => 'El :attribute debe estar entre :min and :max.',
-        'string' => 'El :attribute debe estar entre :min and :max caracteres.',
+        'array' => 'El :attribute debe tener entre :min y :max elementos.',
+        'file' => 'El :attribute debe tener entre :min y :max kilobytes.',
+        'numeric' => 'El :attribute debe tener entre :min y :max.',
+        'string' => 'El :attribute debe tener entre :min y :max caracteres.',
     ],
     'same' => 'El :attribute y :other no coinciden.',
 
