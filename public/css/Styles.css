@@ -103,3 +103,6 @@ select, option, input::placeholder, input{
     font-size: 20px!important;
     text-shadow: 3px 3px black;
 }
+.rojo_alert{
+    color: red;
+}
