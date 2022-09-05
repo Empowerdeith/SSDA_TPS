@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
+use Alert;
 
 class LoginController extends Controller
 {
@@ -17,7 +18,7 @@ class LoginController extends Controller
     public function login (LoginRequest $request){
         $credentials = $request->getCredentials();
         if(!Auth::validate($credentials)){
-            return redirect()->to('/login')->withErrors('Nombre de usuario o contraseña incorrectos.');
+            return redirect()->to('/login')->withErrors(['error_login'=>'Nombre de usuario o contraseña son incorrectos.']);
         }
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
         Auth::login($user);

@@ -19,12 +19,12 @@
                         <div class="mb-4">
                             <label for="email" class="form-label blue_tps">Nombre de usuario:</label>
                             <input type="text" class="form-control"name="username" id="">
-                            <div class="alert-danger text-center">{{$errors -> first('username')}}</div>
+                            <div class="alert-danger text-center rojo_alert">{{$errors -> first('username')}}</div>
                         </div>
                         <div class="mb-4"></div>
                             <label for="password" class="form-label blue_tps">Contraseña:</label>
                             <input type="password" class="form-control"name="password" id="">
-                            <div class="alert-danger text-center">{{$errors -> first('password')}}</div>
+                            <div class="alert-danger text-center rojo_alert">{{$errors -> first('password')}}</div>
                         <br>
                         <div class="mb-4 form-check">
                             <input type="checkbox" name="connected" class="form-check-input blue_tps">
@@ -33,7 +33,7 @@
                         <div class="d-grid">
                             <button type="submit" class="btn btn-primary blue_tps_bg">Acceder</button>
                         </div>
-                        @include('manageUsers.messages')
+                        <div class="alert-danger text-center rojo_alert">{{$errors -> first('error_login')}}</div>
                         <div class="my-3 text-center">
                             <span><i class="fa-solid fa-lock" style="color:#144578"></i><a href="#" class="blue_tps show_underline">¿Olvidaste tu contraseña?</a></span>
                         </div>
