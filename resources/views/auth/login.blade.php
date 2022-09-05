@@ -33,6 +33,7 @@
                         <div class="d-grid">
                             <button type="submit" class="btn btn-primary blue_tps_bg">Acceder</button>
                         </div>
+                        @include('manageUsers.messages')
                         <div class="my-3 text-center">
                             <span><i class="fa-solid fa-lock" style="color:#144578"></i><a href="#" class="blue_tps show_underline">¿Olvidaste tu contraseña?</a></span>
                         </div>
