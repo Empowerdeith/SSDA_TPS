@@ -47,20 +47,12 @@ class ManageUserController extends Controller
 
     }
 
-    public function deleteUserView($id){
-
-        $user = User::findOrFail($id);      
-        return view('manageUsers.deleteUser', compact('user'));
-    }
-
     public function deleteUser($id){
 
         $user = User::findOrFail($id);
         $user -> delete();
         return redirect('/showUsers');
     }
-
-    
 
     public function faq(){
         return view('faq.faq');

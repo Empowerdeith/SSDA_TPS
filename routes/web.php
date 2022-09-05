@@ -36,7 +36,6 @@ Route::get('/showUsers',[ManageUserController::class, 'showUsers'])->name('showU
 Route::get('/updateUserView/{id}',[ManageUserController::class, 'updateUserView'])->name('updateUserView');
 Route::post('/updateUser/{id}',[ManageUserController::class, 'updateUser'])->name('updateUser');
 
-Route::get('/deleteUserView/{id}',[ManageUserController::class, 'deleteUserView'])->name('deleteUserView');
 Route::post('/deleteUser/{id}',[ManageUserController::class, 'deleteUser'])->name('deleteUser');
 
 //faq
