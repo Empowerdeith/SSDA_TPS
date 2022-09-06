@@ -18,7 +18,7 @@ class UserSeed extends Seeder
     {
         User::create([
             'name' => 'Manolo Sanchéz',
-            'rut' => '10563567-7',
+            'rut' => '105635677',
             'username' => 'Admin',
             'email' => 'Admin@gmail.com',
             'password' => '12345678', // 12345678
