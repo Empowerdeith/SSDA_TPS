@@ -5,4 +5,8 @@
         {{session()->get('success')}}
     @endif
 
+    @if(session()->has('successReg'))
+        {{session()->get('successReg')}}
+    @endif
+
 </div>  
