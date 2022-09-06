@@ -74,6 +74,7 @@
                                                 </select>
                                         </div>
                                     </div>
+                                    @include('manageUsers.validation')
                                     <div class="d-flex justify-content-center mx-5 mb-3 mb-lg-4">
                                         <button type="submit" class="btn btn-primary btn-lg custom-btn px-5" name="submit">Crear Usuario</button>
                                     </div>

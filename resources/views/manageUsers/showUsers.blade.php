@@ -29,7 +29,7 @@
                                                 <td>{{$user -> email}}</td>
                                                 <td>{{$user -> cargo}}</td>
                                                 <td><a href="{{route('updateUserView', $user->id)}}"><button class="btn btn-primary btn-sm"><i class="fa-regular fa-pen-to-square"></i></button></a></td>
-                                                <td><form class="mx-1 mx-md-4" action="{{route('deleteUser', $user->id)}}" method="POST" onsubmit="return confirm('Pero realmente esta seguro de eliminar el usuario?')">
+                                                <td><form class="mx-1 mx-md-4" action="{{route('deleteUser', $user->id)}}" method="POST" onsubmit="return confirm('Realmente esta seguro de eliminar al usuario?')">
                                                     @csrf
                                                     <div class="form-outline flex-fill mb-0">
                                                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
