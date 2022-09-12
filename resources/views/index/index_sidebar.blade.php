@@ -26,14 +26,14 @@
                         @endcan
                         @can('operator.manage')
                         <li class="nav-item pt-4">
-                                <i class="fa-solid fa-user-tie big_icons"></i><span class="ms-1 d-none d-sm-inline font_20">Funcionarios</span>
+                            <i class="fa-solid fa-user-tie big_icons"></i><span class="ms-1 d-none d-sm-inline font_20">Funcionarios</span>
                         </li>
                         <li>
                             <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
                                 <i class="fa-sharp fa-solid fa-ticket big_icons"></i><span class="ms-1 d-none d-sm-inline font_20">Gestionar Sorteos</span></a>
                             <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                                 <li class="w-100">
-                                    <a href="#" class="nav-link px-0"><i class="fa-solid fa-clipboard-check big_icons"></i><span class="d-none d-sm-inline font_18"> Sorteo automatizado</span></a>
+                                    <a href="/raffle_auto" class="nav-link px-0"><i class="fa-solid fa-clipboard-check big_icons"></i><span class="d-none d-sm-inline font_18"> Sorteo automatizado</span></a>
                                 </li>
                                 <li>
                                     <a href="#" class="nav-link px-0"><i class="fa-solid fa-clipboard-list big_icons"></i><span class="d-none d-sm-inline font_18"> Sorteo Manual</span></a>

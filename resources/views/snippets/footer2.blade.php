@@ -111,7 +111,7 @@
     <!-- Copyright -->
     <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
       © 2022 Derechos de autor:
-      <a class="text-reset fw-bold" href="https://mdbootstrap.com/">Tps.cl</a>
+      <a class="text-reset fw-bold" href="#">Tps.cl</a>
     </div>
     <!-- Copyright -->
         <!-- JavaScript Bundle with Popper -->
