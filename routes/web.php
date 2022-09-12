@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ManageUserController;
+use App\Http\Controllers\RaffleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,3 +41,7 @@ Route::post('/deleteUser/{id}',[ManageUserController::class, 'deleteUser'])->nam
 
 //faq
 Route::get('/faq',[ManageUserController::class, 'faq'])->name('faq');
+
+//Sorteo automático
+Route::get('/raffle_auto', [RaffleController::class, 'show']);
+Route::post('/raffle_auto', [RaffleController::class, 'generateRaffle']);
