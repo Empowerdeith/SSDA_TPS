@@ -14,3 +14,12 @@ son los trabajadores de TPS, exceptuando aquellos con licencia o permiso.
 7.  Bootstrap 5
 8.	SQL Developer
 
+Para exportar excel
+
+Go to the php.ini file and remove ; before (XAMPP)
+
+;extension=gd
+
+Luego
+
+https://docs.laravel-excel.com/3.1/getting-started/installation.html
