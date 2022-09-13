@@ -8,7 +8,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ManageUserController;
 use App\Http\Controllers\RaffleController;
-use App\Http\Controllers\HistorialController;
+use App\Http\Controllers\ManualRaffleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,9 +47,5 @@ Route::get('/faq',[ManageUserController::class, 'faq'])->name('faq');
 Route::get('/raffle_auto', [RaffleController::class, 'show']);
 Route::post('/raffle_auto', [RaffleController::class, 'generateRaffle']);
 
-//historial sorteo - detalle
-Route::get('/historial',[HistorialController::class, 'historial'])->name('historial');
-Route::get('/historialdetalle/{id}',[HistorialController::class, 'historialdetalle'])->name('historialdetalle');
-
-//exportar
-Route::get('/export/{raffle_id}',[HistorialController::class, 'export'])->name('export');
+//Sorteo Manual
+Route::get('/raffle_manual', [ManualRaffleController::class, 'show']);
