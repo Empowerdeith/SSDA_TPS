@@ -39,7 +39,7 @@
                                     <a href="#" class="nav-link px-0"><i class="fa-solid fa-clipboard-list big_icons"></i><span class="d-none d-sm-inline font_18"> Sorteo Manual</span></a>
                                 </li>
                                 <li>
-                                    <a href="#" class="nav-link px-0">
+                                    <a href="/historial" class="nav-link px-0">
                                         <i class="fa-solid fa-calendar-days big_icons"></i><span class="d-none d-sm-inline font_18"> Historial de sorteos</span></a>
                                 </li>
                             </ul>
