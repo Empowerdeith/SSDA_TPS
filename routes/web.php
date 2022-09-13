@@ -8,6 +8,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ManageUserController;
 use App\Http\Controllers\RaffleController;
+use App\Http\Controllers\ManualRaffleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,3 +46,8 @@ Route::get('/faq',[ManageUserController::class, 'faq'])->name('faq');
 //Sorteo automático
 Route::get('/raffle_auto', [RaffleController::class, 'show']);
 Route::post('/raffle_auto', [RaffleController::class, 'generateRaffle']);
+
+
+//Sorteo Manual
+Route::get('/raffle_manual', [ManualRaffleController::class, 'show']);
+//Route::post('/raffle_manual', [RaffleController::class, 'generateManualRaffle']);

@@ -36,7 +36,7 @@
                                     <a href="/raffle_auto" class="nav-link px-0"><i class="fa-solid fa-clipboard-check big_icons"></i><span class="d-none d-sm-inline font_18"> Sorteo automatizado</span></a>
                                 </li>
                                 <li>
-                                    <a href="#" class="nav-link px-0"><i class="fa-solid fa-clipboard-list big_icons"></i><span class="d-none d-sm-inline font_18"> Sorteo Manual</span></a>
+                                    <a href="/raffle_manual" class="nav-link px-0"><i class="fa-solid fa-clipboard-list big_icons"></i><span class="d-none d-sm-inline font_18"> Sorteo Manual</span></a>
                                 </li>
                                 <li>
                                     <a href="#" class="nav-link px-0">
