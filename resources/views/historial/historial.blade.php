@@ -41,12 +41,14 @@
                     @foreach($query as $value)
                     <tr>
                         <td class="id">{{$value->id}}</td>
-                        <td class="created_at">{{$value->created_at}}</td>     
+                        <td class="created_at">{{$value->created_at}}</td>
                         <td><a href="{{route('historialdetalle', $value->id)}}">"Ver detalle"</a></td>
                     </tr>
                     @endforeach
                 </tbody>
-            </table> 
+            </table>
         </div>
-    </section>
+    </div>
+</div>
+</div>
 @endsection
