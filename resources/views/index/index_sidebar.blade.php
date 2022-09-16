@@ -53,7 +53,7 @@
                     <hr>
                 </div>
             </div>
-            <div class="col py-3" style="background-color: #eee">
+            <div class="col py-5" style="background-color: #eee">
                 @yield('content_home')
             </div>
         </div>

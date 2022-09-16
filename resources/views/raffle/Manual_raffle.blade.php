@@ -1,7 +1,7 @@
 @extends('index.index_sidebar')
 @section('content_home')
-<div class="col-lg-12 col-xl-12 pt-3 pb-3">
-    <div class="card text-black pt-3" style="border-radius: 32px;">
+<!--<div class="col-lg-12 col-xl-12">-->
+    <div class="card text-black pt-5 pb-5 h-100" style="border-radius: 32px;">
         <h2 class="text-center">Sorteo Manual</h2>
         <p class="text-center">
         Introduce línea por línea el nombre de los participantes. A continuación, selecciona el número de ganadores que quieres tener:
@@ -57,6 +57,6 @@
                 </form>
         </div>
     </div>
-</div>
+<!--</div>-->
 <script src="{{ asset('js/functions.js') }}" ></script>
 @endsection
