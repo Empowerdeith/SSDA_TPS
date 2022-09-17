@@ -48,6 +48,7 @@ Route::get('/faq',[ManageUserController::class, 'faq'])->name('faq');
 Route::get('/raffle_auto', [RaffleController::class, 'show']);
 Route::post('/raffle_auto', [RaffleController::class, 'generateRaffle']);
 
+
 //Sorteo Manual
 Route::get('/raffle_manual', [ManualRaffleController::class, 'show']);
 Route::post('/raffle_manual', [ManualRaffleController::class, 'GenerateManualRaffle']);
