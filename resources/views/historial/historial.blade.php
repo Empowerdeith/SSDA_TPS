@@ -35,6 +35,8 @@
                     <tr>
                         <th>ID</th>
                         <th>Fecha</th>
+                        <th>Detalle</th>
+                        <th>Exportar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,7 +44,8 @@
                     <tr>
                         <td class="id">{{$value->id}}</td>
                         <td class="created_at">{{$value->created_at}}</td>     
-                        <td><a href="{{route('historialdetalle', $value->id)}}">"Ver detalle"</a></td>
+                        <td><a href="{{route('historialdetalle', $value->id)}}"><button class="btn btn-primary"><i class="fa-solid fa-circle-info"></i></button></a></td>
+                        <td><a href="{{route('export', $value->id)}}"><button class="btn btn-primary"><i class="fa-solid fa-file-export"></i></button></a> </td>
                     </tr>
                     @endforeach
                 </tbody>

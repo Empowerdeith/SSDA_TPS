@@ -56,4 +56,4 @@ Route::get('/historial',[HistorialController::class, 'historial'])->name('histor
 Route::get('/historialdetalle/{id}',[HistorialController::class, 'historialdetalle'])->name('historialdetalle');
 
 //exportar
-Route::get('/export/{raffle_id}',[HistorialController::class, 'export'])->name('export');
+Route::get('/export/{id}',[HistorialController::class, 'export'])->name('export');

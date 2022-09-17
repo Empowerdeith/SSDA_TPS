@@ -10,7 +10,7 @@
                 <table table class="table table-striped table-bordered nowrap" style="width:100%">
                     <thead>
                         <tr>
-                            <th>ID Sorteo</th>
+                            <th>ID Trabajador</th>
                             <th>Rut</th>
                             <th>Nombre</th>
                             <th>Cargo</th>
@@ -19,7 +19,7 @@
                     <tbody>
                         @foreach($query as $value)
                         <tr>                                                        
-                            <td>{{$value -> raffle_id}}</td>
+                            <td>{{$value -> id}}</td>
                             <td>{{$value -> rut}}</td>
                             <td>{{$value -> name}}</td>
                             <td>{{$value -> cargo}}</td>                                        
@@ -27,7 +27,6 @@
                         @endforeach
                     </tbody>
                 </table>
-                <a href="{{route('export', $value->raffle_id)}}" class="btn btn-primary">Exportar Detalle</a>
                 <br><br>
             </form>
         </div>

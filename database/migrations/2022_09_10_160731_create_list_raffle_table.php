@@ -13,23 +13,34 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('list_raffle', function (Blueprint $table) {
+        Schema::create('lista', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+            
         });
 
         Schema::create('raffle', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('raffle_id');
             $table->string('rut');
             $table->string('name');
             $table->string('cargo');
             $table->timestamps();
-            $table->foreign('raffle_id') 
+            
+        });
+
+        Schema::create('lista_raffle', function (Blueprint $table) {
+            $table->integer('raffle_id')->unsigned();
+            $table->integer('lista_id')->unsigned();
+            $table->foreign('raffle_id')
                 -> references('id')
-                ->on('list_raffle')
+                ->on('raffle')
+                ->onDelete('cascade');
+            $table->foreign('lista_id') 
+                -> references('id')
+                ->on('lista')
                 ->onDelete('cascade');
         });
+
     }
 
     /**
@@ -39,6 +50,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('list_raffle');
+        Schema::dropIfExists('lista');
+        Schema::dropIfExists('raffle');
+        Schema::dropIfExists('lista_raffle');
+        
     }
 };
