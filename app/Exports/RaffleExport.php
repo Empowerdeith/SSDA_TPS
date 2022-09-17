@@ -2,7 +2,9 @@
 
 namespace App\Exports;
 
+use App\Models\ListaRaffle;
 use App\Models\Raffle;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
 use Maatwebsite\Excel\Concerns\FromCollection;
@@ -58,22 +60,21 @@ class RaffleExport implements FromQuery, WithHeadings
 {
     use Exportable;
 
-    public function __construct(int $raffle_id)
+    public function __construct(int $id)
     {
-        $this->raffle_id = $raffle_id;
+        $this->id = $id;
     }
 
     public function query()
-    {
-        return Raffle::query()->where('raffle_id', $this->raffle_id);
+    {       
+        return Raffle::query()->join('lista_raffle', 'lista_raffle.raffle_id', '=','raffle.id')->where('lista_raffle.lista_id', '=', $this->id);
     }
 
     public function headings(): array
         {
             return [
                 'Numero',
-                'ID',
-                'ID Sorteo',
+                'ID Trabajador',
                 'Rut',
                 'Nombre',
                 'Cargo',
