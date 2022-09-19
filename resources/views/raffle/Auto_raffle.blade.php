@@ -33,10 +33,12 @@
                     <th scope="col">Rut</th>
                     <th scope="col">Nombre Completo</th>
                     <th scope="col">Cargo</th>
+                    <th scope="col">Familia de Cargo</th>
+                    <th scope="col">Departamento</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @if (isset($resultados))
+                    @if (isset($resultados)&&$resultados!=null)
                         @php
                             $number=1;
                         @endphp
@@ -57,7 +59,6 @@
         </div>
     </div>
     <input type="button" class="btn btn-primary text-white btn-sm" value="Enviar por Correo">
-
 </div>
 <script src="{{ asset('js/functions.js') }}" ></script>
 </div>
