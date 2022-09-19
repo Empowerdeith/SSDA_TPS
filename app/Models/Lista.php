@@ -5,18 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Raffle extends Model
+class Lista extends Model
 {
+
     use HasFactory;
-    public $table = "raffle";
+    public $table = "lista";
 
     protected $primarykey = 'id';
 
-    protected $fillable = ['rut', 'name', 'cargo'];
-
-    public function rafflelista(){
+    public function listaraffle(){
         return $this->hasMany(ListaRaffle::class);
     } 
     
-
 }

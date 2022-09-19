@@ -18,16 +18,16 @@ class HistorialController extends Controller
         $fromDate = $request->input('fromDate');
         $toDate   = $request->input('toDate');
 
-        $query = DB::table('list_raffle')->select()
+        $query = DB::table('lista')->select()
             /*
-            ->where('date', '>=', $fromDate)
-            ->where('date', '<=', $toDate)
+            ->where('created_at', '>=', $fromDate)
+            ->where('created_at', '<=', $toDate)
             ->get();
             */
             /*
             ->where([
-                ['date', '>=', $fromDate],
-                ['date', '<=', $toDate],
+                ['created_at', '>=', $fromDate],
+                ['created_at', '<=', $toDate],
                 ])->get();
             */
             ->whereBetween('created_at', [$fromDate, $toDate])->get();
@@ -35,18 +35,20 @@ class HistorialController extends Controller
         return view('historial.historial',compact('query'));
     }
 
-    public function historialdetalle($raffle_id){
+    public function historialdetalle($id){
 
-        $query = DB::table('raffle')->select()
-            ->where('raffle_id', '=', $raffle_id)
+        $query = DB::table('raffle')
+            ->select()
+            ->join('lista_raffle', 'lista_raffle.raffle_id', '=','raffle.id')
+            ->where('lista_raffle.lista_id', '=', $id)
             ->get();
         return view('historial.historialdetalle', compact('query'));
     }
 
 
-    public function export($raffle_id) 
+    public function export($id) 
     {
-        return (new RaffleExport($raffle_id))->download('DetalleSorteo.xlsx');
+        return (new RaffleExport($id))->download('DetalleSorteo.xlsx');
     }
 
 }
