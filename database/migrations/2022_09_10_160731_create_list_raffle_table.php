@@ -15,8 +15,12 @@ return new class extends Migration
     {
         Schema::create('lista', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('user_id');
             $table->timestamps();
-            
+            $table->foreign('user_id') 
+                -> references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
 
         Schema::create('raffle', function (Blueprint $table) {
@@ -25,7 +29,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('cargo');
             $table->timestamps();
-            
         });
 
         Schema::create('lista_raffle', function (Blueprint $table) {
