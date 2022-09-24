@@ -7,56 +7,69 @@
         Introduce línea por línea el nombre de los participantes. A continuación, selecciona el número de ganadores que quieres tener:
         </p>
         <div class="h-100 pt-3 d-flex align-items-center justify-content-center">
-                <form class="range" action="/raffle_manual" method="post" enctype="multipart/form-data">
-                    @csrf
-                    <div class="row align-items-center">
-                        <div class="form-group range__slider col-4">
-                            @php
-                                $slider_value = 5;
-                                if (isset($porcentaje_manual)) {
-                                    $slider_value = $porcentaje_manual;
-                                }
-                                echo '<input type="range" min="5" max="100" value="' . $slider_value . '" step="5" name="porcentaje_manual">';
-                            @endphp
-                        </div>
-                        <div class="form-group range__value col-6">
-                            <label>Porcentaje de sorteo</label>
-                            <span></span>
-                        </div>
-                        <div class="">
-                            <p>Participantes: </p>
-                            <div class="file-upload-wrapper mb-5">
-                                <input type="file" id="input-file-now" class="file-upload" name="texto_sorteados"/>
-                            </div>
-                            <textarea id="mi_texto" class="form-control mb-4" name="participantes"></textarea>
-                            <input type="submit" class="btn btn-primary text-white mb-5" value="Realizar Sorteo">
-                        </div>
-                        <section class="mb-5">
-                            @if (isset($resultados) && count($resultados)>0)
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <thead class="text-center">
-                                            <tr>
-                                                <th>Trabajadores Sorteados</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="text-center">
-                                            @foreach ($resultados as $element)
-                                                <tr>
-                                                    <td>
-                                                        {{$element}}
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-                            @endif
-                        </section>
+            <form class="range" action="/raffle_manual" method="post" enctype="multipart/form-data">
+                @csrf
+                <div class="row align-items-center">
+                    <div class="form-group range__slider col-4">
+                        @php
+                            $slider_value = 5;
+                            if (isset($porcentaje_manual)) {
+                                $slider_value = $porcentaje_manual;
+                            }
+                            echo '<input type="range" min="5" max="100" value="' . $slider_value . '" step="5" name="porcentaje_manual">';
+                        @endphp
                     </div>
-                </form>
+                    <div class="form-group range__value col-6">
+                        <label>Porcentaje de sorteo</label>
+                        <span></span>
+                    </div>
+                    <div class="mb-5">
+                        <p>Participantes: </p>
+                        <div class="file-upload-wrapper mb-5">
+                            <input type="file" id="input-file-now" class="file-upload" name="texto_sorteados"/>
+                        </div>
+                        <textarea id="mi_texto" class="form-control mb-4" name="participantes"></textarea>
+                        <input type="submit" class="btn btn-primary text-white" value="Realizar Sorteo">
+                        @if (isset($resultados)&&$resultados!=null)
+                        <a href="{{ route('raffle_manual.save') }}"><input type="button" class="btn btn-primary text-white" value="Guardar y Enviar Sorteo"></a>
+                        @endif
+                    </div>
+                    <section class="mb-5">
+                        @if (isset($resultados) && count($resultados)>0)
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="text-center">
+                                        <tr>
+                                            <th scope="col"></th>
+                                            <th scope="col">Rut</th>
+                                            <th scope="col">Nombre Completo</th>
+                                            <th scope="col">Cargo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @php
+                                            $number=1;
+                                        @endphp
+                                        @foreach ($resultados as $row)
+                                            <tr>
+                                                <td>{{$number}}</td>
+                                                @php
+                                                    $number+=1;
+                                                    $row_data= preg_split ("/\;/", $row);
+                                                @endphp
+                                                <td>{{$row_data[0]}}</td>
+                                                <td>{{$row_data[1]}}</td>
+                                                <td>{{$row_data[2]}}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        @endif
+                    </section>
+                </div>
+            </form>
         </div>
     </div>
 <!--</div>-->
-<script src="{{ asset('js/functions.js') }}" ></script>
 @endsection

@@ -48,10 +48,14 @@ Route::get('/faq',[ManageUserController::class, 'faq'])->name('faq');
 Route::get('/raffle_auto', [RaffleController::class, 'show']);
 Route::post('/raffle_auto', [RaffleController::class, 'generateRaffle']);
 
+Route::get('/raffle_save', [RaffleController::class, 'SaveRaffle'])->name('raffle.save');
+
 
 //Sorteo Manual
 Route::get('/raffle_manual', [ManualRaffleController::class, 'show']);
 Route::post('/raffle_manual', [ManualRaffleController::class, 'GenerateManualRaffle']);
+
+Route::get('/raffle_save_m', [ManualRaffleController::class, 'Save_Manual_Raffle'])->name('raffle_manual.save');
 
 //historial sorteo - detalle
 Route::get('/historial',[HistorialController::class, 'historial'])->name('historial');

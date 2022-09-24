@@ -12,11 +12,9 @@ class Raffle extends Model
 
     protected $primarykey = 'id';
 
-    protected $fillable = ['id','rut', 'name', 'cargo'];
+    protected $fillable = ['rut', 'name', 'cargo'];
 
-    public function rafflelista(){
-        return $this->hasMany(ListaRaffle::class);
-    } 
-    
-
+    public function listas(){
+        return $this->belongsToMany(Lista::class);
+    }
 }

@@ -13,13 +13,13 @@ class Lista extends Model
 
     protected $primarykey = 'id';
 
-    protected $fillable = ['id'];
+    protected $fillable = ['user_id'];
 
-    public function listaraffle(){
-        return $this->hasMany(ListaRaffle::class);
-    } 
+    public function raffles(){
+        return $this->belongsToMany(Raffle::class);
+    }
     public function UserModels(){
         return $this->belongsTo(User::class);
     }
-    
+
 }

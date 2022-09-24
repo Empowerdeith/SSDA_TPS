@@ -181,7 +181,7 @@ select, option, input::placeholder, input{
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: white;
+    background: #144578;
     border: #144578 5px solid;
     cursor: pointer;
     -webkit-transition: background .15s ease-in-out;
@@ -214,5 +214,7 @@ select, option, input::placeholder, input{
 
 /*Tabla Scroll*/
 .table-responsive {
+    min-height: 400px;
     max-height:800px;
+    /*overflow: scroll;*/
 }
