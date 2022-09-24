@@ -1,13 +1,15 @@
 @extends('index.index_sidebar')
 @section('content_home')
-<div class="col-lg-12 col-xl-12 pt-3 pb-3">
-<div class="card text-black pt-3" style="border-radius: 32px;">
+<div class="card text-black pt-5 pb-5 h-100" style="border-radius: 32px;">
     <h1 class="text-center blue_tps">Sorteo automatizado</h1>
-    <div class="pt-3">
-        <div class="container">
-            <form class="range" action="/raffle_auto" method="post">
-                @csrf
-                <div class="form-group range__slider">
+    <p class="text-center">
+        Introduce línea por línea el nombre de los participantes. A continuación, selecciona el número de ganadores que quieres tener:
+    </p>
+    <div class="h-100 pt-3 d-flex align-items-center justify-content-center">
+        <form class="range" action="/raffle_auto" method="post">
+            @csrf
+            <div class="row align-items-center">
+                <div class="form-group range__slider col-4">
                     @php
                         $slider_value = 5;
                         if (isset($porcentaje)) {
@@ -16,50 +18,48 @@
                         echo '<input type="range" min="5" max="100" value="' . $slider_value . '" step="5" name="percentage">';
                     @endphp
                 </div>
-                <div class="form-group range__value">
+                <div class="form-group range__value col-6 mb-5">
                     <label>Porcentaje de sorteo</label>
                     <span></span>
                 </div>
-                <input type="submit" class="btn btn-primary text-white" value="Realizar Sorteo">
-            </form>
-        </div>
+                <input type="submit" class="btn btn-primary text-white mb-5" value="Realizar Sorteo">
+                @if (isset($resultados)&&$resultados!=null)
+                    <a href="{{ route('raffle.save') }}"><input type="button" class="btn btn-primary text-white" value="Guardar y Enviar Sorteo"></a>
+                @endif
+                <section class=" pt-5 mb-5">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="mostrar_resultados">
+                            <thead class="">
+                                <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Rut</th>
+                                <th scope="col">Nombre Completo</th>
+                                <th scope="col">Cargo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (isset($resultados)&&$resultados!=null)
+                                    @php
+                                        $number=1;
+                                    @endphp
+                                    @foreach ($resultados as $row)
+                                        <tr>
+                                        <td>{{$number}}</td>
+                                        @php
+                                            $number+=1;
+                                        @endphp
+                                        @foreach ($row as $element)
+                                                <td>{{ $element }}</td>
+                                        @endforeach
+                                        </tr>
+                                    @endforeach
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </form>
     </div>
-    <div class="table-responsive">
-        <div class="card-body p-md-5">
-            <table class="table table-bordered" id="mostrar_resultados">
-                <thead class="bg-light sticky-top top-0">
-                    <tr>
-                    <th scope="col"></th>
-                    <th scope="col">Rut</th>
-                    <th scope="col">Nombre Completo</th>
-                    <th scope="col">Cargo</th>
-                    <th scope="col">Familia de Cargo</th>
-                    <th scope="col">Departamento</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @if (isset($resultados)&&$resultados!=null)
-                        @php
-                            $number=1;
-                        @endphp
-                        @foreach ($resultados as $row)
-                            <tr>
-                            <td>{{$number}}</td>
-                            @php
-                                $number+=1;
-                            @endphp
-                            @foreach ($row as $element)
-                                    <td>{{ $element }}</td>
-                            @endforeach
-                            </tr>
-                        @endforeach
-                    @endif
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <input type="button" class="btn btn-primary text-white btn-sm" value="Enviar por Correo">
-</div>
-<script src="{{ asset('js/functions.js') }}" ></script>
 </div>
 @endsection

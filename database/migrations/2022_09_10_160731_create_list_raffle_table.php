@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->timestamps();
-            $table->foreign('user_id') 
+            $table->foreign('user_id')
                 -> references('id')
                 ->on('users')
                 ->onDelete('cascade');
@@ -32,16 +32,19 @@ return new class extends Migration
         });
 
         Schema::create('lista_raffle', function (Blueprint $table) {
-            $table->integer('raffle_id')->unsigned();
+            $table->increments('id');
             $table->integer('lista_id')->unsigned();
+            $table->integer('raffle_id')->unsigned();
+
             $table->foreign('raffle_id')
-                -> references('id')
-                ->on('raffle')
-                ->onDelete('cascade');
-            $table->foreign('lista_id') 
-                -> references('id')
-                ->on('lista')
-                ->onDelete('cascade');
+            -> references('id')
+            ->on('raffle')
+            ->onDelete('cascade');
+
+        $table->foreign('lista_id')
+            -> references('id')
+            ->on('lista')
+            ->onDelete('cascade');
         });
 
     }
@@ -56,6 +59,6 @@ return new class extends Migration
         Schema::dropIfExists('lista');
         Schema::dropIfExists('raffle');
         Schema::dropIfExists('lista_raffle');
-        
+
     }
 };
