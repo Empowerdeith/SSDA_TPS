@@ -57,7 +57,6 @@ class ManualRaffleController extends Controller
             'user_id' => auth()->user()->id,
         ]);
         foreach ($data_sorteados as $i => $row) {
-            $pattern="/\;/";
             $row_data = preg_split ("/\;/", $row);
             $data_sorteos_bd=Raffle::create([
                 'rut' => $row_data[0],

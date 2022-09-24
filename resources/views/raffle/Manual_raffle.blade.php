@@ -40,15 +40,26 @@
                                 <table class="table table-bordered">
                                     <thead class="text-center">
                                         <tr>
-                                            <th>Trabajadores Sorteados</th>
+                                            <th scope="col"></th>
+                                            <th scope="col">Rut</th>
+                                            <th scope="col">Nombre Completo</th>
+                                            <th scope="col">Cargo</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="text-center">
-                                        @foreach ($resultados as $element)
+                                    <tbody>
+                                        @php
+                                            $number=1;
+                                        @endphp
+                                        @foreach ($resultados as $row)
                                             <tr>
-                                                <td>
-                                                    {{$element}}
-                                                </td>
+                                                <td>{{$number}}</td>
+                                                @php
+                                                    $number+=1;
+                                                    $row_data= preg_split ("/\;/", $row);
+                                                @endphp
+                                                <td>{{$row_data[0]}}</td>
+                                                <td>{{$row_data[1]}}</td>
+                                                <td>{{$row_data[2]}}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>
