@@ -63,3 +63,5 @@ Route::get('/historialdetalle/{id}',[HistorialController::class, 'historialdetal
 
 //exportar
 Route::get('/export/{id}',[HistorialController::class, 'export'])->name('export');
+
+Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
