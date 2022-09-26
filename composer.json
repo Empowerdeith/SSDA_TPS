@@ -12,6 +12,7 @@
         "laravel/tinker": "^2.7",
         "maatwebsite/excel": "^3.1",
         "psr/simple-cache": "2.0",
+        "rap2hpoutre/laravel-log-viewer": "^2.2",
         "spatie/laravel-permission": "^5.5",
         "yajra/laravel-oci8": "9"
     },

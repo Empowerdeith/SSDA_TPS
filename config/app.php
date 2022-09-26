@@ -196,6 +196,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         //Oracle Connection
         Yajra\Oci8\Oci8ServiceProvider::class,
+        Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
 
     ],
 

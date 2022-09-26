@@ -28,7 +28,6 @@
                         <div class="file-upload-wrapper mb-5">
                             <input type="file" id="input-file-now" class="file-upload" name="texto_sorteados"/>
                         </div>
-                        <textarea id="mi_texto" class="form-control mb-4" name="participantes"></textarea>
                         <input type="submit" class="btn btn-primary text-white" value="Realizar Sorteo">
                         @if (isset($resultados)&&$resultados!=null)
                         <a href="{{ route('raffle_manual.save') }}"><input type="button" class="btn btn-primary text-white" value="Guardar y Enviar Sorteo"></a>
@@ -55,11 +54,10 @@
                                                 <td>{{$number}}</td>
                                                 @php
                                                     $number+=1;
-                                                    $row_data= preg_split ("/\;/", $row);
                                                 @endphp
-                                                <td>{{$row_data[0]}}</td>
-                                                <td>{{$row_data[1]}}</td>
-                                                <td>{{$row_data[2]}}</td>
+                                                <td>{{$row[0]}}</td>
+                                                <td>{{$row[1]}}</td>
+                                                <td>{{$row[2]}}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>
