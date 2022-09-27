@@ -16,7 +16,7 @@
                             if (isset($porcentaje_manual)) {
                                 $slider_value = $porcentaje_manual;
                             }
-                            echo '<input type="range" min="5" max="100" value="' . $slider_value . '" step="5" name="porcentaje_manual">';
+                            echo '<input type="range" min="1" max="100" value="' . $slider_value . '" step="1" name="porcentaje_manual">';
                         @endphp
                     </div>
                     <div class="form-group range__value col-6">
