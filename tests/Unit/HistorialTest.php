@@ -34,7 +34,7 @@ class HistorialTest extends TestCase
         $listaRaffle = ListaRaffle::factory()->create();
 
         $this->get(action([HistorialController::class, 'historialdetalle'], $listaRaffle->id))
-            ->assertStatus(200);            
+            ->assertStatus(200);
     }
 }
 
