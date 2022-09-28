@@ -35,6 +35,9 @@ class HistorialTest extends TestCase
 
         $this->get(action([HistorialController::class, 'historialdetalle'], $listaRaffle->id))
             ->assertStatus(200);
+
+        //$response = $this->get(action([HistorialController::class, 'historialdetalle'], $listaRaffle->id));
+        //dd($response);
     }
 }
 
