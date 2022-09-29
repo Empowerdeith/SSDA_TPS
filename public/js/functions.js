@@ -51,4 +51,4 @@ class Slider {
     slider.init()
   }
 
-//$('.file-upload').file_upload();
+
