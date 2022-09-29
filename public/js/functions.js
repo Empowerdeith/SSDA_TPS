@@ -41,7 +41,7 @@ class Slider {
   let valueElement = document.querySelector('.range .range__value span')
 
   let options = {
-    min: 5,
+    min: 1,
     max: 100
   }
 
@@ -51,4 +51,4 @@ class Slider {
     slider.init()
   }
 
-//$('.file-upload').file_upload();
+

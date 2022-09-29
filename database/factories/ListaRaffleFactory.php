@@ -17,8 +17,8 @@ class ListaRaffleFactory extends Factory
     public function definition()
     {
         return [
-            /*'raffle_id' => fake()->raffle_id(),
-            'lista_id' => fake()->lista_id(),*/
+            'raffle_id' => '1',
+            'lista_id' => '1',            
         ];
     }
 }

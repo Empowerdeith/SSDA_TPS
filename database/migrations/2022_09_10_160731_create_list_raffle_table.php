@@ -35,13 +35,14 @@ return new class extends Migration
             $table->increments('id');
             $table->integer('lista_id')->unsigned();
             $table->integer('raffle_id')->unsigned();
+            $table->timestamps();
 
             $table->foreign('raffle_id')
             -> references('id')
             ->on('raffle')
             ->onDelete('cascade');
 
-        $table->foreign('lista_id')
+            $table->foreign('lista_id')
             -> references('id')
             ->on('lista')
             ->onDelete('cascade');

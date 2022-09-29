@@ -11,6 +11,8 @@ use App\Models\Lista;
 use App\Models\ListaRaffle;
 use App\Models\Raffle;
 use Session;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Mailsend;
 
 
 class ManualRaffleController extends Controller
@@ -57,6 +59,13 @@ class ManualRaffleController extends Controller
             $raffle=$data_sorteos_bd->id;
             $Lista_usuario->raffles()->attach($raffle);
         }
+
+        $sendToEmail = "fcabezas127@gmail.com"; //destinatario
+
+        Mail::to($sendToEmail)->send(new Mailsend($data_sorteados));
+
         return view('raffle.Manual_raffle');
     }
+
+
 }

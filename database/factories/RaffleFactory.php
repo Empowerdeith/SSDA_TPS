@@ -17,9 +17,10 @@ class RaffleFactory extends Factory
     public function definition()
     {
         return [
-            'rut' => $this->faker()->numberBetween(1111111,9999999),
-            'name' => $this->faker()->name(),
-            'cargo' => $this->faker()->sentence(),
+            'id' => '1',
+            'rut' => fake()->numberBetween(1111111,9999999),
+            'name' => fake()->name(),
+            'cargo' => fake()->jobTitle(),
         ];
     }
 }

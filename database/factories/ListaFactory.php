@@ -17,7 +17,8 @@ class ListaFactory extends Factory
     public function definition()
     {
         return [
-            //'id' => $this->faker()->id(),
+            'id' => '1',
+            'user_id' => '1',
         ];
     }
 }

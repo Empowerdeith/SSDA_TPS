@@ -10,21 +10,17 @@
                 <br>
                 <div class="container">
                     <div class="row">
-                        <div class="container-fluid">
-                            <div class="form-group row">
-                                <label for="date" class="col-form-label col-sm-2">Desde</label>
-                                <div class="col-sm-3">
-                                    <input type="date" class="form-control input-sm" id="fromDate" name="fromDate" required/>
-                                </div>
-                                <label for="date" class="col-form-label col-sm-2">Hasta</label>
-                                <div class="col-sm-3">
-                                    <input type="date" class="form-control input-sm" id="toDate" name="toDate" required/>
-                                </div>
-                                <br>
-                                <div class="col-sm-2">
-                                    <button type="submit" class="btn btn-primary" name="search" title="Search">Buscar</button>
-                                </div>
-                            </div>
+                        <label for="date" class="col-form-label col-sm-2">Desde</label>
+                        <div class="col-sm-3">
+                            <input type="date" class="form-control input-sm" id="fromDate" name="fromDate" required/>
+                        </div>
+                        <label for="date" class="col-form-label col-sm-2">Hasta</label>
+                        <div class="col-sm-3">
+                           <input type="date" class="form-control input-sm" id="toDate" name="toDate" required/>
+                        </div>
+                        <br>
+                        <div class="col-sm-2">
+                            <button type="submit" class="btn btn-primary" name="search" title="Search">Buscar</button>
                         </div>
                     </div>
                 </div>

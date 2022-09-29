@@ -10,6 +10,7 @@ use App\Http\Controllers\ManageUserController;
 use App\Http\Controllers\RaffleController;
 use App\Http\Controllers\ManualRaffleController;
 use App\Http\Controllers\HistorialController;
+use App\Http\Controllers\MailController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,3 +66,6 @@ Route::get('/historialdetalle/{id}',[HistorialController::class, 'historialdetal
 Route::get('/export/{id}',[HistorialController::class, 'export'])->name('export');
 
 Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
+
+//correo
+Route::post('/send-email', 'ManualRaffleController@Save_Manual_Raffle')->name('send.email');

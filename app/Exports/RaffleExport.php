@@ -15,46 +15,6 @@ use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\FromArray;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-/*class RaffleExportView implements FromView
-{
-
-    public function view(): View
-    {
-        return view('historial.historialdetalle', [
-            'query' => Raffle::all()
-        ]);
-    }
-}*/
-
-/*class RaffleExport implements FromCollection, WithHeadings, WithMapping
-{
-    use Exportable;
-    public function collection()
-    {
-      return Raffle::all();
-    }
-
-     public function map($row): array{
-           $fields = [
-              $row->raffle_id,
-              $row->rut,
-              $row->name,
-              $row->cargo,
-         ];
-        return $fields;
-    }
-
-    public function headings(): array
-        {
-            return [
-                'raffle_id',
-                'rut',
-                'name',
-                'cargo',
-            ];
-    }
-}*/
-
 
 class RaffleExport implements FromQuery, WithHeadings
 {
@@ -67,18 +27,20 @@ class RaffleExport implements FromQuery, WithHeadings
 
     public function query()
     {       
-        return Raffle::query()->join('lista_raffle', 'lista_raffle.raffle_id', '=','raffle.id')->where('lista_raffle.lista_id', '=', $this->id);
+        return Raffle::query()->select('raffle.id','raffle.RUT','raffle.NAME','raffle.CARGO','raffle.created_at')
+                              ->join('lista_raffle', 'lista_raffle.raffle_id', '=','raffle.id')
+                              ->where('lista_raffle.lista_id', '=', $this->id);
     }
 
     public function headings(): array
         {
             return [
-                'Numero',
+                'Nº',   
                 'ID Trabajador',
                 'Rut',
                 'Nombre',
                 'Cargo',
-                'Fecha Creacion',
+                'Fecha',
             ];
     }
 }
