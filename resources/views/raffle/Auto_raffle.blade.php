@@ -11,7 +11,7 @@
             <div class="row align-items-center">
                 <div class="form-group range__slider col-4">
                     @php
-                        $slider_value = 5;
+                        $slider_value = 1;
                         if (isset($porcentaje)) {
                             $slider_value = $porcentaje;
                         }
