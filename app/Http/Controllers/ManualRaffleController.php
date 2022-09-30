@@ -13,6 +13,7 @@ use App\Models\Raffle;
 use Session;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Mailsend;
+use Alert;
 
 
 class ManualRaffleController extends Controller
@@ -39,7 +40,6 @@ class ManualRaffleController extends Controller
         } catch (\Throwable $th) {
         }
         return view('raffle.Manual_raffle', compact('resultados','porcentaje_manual'));
-        //$data_participantes=Excel::toArray(null, request()->file('texto_sorteados'))[0];// tomamos la primera página de excel
     }
 
 
@@ -60,9 +60,11 @@ class ManualRaffleController extends Controller
             $Lista_usuario->raffles()->attach($raffle);
         }
 
-        $sendToEmail = "fcabezas127@gmail.com"; //destinatario
+        $sendToEmail = "PostVentaProject12@hotmail.com"; //destinatario
 
         Mail::to($sendToEmail)->send(new Mailsend($data_sorteados));
+
+        Alert::success('Enviado', 'Testing');
 
         return view('raffle.Manual_raffle');
     }
