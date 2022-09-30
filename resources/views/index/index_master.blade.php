@@ -8,6 +8,7 @@
 </head>
 <body>
     @include('snippets.header')
+    @include('sweetalert::alert')
     <main>
         @yield('content')
     </main>

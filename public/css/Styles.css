@@ -218,3 +218,7 @@ select, option, input::placeholder, input{
     max-height:800px;
     /*overflow: scroll;*/
 }
+/*Testing Sweet alert buttons*/
+.swal2-styled.swal2-confirm{
+    background-color: #144578!important;
+}
