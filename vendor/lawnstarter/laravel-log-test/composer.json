@@ -1,0 +1,35 @@
+{
+    "name": "lawnstarter/laravel-log-test",
+    "description": "a simple command that allows you to test the laravel logging functionality",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "LawnStarter",
+            "email": "webmaster@lawnstarter.com"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "tests/TestCase.php"
+        ],
+        "psr-4": {
+            "LaravelLogTest\\": "src/LaravelLogTest"
+        }
+    },
+    "require": {
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.1@dev",
+        "mockery/mockery": "^1.3",
+        "laravel/laravel": "^6.12"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LaravelLogTest\\ServiceProvider"
+            ]
+        }
+    }
+}
