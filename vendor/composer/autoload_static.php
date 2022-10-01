@@ -141,6 +141,7 @@ class ComposerStaticInitc2de5083f9e883ae41cb7198e2d9df5d
             'Laravel\\SerializableClosure\\' => 28,
             'Laravel\\Sanctum\\' => 16,
             'Laravel\\Sail\\' => 13,
+            'LaravelLogTest\\' => 15,
         ),
         'I' => 
         array (
@@ -459,6 +460,10 @@ class ComposerStaticInitc2de5083f9e883ae41cb7198e2d9df5d
         'Laravel\\Sail\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/sail/src',
+        ),
+        'LaravelLogTest\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/lawnstarter/laravel-log-test/src/LaravelLogTest',
         ),
         'Illuminate\\Support\\' => 
         array (
@@ -2945,6 +2950,8 @@ class ComposerStaticInitc2de5083f9e883ae41cb7198e2d9df5d
         'Illuminate\\View\\ViewFinderInterface' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewFinderInterface.php',
         'Illuminate\\View\\ViewName' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewName.php',
         'Illuminate\\View\\ViewServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
+        'LaravelLogTest\\Console\\Commands\\LogTest' => __DIR__ . '/..' . '/lawnstarter/laravel-log-test/src/LaravelLogTest/Console/Commands/LogTest.php',
+        'LaravelLogTest\\ServiceProvider' => __DIR__ . '/..' . '/lawnstarter/laravel-log-test/src/LaravelLogTest/ServiceProvider.php',
         'Laravel\\Sail\\Console\\InstallCommand' => __DIR__ . '/..' . '/laravel/sail/src/Console/InstallCommand.php',
         'Laravel\\Sail\\Console\\PublishCommand' => __DIR__ . '/..' . '/laravel/sail/src/Console/PublishCommand.php',
         'Laravel\\Sail\\SailServiceProvider' => __DIR__ . '/..' . '/laravel/sail/src/SailServiceProvider.php',
@@ -6645,6 +6652,7 @@ class ComposerStaticInitc2de5083f9e883ae41cb7198e2d9df5d
         'Termwind\\ValueObjects\\Node' => __DIR__ . '/..' . '/nunomaduro/termwind/src/ValueObjects/Node.php',
         'Termwind\\ValueObjects\\Style' => __DIR__ . '/..' . '/nunomaduro/termwind/src/ValueObjects/Style.php',
         'Termwind\\ValueObjects\\Styles' => __DIR__ . '/..' . '/nunomaduro/termwind/src/ValueObjects/Styles.php',
+        'TestCase' => __DIR__ . '/..' . '/lawnstarter/laravel-log-test/tests/TestCase.php',
         'Tests\\CreatesApplication' => __DIR__ . '/../..' . '/tests/CreatesApplication.php',
         'Tests\\Feature\\ExampleTest' => __DIR__ . '/../..' . '/tests/Feature/ExampleTest.php',
         'Tests\\TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',

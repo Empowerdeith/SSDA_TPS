@@ -1814,6 +1814,61 @@
             "install-path": "../laravel/tinker"
         },
         {
+            "name": "lawnstarter/laravel-log-test",
+            "version": "v0.1.2",
+            "version_normalized": "0.1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lawnstarter/laravel-log-test.git",
+                "reference": "681043971fbd8b239b35fd6807387340c44143c5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lawnstarter/laravel-log-test/zipball/681043971fbd8b239b35fd6807387340c44143c5",
+                "reference": "681043971fbd8b239b35fd6807387340c44143c5",
+                "shasum": ""
+            },
+            "require-dev": {
+                "laravel/laravel": "^6.12",
+                "mockery/mockery": "^1.3",
+                "phpunit/phpunit": "^9.1@dev"
+            },
+            "time": "2020-02-12T15:14:22+00:00",
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaravelLogTest\\ServiceProvider"
+                    ]
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "LaravelLogTest\\": "src/LaravelLogTest"
+                },
+                "classmap": [
+                    "tests/TestCase.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "LawnStarter",
+                    "email": "webmaster@lawnstarter.com"
+                }
+            ],
+            "description": "a simple command that allows you to test the laravel logging functionality",
+            "support": {
+                "issues": "https://github.com/lawnstarter/laravel-log-test/issues",
+                "source": "https://github.com/lawnstarter/laravel-log-test/tree/v0.1.2"
+            },
+            "install-path": "../lawnstarter/laravel-log-test"
+        },
+        {
             "name": "league/commonmark",
             "version": "2.3.5",
             "version_normalized": "2.3.5.0",
