@@ -33,8 +33,8 @@ class ManualRaffleController extends Controller
                 $x= rand(0,count($data_participantes)-1);
                 $resultados[]=$data_participantes[$x];
                 array_splice($data_participantes, $x, 1);
-                //Log::info($value);
             }
+            Log::info($resultados);
             Session::put('Lista_sorteados_m', $resultados);
 
         } catch (\Throwable $th) {

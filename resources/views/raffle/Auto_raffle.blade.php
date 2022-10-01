@@ -44,13 +44,13 @@
                                     @endphp
                                     @foreach ($resultados as $row)
                                         <tr>
-                                        <td>{{$number}}</td>
-                                        @php
-                                            $number+=1;
-                                        @endphp
-                                        @foreach ($row as $element)
-                                                <td>{{ $element }}</td>
-                                        @endforeach
+                                            <td>{{$number}}</td>
+                                            @php
+                                                $number+=1;
+                                            @endphp
+                                            <td>{{$row[0]}}</td>
+                                            <td>{{$row[1]}}</td>
+                                            <td>{{$row[2]}}</td>
                                         </tr>
                                     @endforeach
                                 @endif
