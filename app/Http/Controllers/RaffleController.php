@@ -8,7 +8,11 @@ use App\Models\User;
 use App\Models\Lista;
 use App\Models\ListaRaffle;
 use App\Models\Raffle;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Mailsend;
 use Session;
+use Alert;
 
 class RaffleController extends Controller
 {
@@ -20,7 +24,7 @@ class RaffleController extends Controller
     public function get_vacaciones(){
         $curl2 = curl_init();
         curl_setopt_array($curl2, array(
-        CURLOPT_URL => 'http://34.227.172.64/api/vacaciones',
+        CURLOPT_URL => 'http://3.86.181.9/api/vacaciones',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -42,7 +46,7 @@ class RaffleController extends Controller
     public function licenciapermiso(){
         $curl3 = curl_init();
         curl_setopt_array($curl3, array(
-        CURLOPT_URL => 'http://34.227.172.64/api/licenciapermiso',
+        CURLOPT_URL => 'http://3.86.181.9/api/licenciapermiso',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -67,7 +71,7 @@ class RaffleController extends Controller
 
         $curl = curl_init();
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'http://34.227.172.64/api/trabajador',
+        CURLOPT_URL => 'http://3.86.181.9/api/trabajador',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -119,9 +123,9 @@ class RaffleController extends Controller
                 if($check_license==False||$check_date_license==False){
                     if ($element["empleado"]=="SI") {
                         $datos_filtrados[] = array(
-                            "empleadoRut"=>$element["empleadoRut"],
-                            "nombreCompleto"=>$element["nombreCompleto"],
-                            "TrabajoCargo"=>$element["TrabajoCargo"]
+                            $element["empleadoRut"],
+                            $element["nombreCompleto"],
+                            $element["TrabajoCargo"]
                         );
                     }
                 }
@@ -134,26 +138,32 @@ class RaffleController extends Controller
             $resultados[]=$datos_filtrados[$x];
             array_splice($datos_filtrados, $x, 1);
         }
-
+        Log::info($resultados);
         Session::put('Lista_sorteados', $resultados);
         return view('raffle.Auto_raffle', compact('resultados','porcentaje'));
     }
     public function SaveRaffle(){
         if(Session::has('Lista_sorteados')){
-            $data_sorteados=Session::get('Lista_sorteados');
+            $data_sorteados_auto=Session::get('Lista_sorteados');
         }
         $Lista_usuario=Lista::create([
             'user_id' => auth()->user()->id,
         ]);
-        foreach ($data_sorteados as $i => $row) {
+        foreach ($data_sorteados_auto as $i => $row) {
             $data_sorteos_bd=Raffle::create([
-                'rut' => $row["empleadoRut"],
-                'name'=> $row["nombreCompleto"],
-                'cargo' => $row["TrabajoCargo"],
+                'rut' => $row[0],
+                'name'=> $row[1],
+                'cargo' => $row[2],
             ]);
             $raffle=$data_sorteos_bd->id;
             $Lista_usuario->raffles()->attach($raffle);
         }
+        $sendToEmail = "PostVentaProject12@hotmail.com"; //destinatario
+
+        Mail::to($sendToEmail)->send(new Mailsend($data_sorteados_auto));
+
+        Alert::success('Enviado exitosamente', 'Testing');
+
         return view('raffle.Auto_raffle');
     }
 
