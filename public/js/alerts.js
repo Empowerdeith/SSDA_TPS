@@ -1,6 +1,6 @@
 
 $('#send_save_employes').click(function(event) {
-    var link = $('#send_save_employes');
+    //var link = $('#send_save_employes');
 
     event.preventDefault();
 
@@ -15,11 +15,6 @@ $('#send_save_employes').click(function(event) {
         cancelButtonText: 'Cancelar'
         }).then((result) => {
         if (result.isConfirmed) {
-            /*Swal.fire(
-                'Enviado!',
-                'Se han enviado.',
-                'success'
-            )*/
             window.location.href = this.href;
         }
     })
