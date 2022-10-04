@@ -24,7 +24,7 @@
                 </div>
                 <input type="submit" class="btn btn-primary text-white mb-5" value="Realizar Sorteo">
                 @if (isset($resultados)&&$resultados!=null)
-                    <a href="{{ route('raffle.save') }}"><input type="button" class="btn btn-primary text-white" value="Guardar y Enviar Sorteo"></a>
+                    <a class="send_save_employes" href="{{ route('raffle.save') }}"><input type="button" class="btn btn-primary text-white" value="Guardar y Enviar Sorteo"></a>
                 @endif
                 <section class=" pt-5 mb-5">
                     <div class="table-responsive">
