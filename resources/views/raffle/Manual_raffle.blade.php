@@ -30,7 +30,7 @@
                         </div>
                         <input type="submit" class="btn btn-primary text-white" value="Realizar Sorteo">
                         @if (isset($resultados)&&$resultados!=null)
-                            <a id="send_save_employes" href="{{ route('raffle_manual.save')}}"><input type="button" class="btn btn-primary text-white show_confirm" value="Guardar y Enviar Sorteo"></a>
+                            <a class="send_save_employes" href="{{ route('raffle_manual.save')}}"><input type="button" class="btn btn-primary text-white show_confirm" value="Guardar y Enviar Sorteo"></a>
                         @endif
 
                     </div>

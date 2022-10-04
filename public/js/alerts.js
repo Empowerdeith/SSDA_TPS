@@ -1,6 +1,5 @@
 
-$('#send_save_employes').click(function(event) {
-    //var link = $('#send_save_employes');
+$('.send_save_employes').click(function(event) {
 
     event.preventDefault();
 
