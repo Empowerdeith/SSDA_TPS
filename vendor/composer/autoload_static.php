@@ -6659,6 +6659,7 @@ class ComposerStaticInitc2de5083f9e883ae41cb7198e2d9df5d
         'Tests\\Unit\\CrearSorteoTest' => __DIR__ . '/../..' . '/tests/Unit/CrearSorteoTest.php',
         'Tests\\Unit\\HistorialExportarTest' => __DIR__ . '/../..' . '/tests/Unit/HistorialExportarTest.php',
         'Tests\\Unit\\HistorialTest' => __DIR__ . '/../..' . '/tests/Unit/HistorialTest.php',
+        'Tests\\Unit\\IntegrationTest' => __DIR__ . '/../..' . '/tests/Unit/IntegrationTest.php',
         'TheSeer\\Tokenizer\\Exception' => __DIR__ . '/..' . '/theseer/tokenizer/src/Exception.php',
         'TheSeer\\Tokenizer\\NamespaceUri' => __DIR__ . '/..' . '/theseer/tokenizer/src/NamespaceUri.php',
         'TheSeer\\Tokenizer\\NamespaceUriException' => __DIR__ . '/..' . '/theseer/tokenizer/src/NamespaceUriException.php',
