@@ -6076,6 +6076,7 @@ return array(
     'Tests\\Unit\\CrearSorteoTest' => $baseDir . '/tests/Unit/CrearSorteoTest.php',
     'Tests\\Unit\\HistorialExportarTest' => $baseDir . '/tests/Unit/HistorialExportarTest.php',
     'Tests\\Unit\\HistorialTest' => $baseDir . '/tests/Unit/HistorialTest.php',
+    'Tests\\Unit\\IntegrationTest' => $baseDir . '/tests/Unit/IntegrationTest.php',
     'TheSeer\\Tokenizer\\Exception' => $vendorDir . '/theseer/tokenizer/src/Exception.php',
     'TheSeer\\Tokenizer\\NamespaceUri' => $vendorDir . '/theseer/tokenizer/src/NamespaceUri.php',
     'TheSeer\\Tokenizer\\NamespaceUriException' => $vendorDir . '/theseer/tokenizer/src/NamespaceUriException.php',
