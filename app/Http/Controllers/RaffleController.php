@@ -24,7 +24,7 @@ class RaffleController extends Controller
     public function get_vacaciones(){
         $curl2 = curl_init();
         curl_setopt_array($curl2, array(
-        CURLOPT_URL => 'http://3.86.181.9/api/vacaciones',
+        CURLOPT_URL => 'http://44.211.47.98/api/vacaciones',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -46,7 +46,7 @@ class RaffleController extends Controller
     public function licenciapermiso(){
         $curl3 = curl_init();
         curl_setopt_array($curl3, array(
-        CURLOPT_URL => 'http://3.86.181.9/api/licenciapermiso',
+        CURLOPT_URL => 'http://44.211.47.98/api/licenciapermiso',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -71,7 +71,7 @@ class RaffleController extends Controller
 
         $curl = curl_init();
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'http://3.86.181.9/api/trabajador',
+        CURLOPT_URL => 'http://44.211.47.98/api/trabajador',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -142,6 +142,8 @@ class RaffleController extends Controller
         Session::put('Lista_sorteados', $resultados);
         return view('raffle.Auto_raffle', compact('resultados','porcentaje'));
     }
+
+
     public function SaveRaffle(){
         if(Session::has('Lista_sorteados')){
             $data_sorteados_auto=Session::get('Lista_sorteados');

@@ -69,3 +69,4 @@ Route::get('/logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, '
 
 //correo
 Route::post('/send-email', [ManualRaffleController::class, 'Save_Manual_Raffle'])->name('send.email');
+
