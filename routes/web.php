@@ -69,8 +69,3 @@ Route::get('/logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, '
 
 //correo
 Route::post('/send-email', 'ManualRaffleController@Save_Manual_Raffle')->name('send.email');
-
-
-//Routes para testing
-Route::get('/vacaciones', [RaffleController::class, 'get_vacaciones']);
-Route::get('/licencias', [RaffleController::class, 'licenciapermiso']);

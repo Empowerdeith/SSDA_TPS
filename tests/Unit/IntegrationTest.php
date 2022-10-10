@@ -18,7 +18,7 @@ class IntegrationTest extends TestCase
     public function test_integration_vacaciones()
     {
         //$this->withoutExceptionHandling();
-
+        //se ingresa el endpoint, se obtiene el body y se guarda en $data, se crea $trabajador con datos esperados, se formatea ambas variables y luego se compara
         $response = Http::get('http://44.201.209.77/api/vacaciones/92547928');
         $data = json_decode($response->getBody());
         $trabajador = array(
@@ -44,7 +44,7 @@ class IntegrationTest extends TestCase
     public function test_integration_licencias()
     {
         //$this->withoutExceptionHandling();
-
+        //se ingresa el endpoint, se obtiene el body y se guarda en $data, se crea $trabajador con datos esperados, se formatea ambas variables y luego se compara
         $response = Http::get('http://44.201.209.77/api/licenciapermiso/92547903');
         $data = json_decode($response->getBody());
         $trabajador = array(
@@ -65,7 +65,7 @@ class IntegrationTest extends TestCase
     public function test_integration_trabajador()
     {
         //$this->withoutExceptionHandling();
-
+        //se ingresa el endpoint, se obtiene el body y se guarda en $data, se crea $trabajador con datos esperados, se formatea ambas variables y luego se compara
         $response = Http::get('http://44.201.209.77/api/trabajador/92547856');
         $data = json_decode($response->getBody());
         $trabajador = array(
