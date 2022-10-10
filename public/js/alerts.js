@@ -1,11 +1,10 @@
 
-$('.send_save_employes').click(function(event) {
-
+$('.send_save_employees').click(function(event) {
+    var form =  $(this).closest("form");
+    var name = $(this).data("name");
     event.preventDefault();
-
     Swal.fire({
         title: '¿Estás seguro que deseas guardar y enviar el personal sorteado?',
-        text: "Test",
         icon: 'question',
         showCancelButton: true,
         confirmButtonColor: '#144578',
@@ -14,7 +13,15 @@ $('.send_save_employes').click(function(event) {
         cancelButtonText: 'Cancelar'
         }).then((result) => {
         if (result.isConfirmed) {
-            window.location.href = this.href;
+            form.submit();
+            Swal.fire({
+                title: 'Enviando personal sorteado.',
+                iconHtml: '<img src="../img/2.svg">',
+                allowOutsideClick: false,
+                onBeforeOpen: () => {
+                    Swal.showLoading()
+                },
+            });
         }
     })
 });
