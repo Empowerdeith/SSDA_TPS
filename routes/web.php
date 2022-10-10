@@ -53,7 +53,7 @@ Route::get('/raffle_save', [RaffleController::class, 'SaveRaffle'])->name('raffl
 
 
 //Sorteo Manual
-Route::get('/raffle_manual', [ManualRaffleController::class, 'show']);
+Route::get('/raffle_manual', [ManualRaffleController::class, 'show'])->name('raffle_manual.show');;
 Route::post('/raffle_manual', [ManualRaffleController::class, 'GenerateManualRaffle']);
 
 Route::get('/raffle_save_m', [ManualRaffleController::class, 'Save_Manual_Raffle'])->name('raffle_manual.save');
@@ -68,4 +68,5 @@ Route::get('/export/{id}',[HistorialController::class, 'export'])->name('export'
 Route::get('/logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
 
 //correo
-Route::post('/send-email', 'ManualRaffleController@Save_Manual_Raffle')->name('send.email');
+Route::post('/send-email', [ManualRaffleController::class, 'Save_Manual_Raffle'])->name('send.email');
+
