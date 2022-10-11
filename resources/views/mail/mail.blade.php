@@ -53,7 +53,7 @@
                     $date_sent = date("d-m-Y");
                 @endphp
                 @if (isset($date_sent))
-                <p>Junto con saludar, a continuación se muestran los trabajadores que han sido sorteados por el sistema SSDA, a la fecha {{$date_sent}}.</p>
+                <p style="color: black;">Junto con saludar, a continuación se muestran los trabajadores que han sido sorteados por el sistema SSDA, a la fecha {{$date_sent}}.</p>
                 @endif
                 @if (isset($data))
                     <div align="center">
@@ -89,7 +89,7 @@
             </tr>
             <tr>
               <td style="padding:30px;text-align:center;font-size:12px;background-color:#144578;color:#cccccc;">
-                <p style="margin:0 0 8px 0;"><a href="http://www.facebook.com/" style="text-decoration:none;"><img src="https://assets.codepen.io/210284/facebook_1.png" width="40" height="40" alt="f" style="display:inline-block;color:#cccccc;"></a> <a href="http://www.twitter.com/" style="text-decoration:none;"><img src="https://assets.codepen.io/210284/twitter_1.png" width="40" height="40" alt="t" style="display:inline-block;color:#cccccc;"></a></p>
+                <p style="margin:0 0 8px 0;"><a href="https://www.facebook.com/TPSValparaiso/" style="text-decoration:none;"><img src="https://assets.codepen.io/210284/facebook_1.png" width="40" height="40" alt="f" style="display:inline-block;color:#cccccc;"></a> <a href="https://twitter.com/TPS_Valparaiso" style="text-decoration:none;"><img src="https://assets.codepen.io/210284/twitter_1.png" width="40" height="40" alt="t" style="display:inline-block;color:#cccccc;"></a></p>
                 <p style="margin:0;font-size:14px;line-height:20px;">&reg; Terminal Pacífico Sur Valparaíso - Chile, 2022<br><!--<a class="unsub" href="http://www.example.com/" style="color:#cccccc;text-decoration:underline;">Desinscribirse</a></p>-->
               </td>
             </tr>

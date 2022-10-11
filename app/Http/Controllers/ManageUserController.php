@@ -10,21 +10,21 @@ class ManageUserController extends Controller
 {
     public function showUsers(){
 
-        $users = User::paginate(10);      
+        $users = User::paginate(10);
         return view('manageUsers.showUsers', compact('users'));
     }
-        
+
 
     public function updateUserView($id){
 
-        $user = User::findOrFail($id);      
+        $user = User::findOrFail($id);
         return view('manageUsers.updateUser', compact('user'));
     }
 
     public function updateUser(UpdateUserRequest $request, $id){
 
-        $user = User::findOrFail($id);            
-            
+        $user = User::findOrFail($id);
+
         if ( ! ( $request->name == NULL )){
             $user -> name = $request->name;
         }
@@ -43,8 +43,7 @@ class ManageUserController extends Controller
 
         $user -> save();
 
-        return redirect()->back()->with('success', 'Usuario Actualizado');
-
+        return redirect()->back()->with('success', 'Usuario Actualizado exitosamente.');
     }
 
     public function deleteUser($id){
@@ -56,5 +55,5 @@ class ManageUserController extends Controller
 
     public function faq(){
         return view('faq.faq');
-    }    
+    }
 }

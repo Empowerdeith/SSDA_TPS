@@ -59,9 +59,4 @@
         </div>
     </div>
     @endauth
-    @guest
-        <div>
-            @include('guest.alert_guest')
-        </div>
-    @endguest
 @endsection

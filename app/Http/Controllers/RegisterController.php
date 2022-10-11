@@ -21,7 +21,7 @@ class RegisterController extends Controller
     }
     public function register(RegisterRequest $request){
         $user = User::create($request->validated())->assignRole($this->testing());
-        return redirect()->back()->with('successReg', 'Usuario Creado');
+        return redirect()->back()->with('success', 'Usuario Creado Exitosamente.');
     }
 
 

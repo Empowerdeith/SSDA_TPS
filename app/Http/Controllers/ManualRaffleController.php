@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
+use App\Http\Requests\ManualRaffleRequests;
 use App\Models\User;
 use App\Models\Lista;
 use App\Models\ListaRaffle;
@@ -14,6 +15,7 @@ use Session;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Mailsend;
 use Alert;
+use Redirect;
 
 
 class ManualRaffleController extends Controller
@@ -21,52 +23,66 @@ class ManualRaffleController extends Controller
     public function show(){
         return view('raffle.Manual_raffle');
     }
-    public function GenerateManualRaffle(){
+    public function GenerateManualRaffle(ManualRaffleRequests $request){
         $porcentaje_manual = request('porcentaje_manual'); //the percentage of randomness
+        Session::put('percentage_manual', $porcentaje_manual);
         $resultados = array();
         try {
-            $data_participantes=Excel::toArray(null, request()->file('texto_sorteados'))[0];// tomamos la primera página de excel
-
-            $todo=count($data_participantes)*$porcentaje_manual/100;
-
-            for ($i=0; $i < $todo ; $i++) {
-                $x= rand(0,count($data_participantes)-1);
-                $resultados[]=$data_participantes[$x];
-                array_splice($data_participantes, $x, 1);
+            //Log::info($request->validated());
+            //request()->file('texto_sorteados')
+            if($request->validated()){
+                $data_participantes=Excel::toArray(null, $request->file('texto_sorteados'))[0];// tomamos la primera página de excel
+                //Log::info($data_participantes);
+                $todo=count($data_participantes)*$porcentaje_manual/100;
+                for ($i=0; $i < $todo ; $i++) {
+                    $x= rand(0,count($data_participantes)-1);
+                    $resultados[]=$data_participantes[$x];
+                    array_splice($data_participantes, $x, 1);
+                }
+                //Log::info($resultados);
+                Session::put('Lista_sorteados_m', $resultados);
             }
-            Log::info($resultados);
-            Session::put('Lista_sorteados_m', $resultados);
-
-        } catch (\Throwable $th) {
+        }
+         catch (\Throwable $th) {
         }
         return view('raffle.Manual_raffle', compact('resultados','porcentaje_manual'));
     }
 
 
-    public function Save_Manual_Raffle(){
-        if(Session::has('Lista_sorteados_m')){
-            $data_sorteados=Session::get('Lista_sorteados_m');
+    public function Save_Manual_Raffle(ManualRaffleRequests $request){
+        //$porcentaje_manual = request('porcentaje_manual'); //the percentage of randomness
+        try{
+            Log::info($request->mail_form);
+            Log::info($request->input('mail_form'));
+            if($request->validated()){
+
+                if(Session::has('percentage_manual')){
+                    $percentage_persists=Session::get('percentage_manual');
+                }
+                Log::info($percentage_persists);
+                if(Session::has('Lista_sorteados_m')){
+                    $data_sorteados=Session::get('Lista_sorteados_m');
+                }
+                $Lista_usuario=Lista::create([
+                    'user_id' => auth()->user()->id,
+                ]);
+                foreach ($data_sorteados as $i => $row) {
+                    $data_sorteos_bd=Raffle::create([
+                        'rut' => $row[0],
+                        'name'=> $row[1],
+                        'cargo' => $row[2],
+                    ]);
+                    $raffle=$data_sorteos_bd->id;
+                    $Lista_usuario->raffles()->attach($raffle);
+                }
+                $mail_send=$request->mail_form;
+                Log::info($mail_send);
+                Mail::to($mail_send)->send(new Mailsend($data_sorteados));
+            }
         }
-        $Lista_usuario=Lista::create([
-            'user_id' => auth()->user()->id,
-        ]);
-        foreach ($data_sorteados as $i => $row) {
-            $data_sorteos_bd=Raffle::create([
-                'rut' => $row[0],
-                'name'=> $row[1],
-                'cargo' => $row[2],
-            ]);
-            $raffle=$data_sorteos_bd->id;
-            $Lista_usuario->raffles()->attach($raffle);
+        catch (\Throwable $th) {
         }
-
-        $sendToEmail = "PostVentaProject12@hotmail.com"; //destinatario
-
-        Mail::to($sendToEmail)->send(new Mailsend($data_sorteados));
-
-        Alert::success('Enviado', 'Testing');
-
-        return view('raffle.Manual_raffle');
+        return Redirect::route('raffle_manual.show')->with(['success' => 'Se ha guardado y enviado el personal sorteado!']);
     }
 
 
