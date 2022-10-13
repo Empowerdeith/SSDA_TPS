@@ -39,7 +39,10 @@ class UpdateUserTest extends TestCase
         ]);
 
         $this->assertDatabaseHas('users', [
-            'email' => 'rdiaz@example.com',
+            'name'      =>'Rodrigo Diaz',
+            'username'  =>'Rdiaz2342',
+            'email'     =>'rdiaz@example.com',
+            'cargo'     =>'RRHH',
         ]);
 
     }

@@ -26,7 +26,7 @@ class CreateUserTest extends TestCase
     //use RefreshDatabase;
 
     function test_creacion_usuario_correcto(){
-    //para esta prueba requiere los roles, primero ejecutar: php artisan migrate:fresh --seed
+
     //se crea un usuario admin quien creara al nuevo usuario funcionario    
         $user = User::create([
             'name'      =>'Manuel Rojas',
