@@ -3,7 +3,7 @@
 <div class="card text-black pt-5 pb-5" style="border-radius: 32px;">
     <h2 class="text-center">Sorteo Manual</h2>
     <p class="text-center">
-    Introduce línea por línea el nombre de los participantes. A continuación, selecciona el número de ganadores que quieres tener:
+    Este es el Sorteo Manual de test de drogas y alcohol, para utilizar este módulo debes subir un archivo en formato excel y luego escribir el o los correos de destino.
     </p>
     <div class="h-100 pt-3 d-flex align-items-center justify-content-center">
         <form class="range" action="/raffle_manual" method="post" enctype="multipart/form-data">
@@ -23,31 +23,32 @@
                     <span></span>
                 </div>
                 <div class="mb-5">
-                    <p>Participantes: </p>
+                    <p>Sube tu archivo excel aquí: </p>
                     <div class="file-upload-wrapper mb-5">
                         <input type="file" id="input-file-now" class="file-upload" name="texto_sorteados" accept=".xls,.xlsx"/>
                     </div>
-                    <div class="alert-danger">{{$errors -> first('texto_sorteados')}}</div>
-                    <div class="alert-danger">{{$errors -> first('mail_form')}}</div>
+                    <div class="alert-danger red_color pb-5">{{$errors -> first('texto_sorteados')}}</div>
+                    <div class="alert-danger red_color pb-5">{{$errors -> first('mail_form')}}</div>
                     <input type="submit" class="btn btn-primary text-white" value="Realizar Sorteo">
                 </div>
             </div>
         </form>
     </div>
     @if (isset($resultados)&&$resultados!=null)
-        <div class="pt-5 pb-5">
+        <div class="pt-5 pb-5 d-flex align-items-center justify-content-center">
             <form class="form-inline" id="second_form" action="/send-email" method="post" enctype="multipart/form-data">
                 @csrf
-                <div class="form-group text-center w-50 mb-5">
-                    <input class="form-control" type="email" placeholder="ingrese email" name="mail_form">
+                <div class="text-center">
+                    <label class="form-label" for="mail_data">Ingrese el correo de el/los Destinatarios:</label>
+                    <input id="mail_data" class="form-control" type="email" placeholder="correo@ejemplo.com" name="mail_form" required>
                 </div>
-                <div class="w-50">
+                <div class="pt-5">
                     <input type="submit" class="btn btn-primary text-white show_confirm form-control send_save_employees" value="Guardar y Enviar Sorteo">
                 </div>
             </form>
         </div>
     @endif
-    <section class="mb-5">
+    <section class="d-lg-flex align-items-center justify-content-center mb-5">
         @if (isset($resultados) && count($resultados)>0)
             <div class="table-responsive">
                 <table class="table table-bordered">

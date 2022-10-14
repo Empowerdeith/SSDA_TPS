@@ -16,28 +16,28 @@
                                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="text" class="form-control" name="name" placeholder="Nombre Completo" />
-                                                <div class="alert-danger">{{$errors -> first('name')}}</div>
+                                                <div class="alert-danger red_color font-weight-bold">{{$errors -> first('name')}}</div>
                                             </div>
                                         </div>
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-address-card fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="text" class="form-control" name="rut" placeholder="Rut" />
-                                                <div class="alert-danger">{{$errors -> first('rut')}}</div>
+                                                <div class="alert-danger red_color font-weight-bold">{{$errors -> first('rut')}}</div>
                                             </div>
                                         </div>
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-solid fa-circle-user fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="text" class="form-control" name="username" placeholder="Nombre de usuario"/>
-                                                <div class="alert-danger">{{$errors -> first('username')}}</div>
+                                                <div class="alert-danger red_color font-weight-bold">{{$errors -> first('username')}}</div>
                                             </div>
                                         </div>
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="email" class="form-control" name="email" placeholder="Email"/>
-                                                <div class="alert-danger">{{$errors -> first('email')}}</div>
+                                                <div class="alert-danger red_color font-weight-bold">{{$errors -> first('email')}}</div>
                                             </div>
                                         </div>
 
@@ -45,7 +45,7 @@
                                             <i class="fas fa-solid fa-user-tie fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="text" class="form-control" name="cargo" placeholder="Cargo"/>
-                                                <div class="alert-danger">{{$errors -> first('cargo')}}</div>
+                                                <div class="alert-danger red_color font-weight-bold">{{$errors -> first('cargo')}}</div>
                                             </div>
                                         </div>
 
@@ -53,7 +53,7 @@
                                             <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="password" class="form-control" name="password" placeholder="Contraseña"/>
-                                                <div class="alert-danger">{{$errors -> first('password')}}</div>
+                                                <div class="alert-danger red_color font-weight-bold">{{$errors -> first('password')}}</div>
                                             </div>
                                         </div>
 
@@ -61,7 +61,7 @@
                                             <i class="fas fa-solid fa-lock fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="password" class="form-control" name="password_confirmation" placeholder="Repite la contraseña"/>
-                                                <div class="alert-danger">{{$errors -> first('password_confirmation')}}</div>
+                                                <div class="alert-danger red_color font-weight-bold">{{$errors -> first('password_confirmation')}}</div>
                                             </div>
                                         </div>
                                         <div class="d-flex flex-row align-items-center mb-4">
