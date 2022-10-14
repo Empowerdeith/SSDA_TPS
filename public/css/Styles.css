@@ -66,6 +66,7 @@ select, option, input::placeholder, input{
     color: #144578!important;
 }
 .btn{
+    /*border-radius: 25px;*/
     background-color: #144578;
     border-color: #144578;
 }
@@ -157,6 +158,7 @@ margin-bottom: 10px;
 
 .range__slider [type="range"] {
 width: 100%;
+appearance: none;
 -webkit-appearance: none;
 height: 13px;
 border-radius: 6px;
@@ -216,4 +218,7 @@ border: 0;
 
 .swal-button:focus {
     box-shadow: none;
+}
+.red_color{
+    color: #e71528;
 }

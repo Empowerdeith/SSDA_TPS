@@ -25,7 +25,7 @@ class ManualRaffleRequests extends FormRequest
     {
         return [
             'texto_sorteados' => 'mimes:xls,xlsx',
-            'mail_form' => 'regex:/(.+)@(.+)\.(.+)/i'
+            'mail_form' => 'email|regex:/(.+)@(.+)\.(.+)/i'
         ];
     }
 }
