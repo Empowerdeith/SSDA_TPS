@@ -1,11 +1,11 @@
 @extends('index.index_sidebar')
 @section('content_home')
-<div class="card text-black pt-5 pb-5" style="border-radius: 32px;">
-    <h2 class="text-center">Sorteo Manual</h2>
+<div class="card text-black pt-5 pb-5 h-100" style="border-radius: 32px;">
+    <h2 class="text-center blue_tps">Sorteo Manual</h2>
     <p class="text-center">
     Este es el Sorteo Manual de test de drogas y alcohol, para utilizar este módulo debes subir un archivo en formato excel y luego escribir el o los correos de destino.
     </p>
-    <div class="h-100 pt-3 d-flex align-items-center justify-content-center">
+    <div class="pt-3 d-flex align-items-center justify-content-center">
         <form class="range" action="/raffle_manual" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row align-items-center">
@@ -34,7 +34,7 @@
             </div>
         </form>
     </div>
-    @if (isset($resultados)&&$resultados!=null)
+    @if (isset($resultados) && count($resultados)>0)
         <div class="pt-5 pb-5 d-flex align-items-center justify-content-center">
             <form class="form-inline" id="second_form" action="/send-email" method="post" enctype="multipart/form-data">
                 @csrf
@@ -47,9 +47,7 @@
                 </div>
             </form>
         </div>
-    @endif
-    <section class="d-lg-flex align-items-center justify-content-center mb-5">
-        @if (isset($resultados) && count($resultados)>0)
+        <section class="d-lg-flex align-items-center justify-content-center mb-5">
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <thead class="text-center">
@@ -78,7 +76,7 @@
                     </tbody>
                 </table>
             </div>
-        @endif
-    </section>
+        </section>
+    @endif
 </div>
 @endsection

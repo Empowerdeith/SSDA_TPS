@@ -58,7 +58,7 @@ Route::group(['middleware' => ['role:Admin|Funcionario']], function () {
     Route::get('/logout', [LogoutController::class, 'logout']);
 
     //Sorteo automático
-    Route::get('/raffle_auto', [RaffleController::class, 'show']);
+    Route::get('/raffle_auto', [RaffleController::class, 'show'])->name('raffle_auto.show');
     Route::post('/raffle_auto', [RaffleController::class, 'generateRaffle']);
 
     Route::get('/raffle_save', [RaffleController::class, 'SaveRaffle'])->name('raffle.save');
@@ -77,6 +77,8 @@ Route::group(['middleware' => ['role:Admin|Funcionario']], function () {
     Route::get('/export/{id}',[HistorialController::class, 'export'])->name('export');
 
 
-    //enviar-correo
+    //enviar-correo manual
     Route::post('/send-email', [ManualRaffleController::class, 'Save_Manual_Raffle'])->name('send.email');
+    //enviar-correo automático
+    Route::post('/send-auto-email', [RaffleController::class, 'SaveRaffle'])->name('send.auto_email');
 });

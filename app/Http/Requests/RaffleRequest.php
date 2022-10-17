@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ManualRaffleRequests extends FormRequest
+class RaffleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,7 @@ class ManualRaffleRequests extends FormRequest
     public function rules()
     {
         return [
-            'texto_sorteados' => 'mimes:xls,xlsx',
-            'mail_data_auto' => 'email|regex:/(.+)@(.+)\.(.+)/i'
+            'mail_form' => 'email|regex:/(.+)@(.+)\.(.+)/i',
         ];
     }
 }
