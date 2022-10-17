@@ -3,7 +3,7 @@
 <div class="card text-black pt-5 pb-5 h-100" style="border-radius: 32px;">
     <h2 class="text-center blue_tps">Sorteo Manual</h2>
     <p class="text-center">
-    Este es el Sorteo Manual de test de drogas y alcohol, para utilizar este módulo debes subir un archivo en formato excel y luego escribir el o los correos de destino.
+    Este es el Sorteo Manual de test de drogas y alcohol, para utilizar este módulo debes subir un archivo en formato excel y luego escribir él o los correos de destino.
     </p>
     <div class="pt-3 d-flex align-items-center justify-content-center">
         <form class="range" action="/raffle_manual" method="post" enctype="multipart/form-data">
