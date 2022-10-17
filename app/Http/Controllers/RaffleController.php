@@ -26,7 +26,7 @@ class RaffleController extends Controller
     public function get_vacaciones(){
         $curl2 = curl_init();
         curl_setopt_array($curl2, array(
-        CURLOPT_URL => 'http://3.94.125.255/api/vacaciones',
+        CURLOPT_URL => 'http://44.211.61.202/api/vacaciones',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -48,7 +48,7 @@ class RaffleController extends Controller
     public function licenciapermiso(){
         $curl3 = curl_init();
         curl_setopt_array($curl3, array(
-        CURLOPT_URL => 'http://3.94.125.255/api/licenciapermiso',
+        CURLOPT_URL => 'http://44.211.61.202/api/licenciapermiso',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -73,7 +73,7 @@ class RaffleController extends Controller
 
         $curl = curl_init();
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'http://3.94.125.255/api/trabajador',
+        CURLOPT_URL => 'http://44.211.61.202/api/trabajador',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
