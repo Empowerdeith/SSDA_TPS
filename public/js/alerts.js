@@ -23,6 +23,7 @@ $('.send_save_employees').click(function(event) {
                 Swal.fire({
                     title: 'Enviando personal sorteado.',
                     iconHtml: '<img src="../img/2.svg">',
+                    showConfirmButton:false,
                     allowOutsideClick: false,
                     onBeforeOpen: () => {
                         Swal.showLoading()

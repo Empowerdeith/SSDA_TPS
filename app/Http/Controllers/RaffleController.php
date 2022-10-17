@@ -10,9 +10,11 @@ use App\Models\ListaRaffle;
 use App\Models\Raffle;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\RaffleRequest;
 use App\Mail\Mailsend;
 use Session;
 use Alert;
+use Redirect;
 
 class RaffleController extends Controller
 {
@@ -24,7 +26,7 @@ class RaffleController extends Controller
     public function get_vacaciones(){
         $curl2 = curl_init();
         curl_setopt_array($curl2, array(
-        CURLOPT_URL => 'http://34.238.82.93/api/vacaciones',
+        CURLOPT_URL => 'http://44.211.61.202/api/vacaciones',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -46,7 +48,7 @@ class RaffleController extends Controller
     public function licenciapermiso(){
         $curl3 = curl_init();
         curl_setopt_array($curl3, array(
-        CURLOPT_URL => 'http://34.238.82.93/api/licenciapermiso',
+        CURLOPT_URL => 'http://44.211.61.202/api/licenciapermiso',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -71,7 +73,7 @@ class RaffleController extends Controller
 
         $curl = curl_init();
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'http://34.238.82.93/api/trabajador',
+        CURLOPT_URL => 'http://44.211.61.202/api/trabajador',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -144,29 +146,39 @@ class RaffleController extends Controller
     }
 
 
-    public function SaveRaffle(){
-        if(Session::has('Lista_sorteados')){
-            $data_sorteados_auto=Session::get('Lista_sorteados');
+    public function SaveRaffle(RaffleRequest $request){
+        try{
+            Log::info($request->mail_form);
+            if($request->validated()){
+                if(Session::has('Lista_sorteados')){
+                    $data_sorteados_auto=Session::get('Lista_sorteados');
+                }
+                $Lista_usuario=Lista::create([
+                    'user_id' => auth()->user()->id,
+                ]);
+                foreach ($data_sorteados_auto as $i => $row) {
+                    $data_sorteos_bd=Raffle::create([
+                        'rut' => $row[0],
+                        'name'=> $row[1],
+                        'cargo' => $row[2],
+                    ]);
+                    $raffle=$data_sorteos_bd->id;
+                    $Lista_usuario->raffles()->attach($raffle);
+                }
+                $mail_send=$request->mail_form;
+                Log::info($mail_send);
+                Mail::to($mail_send)->send(new Mailsend($data_sorteados_auto));
+                /*$sendToEmail = "PostVentaProject12@hotmail.com"; //destinatario
+
+                Mail::to($sendToEmail)->send(new Mailsend($data_sorteados_auto));
+
+                Alert::success('Enviado exitosamente', 'Testing');*/
+            }
         }
-        $Lista_usuario=Lista::create([
-            'user_id' => auth()->user()->id,
-        ]);
-        foreach ($data_sorteados_auto as $i => $row) {
-            $data_sorteos_bd=Raffle::create([
-                'rut' => $row[0],
-                'name'=> $row[1],
-                'cargo' => $row[2],
-            ]);
-            $raffle=$data_sorteos_bd->id;
-            $Lista_usuario->raffles()->attach($raffle);
+        catch(\Throwable $th){
         }
-        $sendToEmail = "PostVentaProject12@hotmail.com"; //destinatario
-
-        Mail::to($sendToEmail)->send(new Mailsend($data_sorteados_auto));
-
-        Alert::success('Enviado exitosamente', 'Testing');
-
-        return view('raffle.Auto_raffle');
+        return Redirect::route('raffle_auto.show')->with(['success' => 'Se ha guardado y enviado el personal sorteado!']);
+        //return view('raffle.Auto_raffle');
     }
 
 

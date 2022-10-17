@@ -28,9 +28,8 @@ class ManualRaffleController extends Controller
         Session::put('percentage_manual', $porcentaje_manual);
         $resultados = array();
         try {
-            //Log::info($request->validated());
-            //request()->file('texto_sorteados')
-            if($request->validated()){
+            //log::info($request!=null);
+            if($request->file('texto_sorteados')!=null){
                 $data_participantes=Excel::toArray(null, $request->file('texto_sorteados'))[0];// tomamos la primera página de excel
                 //Log::info($data_participantes);
                 $todo=count($data_participantes)*$porcentaje_manual/100;
@@ -39,7 +38,6 @@ class ManualRaffleController extends Controller
                     $resultados[]=$data_participantes[$x];
                     array_splice($data_participantes, $x, 1);
                 }
-                //Log::info($resultados);
                 Session::put('Lista_sorteados_m', $resultados);
             }
         }
@@ -50,16 +48,11 @@ class ManualRaffleController extends Controller
 
 
     public function Save_Manual_Raffle(ManualRaffleRequests $request){
-        //$porcentaje_manual = request('porcentaje_manual'); //the percentage of randomness
         try{
+            Log::info("Correo de destinatario");
             Log::info($request->mail_form);
-            Log::info($request->input('mail_form'));
-            if($request->validated()){
-
-                if(Session::has('percentage_manual')){
-                    $percentage_persists=Session::get('percentage_manual');
-                }
-                Log::info($percentage_persists);
+            if($request->mail_form!=null){
+                Log::info("Comienzo proceso con base de datos");
                 if(Session::has('Lista_sorteados_m')){
                     $data_sorteados=Session::get('Lista_sorteados_m');
                 }
