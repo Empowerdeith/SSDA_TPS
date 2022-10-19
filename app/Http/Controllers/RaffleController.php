@@ -149,7 +149,7 @@ class RaffleController extends Controller
     public function SaveRaffle(RaffleRequest $request){
         try{
             Log::info($request->mail_form);
-            if($request->validated()){
+            if($request->mail_form!=null){
                 if(Session::has('Lista_sorteados')){
                     $data_sorteados_auto=Session::get('Lista_sorteados');
                 }
@@ -168,17 +168,11 @@ class RaffleController extends Controller
                 $mail_send=$request->mail_form;
                 Log::info($mail_send);
                 Mail::to($mail_send)->send(new Mailsend($data_sorteados_auto));
-                /*$sendToEmail = "PostVentaProject12@hotmail.com"; //destinatario
-
-                Mail::to($sendToEmail)->send(new Mailsend($data_sorteados_auto));
-
-                Alert::success('Enviado exitosamente', 'Testing');*/
             }
         }
         catch(\Throwable $th){
         }
         return Redirect::route('raffle_auto.show')->with(['success' => 'Se ha guardado y enviado el personal sorteado!']);
-        //return view('raffle.Auto_raffle');
     }
 
 
