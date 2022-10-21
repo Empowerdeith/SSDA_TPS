@@ -49,8 +49,8 @@ class ManualRaffleController extends Controller
 
     public function Save_Manual_Raffle(ManualRaffleRequests $request){
         try{
-            Log::info("Correo de destinatario");
-            Log::info($request->mail_form);
+            /*Log::info("Correo de destinatario");
+            Log::info($request->mail_form);*/
             if($request->mail_form!=null){
                 Log::info("Comienzo proceso con base de datos");
                 if(Session::has('Lista_sorteados_m')){
@@ -69,7 +69,7 @@ class ManualRaffleController extends Controller
                     $Lista_usuario->raffles()->attach($raffle);
                 }
                 $mail_send=$request->mail_form;
-                Log::info($mail_send);
+                //Log::info($mail_send);
                 Mail::to($mail_send)->send(new Mailsend($data_sorteados));
             }
         }
