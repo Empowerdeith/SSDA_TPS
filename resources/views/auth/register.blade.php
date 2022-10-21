@@ -74,8 +74,8 @@
                                                 </select>
                                         </div>
                                     </div>
-                                    <div class="d-flex justify-content-center mx-5 mb-3 mb-lg-4">
-                                        <button type="submit" class="btn btn-primary btn-lg custom-btn px-5" name="submit">Crear Usuario</button>
+                                    <div class="d-flex justify-content-center mx-2 mb-3 mb-lg-4">
+                                        <button type="submit" class="btn btn-primary px-5" name="submit">Crear Usuario</button>
                                     </div>
                                     </form>
                                 </div>
@@ -90,8 +90,5 @@
         </div>
     </section>
 @endcan
-@cannot('admin.register')
-    <p>No posees permisos para ver esta página</p>
-@endcannot
 @endsection
 

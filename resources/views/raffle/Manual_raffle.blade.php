@@ -1,6 +1,6 @@
 @extends('index.index_sidebar')
 @section('content_home')
-<div class="card text-black pt-5 pb-5 h-100" style="border-radius: 32px;">
+<div class="card text-black pt-5 pb-5" style="border-radius: 32px;">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -32,9 +32,13 @@
                         <div class="file-upload-wrapper">
                             <input type="file" id="input-file-now" class="file-upload" name="texto_sorteados" accept=".xls,.xlsx"/>
                         </div>
-                        <div class="alert-danger red_color pb-5">{{$errors -> first('texto_sorteados')}}</div>
-                        <div class="alert-danger red_color pb-5">{{$errors -> first('mail_form')}}</div>
-                        <input type="submit" class="btn btn-primary text-white" value="Realizar Sorteo">
+                        <div class="pb-5">
+                            <div class="alert-danger red_color">{{$errors -> first('texto_sorteados')}}</div>
+                            <div class="alert-danger red_color">{{$errors -> first('mail_form')}}</div>
+                        </div>
+                        <div class="text-center">
+                            <input type="submit" class="btn btn-primary text-white btn-lg button-style" value="Realizar Sorteo">
+                        </div>
                     </div>
                 </div>
             </form>
