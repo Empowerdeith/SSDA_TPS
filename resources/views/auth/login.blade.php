@@ -26,10 +26,6 @@
                             <input type="password" class="form-control"name="password" id="">
                             <div class="alert-danger text-center rojo_alert">{{$errors -> first('password')}}</div>
                         <br>
-                        <div class="mb-4 form-check">
-                            <input type="checkbox" name="connected" class="form-check-input blue_tps">
-                            <label for="connected" class="form-check-label blue_tps">Mantener sesión iniciada.</label>
-                        </div>
                         <div class="d-grid">
                             <button type="submit" class="btn btn-primary blue_tps_bg">Acceder</button>
                         </div>

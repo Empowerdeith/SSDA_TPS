@@ -66,7 +66,7 @@ select, option, input::placeholder, input{
     color: #144578!important;
 }
 .btn{
-    /*border-radius: 25px;*/
+    border-radius: 25px;
     background-color: #144578;
     border-color: #144578;
 }
@@ -92,10 +92,10 @@ select, option, input::placeholder, input{
     font-size:32px;
 }
 .font_20{
-    font-size: 18px;
+    font-size: 20px;
 }
 .font_18{
-    font-size: 16px;
+    font-size: 18px;
 }
 .font_24{
     font-size: 24px!important;
@@ -114,8 +114,6 @@ select, option, input::placeholder, input{
 .nav-link{
     color: white!important;
 }
-
-
 /*Testing*/
 .range {
 display: flex;
@@ -142,14 +140,14 @@ justify-content: center;
 .form-group label {
 text-transform: uppercase;
 font-size: .7rem;
-color: #222;
+color: #144578;
 margin-bottom: 5px;
 }
 
 .form-group span {
 font-size: 2rem;
 font-weight: 600;
-color: #3c3b3b;
+color: #144578;
 }
 
 .range__slider label {
@@ -221,4 +219,11 @@ border: 0;
 }
 .red_color{
     color: #e71528;
+}
+i .big-icon{
+    font-size: 50px!important;
+}
+.button-style{
+    padding-right: 6rem!important;
+    padding-left: 6rem!important;
 }
