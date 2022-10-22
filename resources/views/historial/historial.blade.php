@@ -26,12 +26,12 @@
                 <br>
             </form>
             @if(isset($query)&& count($query)>0)
-                <table id="datosTrabajador" class="table table-striped table-bordered nowrap" style="width:100%">
+                <table id="datosTrabajador" class="table table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Fecha</th>
-                            <th>Hora</th>
+                            <th>Id</th>
+                            <th class="text-center">Fecha</th>
+                            <th class="text-center">Hora</th>
                             <th class="text-center">Detalle de Sorteo</th>
                             <th class="text-center">Exportar en Excel</th>
                         </tr>
@@ -44,8 +44,8 @@
                                 $date_only=date("d-m-Y",strtotime($value->created_at));
                                 $time_only=date("H:i:s A",strtotime($value->created_at));
                             @endphp
-                            <td class="created_at">{{$date_only}}</td>
-                            <td>{{$time_only}}</td>
+                            <td class="created_at text-center">{{$date_only}}</td>
+                            <td class="text-center">{{$time_only}}</td>
                             <td class="text-center"><a href="{{route('historialdetalle', $value->id)}}"><button class="btn btn-primary"><i class="fa-solid fa-circle-info"></i></button></a></td>
                             <td class="text-center"><a href="{{route('export', $value->id)}}"><button class="btn btn-primary"><i class="fa-solid fa-file-arrow-down"></i></button></a></td>
                         </tr>
