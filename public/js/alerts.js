@@ -39,5 +39,22 @@ $('.send_save_employees').click(function(event) {
         });
     }
 });
-
-
+$('.delete_users').click(function(event) {
+    var form2 =  $(this).closest("form");
+    var name = $(this).data("name");
+    event.preventDefault();
+    Swal.fire({
+        title: '¿Estás seguro que deseas Eliminar a este Usuario?',
+        text: 'Se eliminará al usuario de forma permanente.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#144578',
+        cancelButtonColor: '#144578',
+        confirmButtonText: 'Eliminar',
+        cancelButtonText: 'Cancelar'
+        }).then((result) => {
+        if (result.isConfirmed) {
+            form2.submit();
+        }
+    })
+});
