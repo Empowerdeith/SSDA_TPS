@@ -10,17 +10,16 @@
                 <br>
                 <div class="container">
                     <div class="row">
-                        <label for="date" class="col-form-label col-sm-2">Desde</label>
+                        <label for="date" class="col-form-label col-sm-2">Desde:</label>
                         <div class="col-sm-3">
                             <input type="date" class="form-control input-sm" id="fromDate" name="fromDate" required/>
                         </div>
-                        <label for="date" class="col-form-label col-sm-2">Hasta</label>
-                        <div class="col-sm-3">
+                        <label for="date" class="col-form-label col-sm-2">Hasta:</label>
+                        <div class="col-sm-3 pb-5">
                            <input type="date" class="form-control input-sm" id="toDate" name="toDate" required/>
                         </div>
-                        <br>
-                        <div class="col-sm-2">
-                            <button type="submit" class="btn btn-primary" name="search" title="Search">Buscar</button>
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary" name="search" title="Search">Buscar Sorteos</button>
                         </div>
                     </div>
                 </div>
@@ -32,17 +31,23 @@
                         <tr>
                             <th>ID</th>
                             <th>Fecha</th>
-                            <th>Detalle</th>
-                            <th>Exportar</th>
+                            <th>Hora</th>
+                            <th class="text-center">Detalle de Sorteo</th>
+                            <th class="text-center">Exportar en Excel</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($query as $value)
                         <tr>
                             <td class="id">{{$value->id}}</td>
-                            <td class="created_at">{{$value->created_at}}</td>
-                            <td><a href="{{route('historialdetalle', $value->id)}}"><button class="btn btn-primary"><i class="fa-solid fa-circle-info"></i></button></a></td>
-                            <td><a href="{{route('export', $value->id)}}"><button class="btn btn-primary"><i class="fa-solid fa-file-export"></i></button></a> </td>
+                            @php
+                                $date_only=date("d-m-Y",strtotime($value->created_at));
+                                $time_only=date("H:i:s A",strtotime($value->created_at));
+                            @endphp
+                            <td class="created_at">{{$date_only}}</td>
+                            <td>{{$time_only}}</td>
+                            <td class="text-center"><a href="{{route('historialdetalle', $value->id)}}"><button class="btn btn-primary"><i class="fa-solid fa-circle-info"></i></button></a></td>
+                            <td class="text-center"><a href="{{route('export', $value->id)}}"><button class="btn btn-primary"><i class="fa-solid fa-file-arrow-down"></i></button></a></td>
                         </tr>
                         @endforeach
                     </tbody>

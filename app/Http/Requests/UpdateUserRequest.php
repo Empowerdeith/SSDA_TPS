@@ -33,5 +33,5 @@ class UpdateUserRequest extends FormRequest
             //'cargo' => 'required|min:3|max:30'
         ];
     }
-    
+
 }
