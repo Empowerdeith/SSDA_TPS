@@ -10,9 +10,9 @@ use Illuminate\Support\Facades\DB;
 class StatsController extends Controller
 {
     public function show (){
-
+        /*
         //$conn = oci_connect("username", "password", "database"); //cambiar credenciales
-        
+
         DB::raw("
             CREATE TABLE empleados_sorteado(
             RUT VARCHAR2(255),
@@ -33,21 +33,21 @@ class StatsController extends Controller
         oci_execute($ex);*/
 
         //procedure
-        $procedureName = 'sp_emp_num_raff_v2';
+        /*$procedureName = 'sp_emp_num_raff_v2';
 
-        $result = DB::executeProcedure($procedureName);
+        $result = DB::executeProcedure($procedureName);*/
 
         //dd($result);
 
         //Log::info($result);
 
-        $notes = DB::table('empleados_sorteado')->get();
+        //$notes = DB::table('empleados_sorteado')->get();
         //procedure
 
         //$drop_table = oci_parse($conn, "DROP TABLE EMPLEADOS_COUNT;");
 
-          
-        DB::raw("
+
+        /*DB::raw("
             DROP TABLE empleados_sorteado;");
 
         /*$ex = oci_execute($drop_table) or die(oci_error());
@@ -57,9 +57,8 @@ class StatsController extends Controller
 
         //return view('stats.stats')->with(['notes' => $notes]);
 
-        Log::info($notes);
-
-        return view('stats.stats')->with(['notes' => $notes]);
+        //Log::info($notes);
+        //return view('stats.stats')->with(['notes' => $notes]);
 
     }
 
