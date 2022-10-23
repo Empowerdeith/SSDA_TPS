@@ -18,6 +18,8 @@
                                     <a href="/register" class="text-decoration-none"><i class="fa-solid fa-user-plus big_icons blue_tps"></i><span class="font_18 blue_tps"> Crear Usuarios</span></a> </li>
                                 <li class="list-group-item">
                                     <a href="/showUsers" class="text-decoration-none blue_tps"><i class="fa-solid fa-user-pen big_icons blue_tps"></i><span class="font_18"> Ver y Editar Usuarios</span></a> </li>
+                                <li class="list-group-item">
+                                    <a href="/stats" class="text-decoration-none blue_tps"><i class="fa-solid fa-user-pen big_icons blue_tps"></i><span class="font_18"> Estadisticas</span></a> </li>
                             @endcan
                             @can('operator.manage')
                                 <div class="p-2">

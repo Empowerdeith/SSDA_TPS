@@ -11,17 +11,17 @@ class StatsController extends Controller
 {
     public function show (){
 
-        $conn = oci_connect("username", "password", "database"); //cambiar credenciales
-        /*
+        //$conn = oci_connect("username", "password", "database"); //cambiar credenciales
+        
         DB::raw("
-            CREATE TABLE EMPLEADOS_COUNT(
+            CREATE TABLE empleados_sorteado(
             RUT VARCHAR2(255),
             NOMBRE VARCHAR2 (255),
-            COUNTER NUMBER (10),
+            CANTIDAD NUMBER (10),
             CARGO VARCHAR2 (255)
-        );")*/
+        );");
 
-        $create_table = oci_parse($conn, "
+        /*$create_table = oci_parse($conn, "
             CREATE TABLE EMPLEADOS_COUNT(
             RUT VARCHAR2(255),
             NOMBRE VARCHAR2 (255),
@@ -30,7 +30,7 @@ class StatsController extends Controller
         );");
 
         $ex = oci_execute($create_table) or die(oci_error());
-        oci_execute($ex);
+        oci_execute($ex);*/
 
         //procedure
         $procedureName = 'sp_emp_num_raff_v2';
@@ -44,14 +44,14 @@ class StatsController extends Controller
         $notes = DB::table('empleados_sorteado')->get();
         //procedure
 
-        $drop_table = oci_parse($conn, "DROP TABLE EMPLEADOS_COUNT;");
+        //$drop_table = oci_parse($conn, "DROP TABLE EMPLEADOS_COUNT;");
 
-          /*
+          
         DB::raw("
-            CREATE TABLE EMPLEADOS_COUNT(")*/
+            DROP TABLE empleados_sorteado;");
 
-        $ex = oci_execute($drop_table) or die(oci_error());
-        oci_execute($ex);
+        /*$ex = oci_execute($drop_table) or die(oci_error());
+        oci_execute($ex);*/
 
         //return view("estadistica.stats", ['notes' => $notes]);
 
