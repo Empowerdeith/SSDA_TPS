@@ -13,16 +13,22 @@
                     <table table class="table table-striped table-bordered nowrap">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>Nº</th>
                                 <th>Rut</th>
                                 <th>Nombre</th>
                                 <th>Cargo</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                                $contador = 1;
+                            @endphp
                             @foreach($query as $value)
                             <tr>
-                                <td>{{$value -> id}}</td>
+                                <td>{{$contador}}</td>
+                                    @php
+                                        $contador+=1;
+                                    @endphp
                                 <td>{{$value -> rut}}</td>
                                 <td>{{$value -> name}}</td>
                                 <td>{{$value -> cargo}}</td>

@@ -30,6 +30,12 @@ class RaffleExport implements FromQuery, WithHeadings
         return Raffle::query()->select('raffle.RUT','raffle.NAME','raffle.CARGO','raffle.created_at')
                               ->join('lista_raffle', 'lista_raffle.raffle_id', '=','raffle.id')
                               ->where('lista_raffle.lista_id', '=', $this->id);
+
+        /*return Raffle::query()->select(
+                                "select ra.RUT,ra.NAME,ra.CARGO,to_char(ra.created_at,'yyyy-mm-dd')
+                                from lista_raffle li join raffle ra
+                                on (li.raffle_id = ra.id)
+                                where li.lista_id = ", $this->id);*/
     }
 
     public function headings(): array
