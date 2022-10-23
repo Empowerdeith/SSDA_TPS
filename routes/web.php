@@ -11,6 +11,7 @@ use App\Http\Controllers\RaffleController;
 use App\Http\Controllers\ManualRaffleController;
 use App\Http\Controllers\HistorialController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\StatsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,6 +49,10 @@ Route::group(['middleware' => ['role:Admin']], function () {
     Route::post('/deleteUser/{id}',[ManageUserController::class, 'deleteUser'])->name('deleteUser');
     //logs para admin
     Route::get('/logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
+
+    //stats de admin
+    Route::get('/stats', [StatsController::class, 'show']);
+
 });
 
 //Rutas para Admin y funcionario
