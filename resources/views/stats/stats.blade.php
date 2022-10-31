@@ -1,11 +1,11 @@
 @extends('index.index_sidebar')
 @section('content_home')
 
-<h1 class="text-center blue_tps">Estadisticas </h1>
+<h1 class="text-center blue_tps">Estadísticas </h1>
 
 @if (isset($notes))
-<div class="table-responsive">
-    <table id="stats_table" class="table table-bordered" style="max-height:600px">
+<div class="container table-responsive">
+    <table id="stats_table" class="table table-bordered">
         <thead>
             <tr>
                <th></th>
@@ -25,10 +25,10 @@
                     @php
                         $contador+=1;
                     @endphp
-                    <td>{{$row->rut}}</td>
-                    <td>{{$row->nombre}}</td>
-                    <td>{{$row->cargo}}</td>
-                    <td>{{$row->cantidad}}</td>
+                    <td>{{$row["RUT"]}}</td>
+                    <td>{{$row["NAME"]}}</td>
+                    <td>{{$row["CARGO"]}}</td>
+                    <td>{{$row["VALOR"]}}</td>
                 </tr>
             @endforeach
         </tbody>
