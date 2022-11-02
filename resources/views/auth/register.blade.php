@@ -22,7 +22,7 @@
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-address-card fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <input type="text" class="form-control" name="rut" placeholder="Rut" />
+                                                <input type="text" class="form-control" name="rut" placeholder="Escribe Rut con guión" />
                                                 <div class="alert-danger red_color font-weight-bold">{{$errors -> first('rut')}}</div>
                                             </div>
                                         </div>
