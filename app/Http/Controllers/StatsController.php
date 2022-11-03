@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\DB;
 class StatsController extends Controller
 {
     public function show (){
-        $conn = oci_new_connect("manolo3", "FUTBOLERO877", "localhost/orcl","AL32UTF8");
+        //Se genera la conexión con la cuenta de admin de base de datos
+        $conn = oci_new_connect(env('DB_USERNAME'), env('DB_PASSWORD'), env('DB_HOST').'/'.env('DB_DATABASE'),"AL32UTF8");
 
         //Log::info($conn);
 
