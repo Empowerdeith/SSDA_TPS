@@ -20,27 +20,33 @@
     <div class="col-md-4">
         <div class="card shadow">
             <div class="card-body text-start">
-                <h5 class="card-title">En construcción</h5>
-                <p class="card-text"><i class="bi bi-people mr-3"></i>600</p>
-                <a href="#" class="btn btn-primary">ver tabla</a>
+                <h5 class="card-title text-center">Total de sorteos realizados por el usuario:</h5>
+                <p class="card-text big_icons blue_tps text-center">
+                    @php
+                        $valor_sorteo=0;
+                        if (isset($raffle_count)) {
+                            $valor_sorteo=$raffle_count;
+                        }
+                    @endphp
+                    <i class="fa-solid fa-clipboard-check"></i> {{$valor_sorteo}}
+                </p>
+                <!--<a href="#" class="btn btn-primary">ver tabla</a>-->
             </div>
         </div>
     </div>
     <div class="col-md-4">
         <div class="card shadow">
             <div class="card-body text-start">
-                <h5 class="card-title">En construcción</h5>
-                <p class="card-text"><i class="bi bi-people mr-3"></i>70</p>
-                <a href="#" class="btn btn-primary">ver tabla</a>
+                <h5 class="card-title text-center">En construcción</h5>
+                <p class="card-text text-center"><i class="bi bi-people mr-3"></i>70</p>
             </div>
         </div>
     </div>
     <div class="col-md-4">
         <div class="card shadow">
             <div class="card-body text-start">
-                <h5 class="card-title">En construcción</h5>
-                <p class="card-text"><i class="bi bi-people mr-3"></i>100+</p>
-                <a href="#" class="btn btn-primary">ver tabla</a>
+                <h5 class="card-title text-center">En construcción</h5>
+                <p class="card-text text-center"><i class="bi bi-people mr-3"></i>100+</p>
             </div>
         </div>
     </div>
