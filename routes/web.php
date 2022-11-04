@@ -12,6 +12,7 @@ use App\Http\Controllers\ManualRaffleController;
 use App\Http\Controllers\HistorialController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\StatsController;
+use App\Http\Controllers\ForgotPasswordController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,8 +32,15 @@ Route::post('/login', [LoginController::class, 'login']);
 
 Route::get('/faq',[ManageUserController::class, 'faq'])->name('faq');
 //--------------------------------------------------
+//Reset Passwords
+Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
 
+Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
 
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+//--------------------------------------------------
 //Rutas de Admin
 Route::group(['middleware' => ['role:Admin']], function () {
     //registrar usuario

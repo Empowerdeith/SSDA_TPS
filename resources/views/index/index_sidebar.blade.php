@@ -1,10 +1,10 @@
 @extends('index.index_master')
 @section('content')
     @auth
-    <div class="container-fluid">
-        <div class="row flex-nowrap">
-            <div class="col-auto px-0 py-0 border-0">
-                <div id="sidebar" class="collapse collapse-horizontal show vh-100">
+    <div class="container-fluid height_class">
+        <div class="row flex-nowrap height_class">
+            <div class="col-auto px-0 py-0 border-0" style="background-color: #144578;">
+                <div id="sidebar" class="collapse collapse-horizontal show">
                     <div id="sidebar-nav" class="list-group border-0 rounded-none">
                         <div class="p-2 pb-4">
                             <a href="/home" class="text-decoration-none"><h4 class="text-white"><i class="fa-sharp fa-solid fa-house"></i> Operaciones Disponibles </h4></a>
@@ -38,7 +38,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col ps-md-2 pt-2" style="background-color: #eee">
+            <div class="col ps-md-2 pt-2">
                 <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" class="border rounded-3 p-1 text-decoration-none" style="font-size: 45px;  color:#144578;"><i class="bi bi-list"></i></a>
                 <div class="pt-4 pb-5">
                     @yield('content_home')

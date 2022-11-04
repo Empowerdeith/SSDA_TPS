@@ -1,7 +1,7 @@
 @extends('index.index_master')
 @section('content')
 <!--Formulario de Login para la página.-->
-    <div id="login_parameters" style="background-image: url('{{ asset('img/background_pic.jpg')}}');">
+    <div id="login_parameters" class="background_main_image height_class" style="background-image: url('{{ asset('img/background_pic.jpg')}}');">
         <br>
         <div class="container w-75 mt-5">
             <div class="row align-items-stretch">
@@ -31,7 +31,7 @@
                         </div>
                         <div class="alert-danger text-center rojo_alert">{{$errors -> first('error_login')}}</div>
                         <div class="my-3 text-center">
-                            <span><i class="fa-solid fa-lock" style="color:#144578"></i><a href="#" class="blue_tps show_underline">¿Olvidaste tu contraseña?</a></span>
+                            <span><i class="fa-solid fa-lock" style="color:#144578"></i><a href="{{ route('forget.password.get') }}" class="blue_tps show_underline">¿Olvidaste tu contraseña?</a></span>
                         </div>
                     </form>
                 </div>
