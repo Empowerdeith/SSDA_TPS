@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\UpdateUserRequest;
-
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 class ManageUserController extends Controller
 {
     public function showUsers(){
@@ -21,25 +22,24 @@ class ManageUserController extends Controller
         return view('manageUsers.updateUser', compact('user'));
     }
 
-    public function updateUser(UpdateUserRequest $request, $id){
+    public function updateUser(Request $request, $id){
 
         $user = User::findOrFail($id);
 
-        if ( ! ( $request->name == NULL )){
-            $user -> name = $request->name;
-        }
-        if ( ! ( $request->username == NULL )){
-            $user -> username = $request->username;
-        }
-        if ( ! ( $request->email == NULL )){
-            $user -> email = $request->email;
-        }
-        if ( ! ( $request->password == NULL )){
-            $user -> password = $request->password;
-        }
-        if ( ! ( $request->cargo == NULL )){
-            $user -> cargo = $request->cargo;
-        }
+        $this->validate($request,[
+            'name' => 'required|between:5,30',
+            'username' => ['required','max:20',Rule::unique('users')->ignore($user->id),],
+            'email' => ['required', Rule::unique('users')->ignore($user->id),],
+            'password' => 'required|between:8,20',
+            'password_confirmation' => 'required|same:password',
+            'cargo' => ['required', 'max:35']
+        ]);
+
+        $user -> name = $request->name;
+        $user -> username = $request->username;
+        $user -> email = $request->email;
+        $user -> password = $request->password;
+        $user -> cargo = $request->cargo;
 
         $user -> save();
 
