@@ -9,7 +9,7 @@
 <body>
     @include('snippets.header')
     @include('sweetalert::alert')
-    <div>
+    <div id="Main_content_boxes">
         @yield('content')
     </div>
     @include('snippets.footer2')
