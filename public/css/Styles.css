@@ -18,10 +18,23 @@ li, a, button, footer {
 footer{
     background-color: #144578;
 }
-#login_parameters{
+.background_main_image{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+}
+#reset_password_parameters{
+    background-color: #eee!important;
+}
+#reset_password_card{
+    max-width: 700px;;
+}
+#Main_content_boxes{
+    min-height:940px;
+    background-color: #eee;
+}
+.height_class{
+    min-height:940px;
 }
 .blue_tps{
     color: #144578;
