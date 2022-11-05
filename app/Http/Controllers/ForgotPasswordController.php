@@ -91,7 +91,7 @@ class ForgotPasswordController extends Controller
 
             'password' => 'required|string|min:8|confirmed|max:20',
 
-            'password_confirmation' => 'required'
+            'password_confirmation' => 'required|same:password'
 
         ]);
 
@@ -99,16 +99,17 @@ class ForgotPasswordController extends Controller
 
         if(!$updatePassword){
 
-            return back()->withInput()->with('error', 'Enlace no válido!');
+            return back()->withInput()->with('error', 'El token de restablecimiento de contraseña es inválido.');
 
         }
 
-        $user = User::where('email', $request->email)->update(['password' => Hash::make($request->password)]);
+        $user = User::where('email', $request->email)->update(['password' => bcrypt($request->password)]);
+        //$user = User::where('email', $request->email)->update(['password' => Hash::make($request->password)]);
 
         DB::table('password_resets')->where(['email'=> $request->email])->delete();
 
 
-        return redirect('/login')->with('success', '¡Tu contraseña ha sido cambiada!');
+        return redirect('/login')->with('success', '¡Su contraseña ha sido cambiada!');
 
     }
 }

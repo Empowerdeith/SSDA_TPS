@@ -5,7 +5,7 @@
         <div class="card-header h5 text-white blue_tps_bg">Restablecer la Contraseña:</div>
         <div class="card-body px-5">
             <p class="card-text py-2">
-                Ingrese su dirección de correo electrónico y le enviaremos un correo electrónico con instrucciones para restablecer su contraseña.
+                Ingrese su dirección de correo electrónico y le enviaremos un correo con instrucciones para restablecer su contraseña.
             </p>
             <div class="form-outline">
                 <form action="{{ route('forget.password.post') }}" method="POST">
@@ -13,9 +13,6 @@
                     <div class="form-group row mb-5">
                         <div class="col">
                             <input type="text" id="email_address" class="form-control my-3" name="email" placeholder="correo@ejemplo.com" required autofocus>
-                            @if ($errors->has('email'))
-                                <span class="text-danger">{{ $errors->first('email') }}</span>
-                            @endif
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary w-100 mb-5">Enviar restablecimiento de contraseña</button>
