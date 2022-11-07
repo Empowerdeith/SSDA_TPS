@@ -13,6 +13,7 @@ use App\Http\Controllers\HistorialController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\StatsController;
 use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\ManageEmailController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,6 +61,9 @@ Route::group(['middleware' => ['role:Admin']], function () {
 
     //stats de admin
     Route::get('/stats', [StatsController::class, 'show']);
+
+    //Agregar Destinatarios
+    Route::get('/manage_emails', [ManageEmailController::class, 'show']);
 
 });
 

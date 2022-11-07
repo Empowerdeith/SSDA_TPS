@@ -20,6 +20,8 @@
                                     <a href="/showUsers" class="text-decoration-none blue_tps"><i class="fa-solid fa-user-pen big_icons blue_tps"></i><span class="font_18"> Ver y Editar Usuarios</span></a> </li>
                                 <li class="list-group-item">
                                     <a href="/stats" class="text-decoration-none blue_tps"><i class="fa-solid fa-chart-pie big_icons blue_tps"></i><span class="font_18"> Estadísticas</span></a> </li>
+                                <li class="list-group-item">
+                                    <a href="/manage_emails" class="text-decoration-none blue_tps"><i class="fa-solid fa-envelope-open-text big_icons blue_tps"></i><span class="font_18"> Agregar Correos</span></a> </li>
                             @endcan
                             @can('operator.manage')
                                 <div class="p-2">
