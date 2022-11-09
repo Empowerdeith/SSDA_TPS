@@ -15,6 +15,7 @@ use App\Mail\Mailsend;
 use Session;
 use Alert;
 use Redirect;
+use Config;
 
 class RaffleController extends Controller
 {
@@ -26,7 +27,7 @@ class RaffleController extends Controller
     public function get_vacaciones(){
         $curl2 = curl_init();
         curl_setopt_array($curl2, array(
-        CURLOPT_URL => env('API_BUK_VACATIONS'),
+        CURLOPT_URL => config('api_buk.API_VACATIONS'),
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -48,7 +49,7 @@ class RaffleController extends Controller
     public function licenciapermiso(){
         $curl3 = curl_init();
         curl_setopt_array($curl3, array(
-        CURLOPT_URL => env('API_BUK_LICENSE_AND_PERMISSIONS'),
+        CURLOPT_URL => config('api_buk.API_LICENSE_AND_PERMISSIONS'),
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -73,7 +74,7 @@ class RaffleController extends Controller
 
         $curl = curl_init();
         curl_setopt_array($curl, array(
-        CURLOPT_URL => env('API_BUK_VACATIONS'),
+        CURLOPT_URL => config('api_buk.API_EMPLOYEES'),
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
