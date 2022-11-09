@@ -10,9 +10,10 @@
                         <i class="fa-solid me-2 fa-plus"></i>Agregar nuevo Destinatario</button>
                     <!-- Modal Form -->
                     <div class="modal fade" id="ModalForm" tabindex="-1" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
-                                <form action="">
+                                <form action="{{ route('recipients.addnewEmail') }}" method="POST">
+                                    @csrf
                                     <div class="modal-header blue_tps_bg">
                                     <h5 class="modal-title text-white"><i class="fa-solid me-2 fa-plus"></i>Agregar un nuevo Destinatario:</h5>
                                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -20,22 +21,31 @@
                                     <div class="modal-body">
                                     <div class="mb-3">
                                         <label for="name">Nombre Completo:<span class="text-danger">*</span></label>
-                                        <input type="text" name="name" class="form-control" id="Username" placeholder="Ingrese Nombre Completo">
+                                        <input type="text" name="name" class="form-control" id="name" placeholder="Ingrese Nombre Completo">
+                                        @if ($errors->has('name'))
+                                            <span class="text-danger">{{ $errors->first('name') }}</span>
+                                        @endif
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="cargo">Cargo:<span class="text-danger">*</span></label>
-                                        <input type="text" name="cargo" class="form-control" id="Cargo" placeholder="Ingrese Cargo">
+                                        <input type="text" name="cargo" class="form-control" id="cargo" placeholder="Ingrese Cargo">
+                                        @if ($errors->has('cargo'))
+                                            <span class="text-danger">{{ $errors->first('cargo') }}</span>
+                                        @endif
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="email">Email:<span class="text-danger">*</span></label>
                                         <input type="email" name="email" class="form-control" id="email" placeholder="correo@ejemplo.com">
+                                        @if ($errors->has('email'))
+                                            <span class="text-danger">{{ $errors->first('email') }}</span>
+                                        @endif
                                     </div>
 
                                     </div>
-                                    <div class="modal-footer pt-4">
-                                    <button type="button" class="btn btn-primary mx-auto w-100">Agregar Destinatario</button>
+                                        <div class="modal-footer pt-4">
+                                        <button type="submit" class="btn btn-primary mx-auto w-100" id="formSubmit">Agregar Destinatario</button>
                                     </div>
                                 </form>
                             </div>
@@ -57,19 +67,21 @@
                                 </tr>
                             </thead>
                             <tbody class="text-center">
-                                <tr>
-                                    <th scope="row">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1"/>
-                                        </div>
-                                    </th>
-                                    <td>Juan Testing</td>
-                                    <td>Equipo Tps</td>
-                                    <td>example@gmail.com</td>
-                                    <td>
-                                        <button type="submit" class="btn btn-primary btn-sm delete_users" ><i class="fa-solid fa-x"></i></button>
-                                    </td>
-                                </tr>
+                                @foreach($recipients as $recipients)
+                                    <tr>
+                                        <th scope="row">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                            </div>
+                                        </th>
+                                        <td>{{$recipients->name}}</td>
+                                        <td>{{$recipients->cargo}}</td>
+                                        <td>{{$recipients->email}}</td>
+                                        <td>
+                                            <button type="submit" class="btn btn-primary btn-sm delete_users" ><i class="fa-solid fa-x"></i></button>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -78,4 +90,12 @@
         </div>
     </div>
 </div>
+@if($errors->has('name') || $errors->has('cargo') ||$errors->has('email'))
+<script>
+    $(function() {
+        $("#ModalForm").modal("show");
+    });
+</script>
+@endif
 @endsection
+
