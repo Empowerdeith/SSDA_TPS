@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
+use Config;
 
 class HomeController extends Controller
 {
     //proceso para cambiar lo que se debe mostrar en la página.
     public function index(){
         //Se genera la conexión con la cuenta de admin de base de datos
-        $conn = oci_new_connect(env('DB_USERNAME'), env('DB_PASSWORD'), env('DB_HOST').'/'.env('DB_DATABASE'),"AL32UTF8");
+        $conn = oci_new_connect(config('oracle_conn_procedures.username'), config('oracle_conn_procedures.password'), config('oracle_conn_procedures.host/bd'),"AL32UTF8");
 
         $sql = 'BEGIN SP_COUNT_SORTEOS_USER(:user_id, :raffle_count); END;';
         $stmt = oci_parse($conn,$sql);

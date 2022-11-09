@@ -63,7 +63,9 @@ Route::group(['middleware' => ['role:Admin']], function () {
     Route::get('/stats', [StatsController::class, 'show']);
 
     //Agregar Destinatarios
-    Route::get('/manage_emails', [ManageEmailController::class, 'show']);
+    Route::get('/manage_emails', [ManageEmailController::class, 'show'])->name('recipients.showEmail');
+
+    Route::post('/manage_emails', [ManageEmailController::class, 'add_email'])->name('recipients.addnewEmail');
 
 });
 
@@ -80,7 +82,7 @@ Route::group(['middleware' => ['role:Admin|Funcionario']], function () {
 
     Route::get('/raffle_save', [RaffleController::class, 'SaveRaffle'])->name('raffle.save');
 
-    //Sorteo Manual ->middleware('permission:Admin')
+    //Sorteo Manual
     Route::get('/raffle_manual', [ManualRaffleController::class, 'show'])->name('raffle_manual.show');
     Route::post('/raffle_manual', [ManualRaffleController::class, 'GenerateManualRaffle']);
 

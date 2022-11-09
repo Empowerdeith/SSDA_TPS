@@ -6,12 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
+use Config;
 
 class StatsController extends Controller
 {
     public function show (){
         //Se genera la conexión con la cuenta de admin de base de datos
-        $conn = oci_new_connect(env('DB_USERNAME'), env('DB_PASSWORD'), env('DB_HOST').'/'.env('DB_DATABASE'),"AL32UTF8");
+        $conn = oci_new_connect(config('oracle_conn_procedures.username'), config('oracle_conn_procedures.password'), config('oracle_conn_procedures.host/bd'),"AL32UTF8");
 
         //Log::info($conn);
 
@@ -26,10 +27,9 @@ class StatsController extends Controller
         oci_execute($stid);
         oci_execute($curs);  // Execute the REF CURSOR like a normal statement id
         $notes = array();
-        //OCI_ASSOC+OCI_RETURN_NULLS
         while (($row = oci_fetch_array($curs, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
             $notes[]=$row;
-            Log::info($row);
+            //Log::info($row);
         }
 
         //Log::info($stats_data);
