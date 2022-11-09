@@ -25,8 +25,8 @@
                                     <div class="col-md-6 col-lg-4 mb-4">
                                         <h6 class="mb-3 text-primary"><i class="fas fa-pen-alt text-primary pe-2"></i> Cómo puedo acceder al sistema?</h6>
                                         <p>
-                                        Debes solicitar tu registro al administrador, quien te conferirá acceso al sistema. Puedes contactarle:
-                                        <a href="mailto:administadortps@tps.cl">administadortps@tps.cl</a>
+                                        Debes solicitar tu registro al administrador, quien te conferirá acceso al sistema. Para el registro el adminsitrador o funcionario designado debe
+                                        con tu Nombre, Rut, correo electronico y cargo. Tendras un nombre de usuario y contraseña que te seran conferidas por el administrador
                                         </p>
                                     </div>
 
@@ -34,20 +34,20 @@
                                         <h6 class="mb-3 text-primary"><i class="fas fa-user text-primary pe-2"></i> Cómo puedo realizar el sorteo?
                                         </h6>
                                         <p>
-                                        Una vez registrada tu cuenta podras ingresar con tus credenciales, seleccionar la opción "Realizar Sorteo", luego
-                                        presionar el boton "Sortear" y se te mostrará en pantalla los trabajadores seleccionados.
+                                        Una vez registrada tu cuenta podras ingresar con tus credenciales, seleccionar la opción "Sorteo Automatico", luego elegir el porcentaje de selección a aplicar
+                                         y finalmente presionar el boton "Realizar Sorteo". Una vez realizado, debes seleccionar los correos destinatarios de la lista de sorteados y presionar Guardar y Enviar.
                                     </p>
                                         </p>
                                     </div>
 
                                     <div class="col-md-6 col-lg-4 mb-4">
-                                        <h6 class="mb-3 text-primary"><i class="fas fa-rocket text-primary pe-2"></i> Que pasa si al presionar el boton "Sorteo" no sucede nada
+                                        <h6 class="mb-3 text-primary"><i class="fas fa-rocket text-primary pe-2"></i> Que pasa si al presionar el boton "Realizar Sorteo" no sucede nada
                                         o me sale error?
                                         </h6>
                                         <p>
-                                        Para esos casos esta la opción de realizar el sorteo manualmente. Para ello obtienes la información de los trabajadores de BuK, ingresas
-                                        ahora a la opción "Realizar Sorteo Manual", copias la información de Buk y presionas el botón "Sortear" y se te mostrará en pantalla los
-                                        trabajadores seleccionados.
+                                        Para esos casos esta la opción de realizar el sorteo manualmente. Para ello obtienes la información de los trabajadores de Buk, necesitas crear un excel
+                                        con 3 columnas sin encabezado. En la primera columna ingresas los Rut de los trabajadores, en la segunda sus nombres y en la tercera sus cargos correspondientes. Luego Ingresasa
+                                        a "Sorteo Manual", defines el porcentaje, cargas el archivo excel descrito anterioremente y presionar "Realizar Sorteo".
                                         </p>
                                     </div>
 
@@ -60,11 +60,10 @@
                                     </div>
 
                                     <div class="col-md-6 col-lg-4 mb-4">
-                                        <h6 class="mb-3 text-primary"><i class="fas fa-book-open text-primary pe-2"></i> Como puedo modificar el porcentaje de seleccion de trabajadores en un sorteo?
+                                        <h6 class="mb-3 text-primary"><i class="fas fa-book-open text-primary pe-2"></i> Como puedo obtener mayor información sobre el sistema?
                                         </h6>
                                         <p>
-                                        Solo el administrador puede modificar dicho porcentaje. Puedes contactarle:
-                                        <a href="mailto:administadortps@tps.cl">administadortps@tps.cl</a>
+                                        Debes pedir al administrador o funcionario designado que te proporciones el manual de usuario, donde podras encontrar en detalle como funciona el sistema.    
                                         </p>
                                     </div>
                                     </div>
