@@ -19,9 +19,11 @@ class HomeController extends Controller
 
         // Aqui se hace BIND al input
         oci_bind_by_name($stmt,':user_id',$user_id,-1);
+        //$time_raf = "YYYY/MM/DD HH24:MI:SS";
 
         // Aqui se hace BIND al output
         oci_bind_by_name($stmt,':raffle_count',$raffle_count,-1);
+        //oci_bind_by_name($stmt,':TIME_RAF',$time_raf,-1);
 
         // Se asigna el ID del usuario
         $user_id = auth()->user()->id;
@@ -30,6 +32,6 @@ class HomeController extends Controller
 
         //Log::info($raffle_count);
 
-        return view('home.index')->with(['raffle_count' => $raffle_count]);
+        return view('home.index')->with(['raffle_count' => $raffle_count ]);
     }
 }
