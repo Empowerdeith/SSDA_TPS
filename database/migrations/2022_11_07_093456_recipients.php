@@ -20,6 +20,23 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamps();
         });
+
+        Schema::create('users_recipents', function (Blueprint $table) {
+            $table->id();
+            $table->integer('users_id')->unsigned();
+            $table->integer('recipents_id')->unsigned();
+            $table->timestamps();
+
+            $table->foreign('users_id')
+            -> references('id')
+            ->on('users')
+            ->onDelete('cascade');
+
+            $table->foreign('recipents_id')
+            -> references('id')
+            ->on('recipients')
+            ->onDelete('cascade');
+        });
     }
 
     /**
@@ -29,6 +46,8 @@ return new class extends Migration
      */
     public function down()
     {
+        
+        Schema::dropIfExists('users_recipents');
         Schema::dropIfExists('recipients');
     }
 };
