@@ -15,4 +15,8 @@ class Recipients extends Model
         'email'
     ];
 
+    public function recipentsUser(){
+        return $this->belongsToMany(User::class);
+    }
+
 }
