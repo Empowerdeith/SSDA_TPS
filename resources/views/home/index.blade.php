@@ -37,8 +37,16 @@
     <div class="col-md-4">
         <div class="card shadow">
             <div class="card-body text-start">
-                <h5 class="card-title text-center">En construcción</h5>
-                <p class="card-text text-center"><i class="bi bi-people mr-3"></i>70</p>
+                <h5 class="card-title text-center">Fecha y hora del ultimo sorteo realizado por el usuario:</h5>
+                <p class="card-text text-center">
+                    @php
+                        $valor_time = "No hay fecha de sorteo";
+                        if (isset($time_raf)) {
+                            $valor_time=$time_raf;
+                        }
+                    @endphp
+                    <i class="bi bi-people mr-3"></i>{{$valor_time}}
+                </p>
             </div>
         </div>
     </div>
