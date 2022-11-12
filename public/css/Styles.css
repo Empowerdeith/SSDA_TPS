@@ -219,8 +219,8 @@ border: 0;
 
 /*Tabla Scroll*/
 .table-responsive {
-    min-height: 400px;
-    max-height:800px;
+    min-height:150px;
+    max-height:400px;
 }
 /*Testing Sweet alert buttons*/
 .swal2-styled.swal2-confirm{

@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\Lista;
 use App\Models\ListaRaffle;
 use App\Models\Raffle;
+use App\Models\Recipients;
 use Session;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Mailsend;
@@ -27,6 +28,7 @@ class ManualRaffleController extends Controller
         $porcentaje_manual = request('porcentaje_manual'); //the percentage of randomness
         Session::put('percentage_manual', $porcentaje_manual);
         $resultados = array();
+        $recipients = Recipients::all();
         try {
             //log::info($request!=null);
             if($request->file('texto_sorteados')!=null){
@@ -39,11 +41,12 @@ class ManualRaffleController extends Controller
                     array_splice($data_participantes, $x, 1);
                 }
                 Session::put('Lista_sorteados_m', $resultados);
+
             }
         }
          catch (\Throwable $th) {
         }
-        return view('raffle.Manual_raffle', compact('resultados','porcentaje_manual'));
+        return view('raffle.Manual_raffle', compact('resultados','porcentaje_manual','recipients'));
     }
 
 
@@ -52,7 +55,7 @@ class ManualRaffleController extends Controller
             /*Log::info("Correo de destinatario");
             Log::info($request->mail_form);*/
             if($request->mail_form!=null){
-                Log::info("Comienzo proceso con base de datos");
+                //Log::info("Comienzo proceso con base de datos");
                 if(Session::has('Lista_sorteados_m')){
                     $data_sorteados=Session::get('Lista_sorteados_m');
                 }
@@ -68,9 +71,14 @@ class ManualRaffleController extends Controller
                     $raffle=$data_sorteos_bd->id;
                     $Lista_usuario->raffles()->attach($raffle);
                 }
-                $mail_send=$request->mail_form;
+                if(!empty($_POST['RecipientsArr'])){
+                    foreach($_POST['RecipientsArr'] as $DestinatariosEscogidos){
+                        Mail::to($DestinatariosEscogidos)->send(new Mailsend($data_sorteados));
+                    }
+                }
+                //$mail_send=$request->mail_form;
                 //Log::info($mail_send);
-                Mail::to($mail_send)->send(new Mailsend($data_sorteados));
+                //Mail::to($mail_send)->send(new Mailsend($data_sorteados));
             }
         }
         catch (\Throwable $th) {
