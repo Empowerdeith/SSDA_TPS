@@ -54,6 +54,10 @@ class User extends Authenticatable
     public function userLista(){
         return $this->hasMany(Lista::class);
     }
+
+    public function userRecipents(){
+        return $this->belongsToMany(Recipents::class);
+    }
     
     /*public function userModelHasRoles(){
         return $this->hasMany(ModelsRole::class);

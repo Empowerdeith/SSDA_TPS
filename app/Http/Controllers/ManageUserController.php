@@ -7,11 +7,13 @@ use App\Models\User;
 use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
+
 class ManageUserController extends Controller
 {
     public function showUsers(){
 
-        $users = User::paginate(10);
+        $users = DB::table('users')->simplePaginate(5);
         return view('manageUsers.showUsers', compact('users'));
     }
 

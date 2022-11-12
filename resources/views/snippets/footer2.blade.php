@@ -54,16 +54,16 @@
               ¿Quiénes Somos?
             </h6>
             <p>
-              <a href="#!" class="text-reset">Historia</a>
+              <a href="https://www.tps.cl/tps/site/artic/20130805/pags/20130805155329.html" class="text-reset">Historia</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Valores TPS</a>
+              <a href="https://www.tps.cl/valores-tps/tps/2013-08-05/160744.html" class="text-reset">Valores TPS</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Nuestro Terminal</a>
+              <a href="https://www.tps.cl/tps/site/artic/20130814/pags/20130814172205.html" class="text-reset">Nuestro Terminal</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Directorio</a>
+              <a href="https://www.tps.cl/directorio/tps/2018-09-27/182401.html" class="text-reset">Directorio</a>
             </p>
           </div>
           <!-- Grid column -->
@@ -75,16 +75,16 @@
               Enlaces útiles
             </h6>
             <p>
-              <a href="#!" class="text-reset">TPS BUK</a>
+              <a href="https://tps.buk.cl/users/sign_in" class="text-reset">TPS BUK</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Acádemia TPS</a>
+              <a href="https://academia.tpsv.cl" class="text-reset">Acádemia TPS</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Soporte</a>
+              <a href="https://www.tps.cl/formulario-de-contacto/tps/2013-08-26/201110.html" class="text-reset">Soporte</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Ayuda</a>
+              <a href="https://www.tps.cl/mesa-de-ayuda-tps/tps/2012-11-29/120102.html" class="text-reset">Ayuda</a>
             </p>
           </div>
           <!-- Grid column -->

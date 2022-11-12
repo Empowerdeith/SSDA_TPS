@@ -1,6 +1,6 @@
 @extends('index.index_master')
 @section('content')
-    <section class="vh-100" style="background-color: #eee;">
+    <section class="vh-80" style="background-color: #eee;">
         <div class="container h-100 pt-5 pb-5">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-lg-12 col-xl-11">
@@ -41,11 +41,10 @@
                                     </div>
 
                                     <div class="col-md-6 col-lg-4 mb-4">
-                                        <h6 class="mb-3 text-primary"><i class="fas fa-rocket text-primary pe-2"></i> Que pasa si al presionar el boton "Realizar Sorteo" no sucede nada
-                                        o me sale error?
+                                        <h6 class="mb-3 text-primary"><i class="fas fa-rocket text-primary pe-2"></i> Qué pasa si el sorteo automatico no funciona?
                                         </h6>
                                         <p>
-                                        Para esos casos esta la opción de realizar el sorteo manualmente. Para ello obtienes la información de los trabajadores de Buk, necesitas crear un excel
+                                        Puede realizar el sorteo de forma "manual". Para ello obtienes la información de los trabajadores de Buk, necesitas crear un excel
                                         con 3 columnas sin encabezado. En la primera columna ingresas los Rut de los trabajadores, en la segunda sus nombres y en la tercera sus cargos correspondientes. Luego Ingresasa
                                         a "Sorteo Manual", defines el porcentaje, cargas el archivo excel descrito anterioremente y presionar "Realizar Sorteo".
                                         </p>
