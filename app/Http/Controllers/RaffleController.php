@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Lista;
 use App\Models\ListaRaffle;
 use App\Models\Raffle;
+use App\Models\Recipients;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\RaffleRequest;
@@ -141,7 +142,9 @@ class RaffleController extends Controller
             $resultados[]=$datos_filtrados[$x];
             array_splice($datos_filtrados, $x, 1);
         }
-        Log::info($resultados);
+        //Log::info($resultados);
+        //$recipients = Recipients::all();
+
         Session::put('Lista_sorteados', $resultados);
         return view('raffle.Auto_raffle', compact('resultados','porcentaje'));
     }
