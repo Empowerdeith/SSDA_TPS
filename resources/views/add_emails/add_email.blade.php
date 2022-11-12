@@ -8,7 +8,6 @@
                 <div class="card-body">
                     <button type="button" class="btn btn-primary btn-block d-table my-5 mx-auto" data-bs-toggle="modal" data-bs-target="#ModalForm">
                         <i class="fa-solid me-2 fa-plus"></i>Agregar nuevo Destinatario</button>
-                    <!-- Modal Form -->
                     <div class="modal fade" id="ModalForm" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
@@ -57,7 +56,7 @@
                                 <tr>
                                     <th scope="col">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                            <input class="form-check-input" type="checkbox" value="" id="checkAll" />
                                         </div>
                                     </th>
                                     <th scope="col">Nombre Completo</th>
@@ -78,7 +77,10 @@
                                         <td>{{$recipients->cargo}}</td>
                                         <td>{{$recipients->email}}</td>
                                         <td>
-                                            <button type="submit" class="btn btn-primary btn-sm delete_users" ><i class="fa-solid fa-x"></i></button>
+                                            <form class="mx-1 mx-md-4" action="{{route('recipients.Delete', $recipients->id)}}" method="POST">
+                                                @csrf
+                                                <button type="submit" class="btn btn-primary btn-sm delete_users" ><i class="fa-solid fa-x"></i></button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach

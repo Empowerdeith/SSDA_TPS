@@ -67,6 +67,8 @@ Route::group(['middleware' => ['role:Admin']], function () {
 
     Route::post('/manage_emails', [ManageEmailController::class, 'add_email'])->name('recipients.addnewEmail');
 
+    Route::post('/deleteRecipient/{id}',[ManageEmailController::class, 'deleteRecipients'])->name('recipients.Delete');
+
 });
 
 //Rutas para Admin y funcionario
