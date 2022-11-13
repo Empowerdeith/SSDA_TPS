@@ -240,3 +240,37 @@ i .big-icon{
     padding-right: 6rem!important;
     padding-left: 6rem!important;
 }
+
+/*Testing email check*/
+#show-emails>ul{
+    list-style: none;
+    margin-left: 0;
+    display: inline-block;
+    padding-inline-start: 0;
+    margin-top: 1rem;
+}
+#show-emails>ul>li{
+    padding: 5px 10px;
+    margin-bottom: 3px;
+}
+.remove{
+    padding: 0 .6rem;
+    cursor: pointer;
+    float: right
+}
+.email-error{
+    margin: 0.8rem;
+    /*padding: .7rem;*/
+    color: #ff0000;
+}
+
+.hide_style{
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: none;
+    background-color: transparent;
+}
+.hide_style:focus{
+    outline: none;
+}
