@@ -27,7 +27,6 @@
                 }
                 if (keynum == 13){
                     let email = $('#email').val().replace(/\s+$/, '').split(",");
-                    emailList=[];
                     //console.log(email);
                     email.forEach(test_mail);
                     function test_mail(element) {
@@ -38,7 +37,6 @@
                             if(!emailList.includes(element)){
                                 emailList.push(element);
                             }
-
                             console.log(emailList);
                             //console.log("aca viene emaillist");
                             //console.log(emailList);
@@ -62,7 +60,7 @@
                                 $("#show-emails").after(errrMessage);
                             }else{
                                 $('#email').parent().after(errrMessage);
-                                //console.log($('#email').parent());
+                                console.log($('#email').parent());
                             }
                         }
                     }
