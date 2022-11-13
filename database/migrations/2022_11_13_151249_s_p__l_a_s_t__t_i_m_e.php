@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        $command = "create or replace PROCEDURE SP_COUNT_SORTEOS_USER (USER_N IN NUMBER, USER_COUNT OUT VARCHAR, POSITION_C OUT VARCHAR )
-                    AS
-                        begin
-                        select count(user_id) INTO USER_COUNT from lista where (user_id = USER_N);
-                        SELECT CARGO INTO POSITION_C FROM USERS WHERE (ID = USER_N);
-                    end;"
-                    ;
+        $command = "
+        CREATE OR REPLACE PROCEDURE SP_LAST_TIME (USER_N IN NUMBER, TIME_RAF OUT VARCHAR)
+        AS
+        BEGIN
+            SELECT TO_CHAR(CREATED_AT, 'YYYY/MM/DD HH24:MI:SS') INTO TIME_RAF FROM LISTA WHERE ID=(SELECT MAX(ID) FROM LISTA) AND USER_ID = USER_N;
+        END;";
 
         DB::connection()->getPdo()->exec($command);
 
@@ -32,7 +31,7 @@ return new class extends Migration
      */
     public function down()
     {
-        $command = "DROP PROCEDURE SP_COUNT_SORTEOS_USER";
+        $command = "DROP PROCEDURE SP_LAST_TIME";
         DB::connection()->getPdo()->exec($command);
     }
 };
