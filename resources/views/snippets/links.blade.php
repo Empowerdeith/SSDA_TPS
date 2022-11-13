@@ -9,3 +9,4 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script src="{{ asset('js/jquery.multi-emails.js')}}"></script>
