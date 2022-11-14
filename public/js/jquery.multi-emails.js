@@ -33,7 +33,6 @@
 
                         if (re.test(String(element).toLowerCase())){
 
-                            //console.log("soy el elemento"+element);
                             if(!emailList.includes(element)){
                                 emailList.push(element);
                             }
