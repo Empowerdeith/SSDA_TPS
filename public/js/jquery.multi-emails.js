@@ -37,8 +37,6 @@
                             if(!emailList.includes(element)){
                                 emailList.push(element);
                             }
-                            console.log(emailList);
-                            //console.log("aca viene emaillist");
                             //console.log(emailList);
                             let displayList = '';
 
