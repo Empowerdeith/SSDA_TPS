@@ -81,7 +81,7 @@
                     @csrf
                     <div class="form-group col-md-12 pb-4">
                         <h3 class="blue_tps"><i class="fa-solid fa-envelopes-bulk me-3"></i></i>Seleccione Destinatarios:</h3>
-                        <p>Puedes escoger el/los destinatarios de la siguiente lista o alternativamente, ingresar nuevos destinatarios.</p>
+                        <p>Puedes escoger el/los destinatario(s) de la siguiente lista.</p>
                         <div class="table-responsive">
                             <table class="table table-bordered">
                                 <thead class="text-center blue_tps_bg text-white">
@@ -113,8 +113,10 @@
                             </table>
                         </div>
                     </div>
-                    <div class="form-group col-md-6 pb-5">
-                        <input id="mail_data" class="form-control" type="email" placeholder="correo@ejemplo.com" name="mail_form">
+                    <div class="form-group col-md-6 pb-4">
+                        <h4 class="blue_tps"><i class="fa-solid fa-envelopes-bulk me-3"></i></i>Agregar Destinatarios adicionales:</h4>
+                        <p>En caso de ser necesario, puedes ingresar destinatarios adicionales.<br>Los correos electrónicos se deben ingresar separados por un carácter coma (,).<br><br>Ejemplo: correo1@ejemplo.com,correo2@ejemplo.com.</p>
+                        <input id="email-addresses" class="form-control" type="text" name="mail_form">
                     </div>
                     <div class="form-group col-md-6">
                         <input type="submit" class="btn btn-primary text-white show_confirm send_save_employees" value="Guardar y Enviar Sorteo">
