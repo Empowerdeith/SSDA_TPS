@@ -53,8 +53,16 @@
     <div class="col-md-4">
         <div class="card shadow">
             <div class="card-body text-start">
-                <h5 class="card-title text-center">En construcción</h5>
-                <p class="card-text text-center"><i class="bi bi-people mr-3"></i>100+</p>
+                <h5 class="card-title text-center">Cargo</h5>
+                <p class="card-text text-center">
+                    @php
+                        $valor_pos = "No hay cargo asociado";
+                        if (isset($position)) {
+                            $valor_pos=$position;
+                        }
+                    @endphp
+                    <i class="bi bi-people mr-3"></i>{{$valor_pos}}
+                </p>
             </div>
         </div>
     </div>
