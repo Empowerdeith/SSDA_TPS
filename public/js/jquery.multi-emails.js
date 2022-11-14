@@ -43,7 +43,7 @@
                             emailList.forEach((value, ind) => {
                                 displayList += "<li style='background-color:"+hexToRgbA(settings.color)+";border-left: 3px solid"+settings.color+"'><input type='text' class='hide_style' name='ExtraRecipientsArr[]' value='"+value+"'readonly ><span class='float-right remove' data-index="+ind+">"+((settings.fontAwesome === true)?'<i class=\"fas fa-times\"></i>':'X')+"</span></li>"
                             } )
-                            let buildEmailList = '<div id="show-emails"><ul style="color:'+settings.textColor+'">'+displayList+'</ul></div>'
+                            let buildEmailList = '<div id="show-emails"><ul id="email-lists" style="color:'+settings.textColor+'">'+displayList+'</ul></div>'
                             if($("#show-emails").length){
                                 $("#show-emails").replaceWith(buildEmailList);
                             }else{
