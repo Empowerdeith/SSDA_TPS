@@ -51,41 +51,35 @@ class ManualRaffleController extends Controller
 
 
     public function Save_Manual_Raffle(ManualRaffleRequests $request){
+        //
         try{
-            /*Log::info("Correo de destinatario");
-            Log::info($request->mail_form);*/
-            //if($request->mail_form!=null){
-            //Log::info("Comienzo proceso con base de datos");
-            if(Session::has('Lista_sorteados_m')){
-                $data_sorteados=Session::get('Lista_sorteados_m');
-            }
-            $Lista_usuario=Lista::create([
-                'user_id' => auth()->user()->id,
-            ]);
-            foreach ($data_sorteados as $i => $row) {
-                $data_sorteos_bd=Raffle::create([
-                    'rut' => $row[0],
-                    'name'=> $row[1],
-                    'cargo' => $row[2],
+            if(!empty($_POST['RecipientsArr'])||!empty($_POST['ExtraRecipientsArr'])){
+                if(Session::has('Lista_sorteados_m')){
+                    $data_sorteados=Session::get('Lista_sorteados_m');
+                }
+                $Lista_usuario=Lista::create([
+                    'user_id' => auth()->user()->id,
                 ]);
-                $raffle=$data_sorteos_bd->id;
-                $Lista_usuario->raffles()->attach($raffle);
-            }
-            if(!empty($_POST['RecipientsArr'])){
-                foreach($_POST['RecipientsArr'] as $DestinatariosEscogidos){
-                    Mail::to($DestinatariosEscogidos)->send(new Mailsend($data_sorteados));
+                foreach ($data_sorteados as $i => $row) {
+                    $data_sorteos_bd=Raffle::create([
+                        'rut' => $row[0],
+                        'name'=> $row[1],
+                        'cargo' => $row[2],
+                    ]);
+                    $raffle=$data_sorteos_bd->id;
+                    $Lista_usuario->raffles()->attach($raffle);
+                }
+                if(!empty($_POST['RecipientsArr'])){
+                    foreach($_POST['RecipientsArr'] as $DestinatariosEscogidos){
+                        Mail::to($DestinatariosEscogidos)->send(new Mailsend($data_sorteados));
+                    }
+                }
+                if(!empty($_POST['ExtraRecipientsArr'])){
+                    foreach($_POST['ExtraRecipientsArr'] as $DestinatariosEscogidos){
+                        Mail::to($DestinatariosEscogidos)->send(new Mailsend($data_sorteados));
+                    }
                 }
             }
-            if(!empty($_POST['ExtraRecipientsArr'])){
-                foreach($_POST['ExtraRecipientsArr'] as $DestinatariosEscogidos){
-                    Mail::to($DestinatariosEscogidos)->send(new Mailsend($data_sorteados));
-                }
-            }
-            Log::info($_POST['ExtraRecipientsArr']);
-            //$mail_send=$request->mail_form;
-            //Log::info($mail_send);
-            //Mail::to($mail_send)->send(new Mailsend($data_sorteados));
-            //}
         }
         catch (\Throwable $th) {
         }

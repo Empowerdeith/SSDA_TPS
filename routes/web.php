@@ -28,7 +28,7 @@ use App\Http\Controllers\ManageEmailController;
 //Rutas que son accesibles por todo tipo de usuario
 Route::get('/', [IndexController::class, 'show']);
 
-Route::get('/login', [LoginController::class, 'show']);
+Route::get('/login', [LoginController::class, 'show'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 
 Route::get('/faq',[ManageUserController::class, 'faq'])->name('faq');
@@ -43,7 +43,7 @@ Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showRese
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 //--------------------------------------------------
 //Rutas de Admin
-Route::group(['middleware' => ['role:Admin']], function () {
+Route::group(['middleware' => ['checkLogout','role:Admin']], function () {
     //registrar usuario
     Route::get('/register', [RegisterController::class, 'show']);
 
@@ -72,7 +72,7 @@ Route::group(['middleware' => ['role:Admin']], function () {
 });
 
 //Rutas para Admin y funcionario
-Route::group(['middleware' => ['role:Admin|Funcionario']], function () {
+Route::group(['middleware' => ['checkLogout','role:Admin|Funcionario']], function () {
     //hogar
     Route::get('/home', [HomeController::class, 'index']);
     //cerrar sesión de usuario
