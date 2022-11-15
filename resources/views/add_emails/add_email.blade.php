@@ -1,11 +1,11 @@
 @extends('index.index_sidebar')
 @section('content_home')
-<h1 class="text-center blue_tps">Gestionar emails de Destinatarios:</h1>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12">
             <div class="card shadow-2-strong">
                 <div class="card-body">
+                    <h1 class="text-center blue_tps"><i class="fa-solid fa-envelope big_icons me-2"></i>Gestionar emails de Destinatarios:</h1>
                     <button type="button" class="btn btn-primary btn-block d-table my-5 mx-auto" data-bs-toggle="modal" data-bs-target="#ModalForm">
                         <i class="fa-solid me-2 fa-plus"></i>Agregar nuevo Destinatario</button>
                     <div class="modal fade" id="ModalForm" tabindex="-1" aria-hidden="true">
