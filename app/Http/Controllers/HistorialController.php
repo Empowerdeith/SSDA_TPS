@@ -16,6 +16,7 @@ use Excel;
 class HistorialController extends Controller
 {
     public function historial(Request $request){
+        $currentDate = date('Y-m-d');;
         $fromDate = $request->input('fromDate');
         //Log::info($fromDate);
         $toDate   = $request->input('toDate');
@@ -23,7 +24,7 @@ class HistorialController extends Controller
         $query = DB::select("select * from lista where to_char(created_at,'yyyy-mm-dd') >= to_date(?) and to_char(created_at,'yyyy-mm-dd') <= ?", [$fromDate,$toDate]);
         //Log::info($query);
 
-        return view('historial.historial',compact('query'));
+        return view('historial.historial',compact('query','fromDate','toDate','currentDate'));
     }
 
     public function historialdetalle($id){

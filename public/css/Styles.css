@@ -83,6 +83,11 @@ select, option, input::placeholder, input{
     background-color: #144578;
     border-color: #144578;
 }
+.btn-clear-state{
+    border-radius: 0px!important;
+    border-radius: transparent!important;
+    border-color: transparent!important;
+}
 .link-secondary{
     color: white!important;
 }
@@ -280,4 +285,7 @@ i .big-icon{
 
 .swal2-loader{
     border-color:#144578 rgba(0,0,0,0) #144578 rgba(0,0,0,0)!important;
+}
+.remclass2{
+    font-size: 2rem!important;
 }

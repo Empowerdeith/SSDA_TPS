@@ -25,7 +25,7 @@
                     </div>
                     <div class="col-lg-4 col-sm-4 form-group range__value">
                         <label>Porcentaje de sorteo</label>
-                        <span></span>
+                        <span class="remclass2"></span>
                     </div>
                     <div class="col">
                         <p>Sube tu archivo excel aquí: </p>
@@ -51,13 +51,13 @@
                     <table class="table table-bordered">
                         <thead class="text-center blue_tps_bg text-white">
                             <tr>
-                                <th scope="col"></th>
+                                <th scope="col">N°</th>
                                 <th scope="col">Rut</th>
                                 <th scope="col">Nombre Completo</th>
                                 <th scope="col">Cargo</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="text-center">
                             @php
                                 $number=1;
                             @endphp
@@ -86,7 +86,7 @@
                             <table id="tabla_destinatarios" class="table table-bordered">
                                 <thead class="text-center blue_tps_bg text-white">
                                     <tr>
-                                        <th scope="col" class="text-center">
+                                        <th scope="col">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="" id="checkAll" />
                                             </div>
@@ -96,7 +96,7 @@
                                         <th scope="col">Correo Electrónico</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class="text-center">
                                     @foreach($recipients as $recipients)
                                         <tr>
                                             <th scope="row">
