@@ -72,7 +72,7 @@ class RaffleController extends Controller
 
     public function generateRaffle(){
         $porcentaje = request('percentage');
-
+        $recipients = Recipients::all();
         $curl = curl_init();
         curl_setopt_array($curl, array(
         CURLOPT_URL => config('api_buk.API_EMPLOYEES'),
@@ -146,16 +146,16 @@ class RaffleController extends Controller
         //$recipients = Recipients::all();
 
         Session::put('Lista_sorteados', $resultados);
-        return view('raffle.Auto_raffle', compact('resultados','porcentaje'));
+        return view('raffle.Auto_raffle', compact('resultados','porcentaje','recipients'));
     }
 
 
     public function SaveRaffle(RaffleRequest $request){
         try{
-            Log::info($request->mail_form);
-            if($request->mail_form!=null){
+            if(!empty($_POST['RecipientsArr'])||!empty($_POST['ExtraRecipientsArr'])){
                 if(Session::has('Lista_sorteados')){
                     $data_sorteados_auto=Session::get('Lista_sorteados');
+                    //Log::info($data_sorteados_auto);
                 }
                 $Lista_usuario=Lista::create([
                     'user_id' => auth()->user()->id,
@@ -169,9 +169,16 @@ class RaffleController extends Controller
                     $raffle=$data_sorteos_bd->id;
                     $Lista_usuario->raffles()->attach($raffle);
                 }
-                $mail_send=$request->mail_form;
-                Log::info($mail_send);
-                Mail::to($mail_send)->send(new Mailsend($data_sorteados_auto));
+                if(!empty($_POST['RecipientsArr'])){
+                    foreach($_POST['RecipientsArr'] as $DestinatariosEscogidos){
+                        Mail::to($DestinatariosEscogidos)->send(new Mailsend($data_sorteados_auto));
+                    }
+                }
+                if(!empty($_POST['ExtraRecipientsArr'])){
+                    foreach($_POST['ExtraRecipientsArr'] as $DestinatariosEscogidos){
+                        Mail::to($DestinatariosEscogidos)->send(new Mailsend($data_sorteados_auto));
+                    }
+                }
             }
         }
         catch(\Throwable $th){

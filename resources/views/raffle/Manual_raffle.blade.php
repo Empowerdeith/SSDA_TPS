@@ -6,7 +6,7 @@
             <div class="col">
                 <h1 class="text-center blue_tps"><i class="fa-solid fa-address-book me-3"></i>Sorteo Manual</h1>
                 <p class="text-center">
-                Este es el Sorteo Manual de test de drogas y alcohol, para utilizar este módulo debes subir un archivo en formato excel y luego escribir él o los correos de destino.
+                Este es el Sorteo Manual de test de drogas y alcohol, para utilizar este módulo debes subir un archivo en formato excel, seleccionar un porcentaje de sorteo y presionar realizar sorteo.
                 </p>
             </div>
         </div>
