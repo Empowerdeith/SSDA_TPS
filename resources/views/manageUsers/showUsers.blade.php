@@ -15,11 +15,12 @@
                                                 <tr>
                                                     <th>Nombre</th>
                                                     <th>Rut</th>
-                                                    <th>Nombre Usuario</th>
+                                                    <th>Usuario</th>
                                                     <th>Email</th>
                                                     <th>Cargo</th>
-                                                    <th>Editar</th>
-                                                    <th class="text-center">Eliminar</th>
+                                                    <th>Perfil</th>
+                                                    <th>Contraseña</th>
+                                                    <th>Eliminar</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="text-center">
@@ -30,7 +31,8 @@
                                                     <td>{{$user -> username}}</td>
                                                     <td>{{$user -> email}}</td>
                                                     <td>{{$user -> cargo}}</td>
-                                                    <td class="text-center"><a class="blue_tps" href="{{route('updateUserView', $user->id)}}"><i class="fa-solid fa-pen-to-square big_icons"></i></a></td>
+                                                    <td class="text-center"><a class="blue_tps" href="{{route('updateUserView', $user->id)}}"><i class="fa-solid fa-user-pen big_icons"></i></a></td>
+                                                    <td class="text-center"><a class="blue_tps" href="{{route('updatePasswordUserView', $user->id)}}"><i class="fa-solid fa-pen-to-square big_icons"></i></a></td>
                                                     <td class="text-center">
                                                         <form class="mx-1 mx-md-4" action="{{route('deleteUser', $user->id)}}" method="POST">
                                                             @csrf
