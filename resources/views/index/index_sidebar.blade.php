@@ -21,7 +21,7 @@
                                 <li class="list-group-item">
                                     <a href="/stats" class="text-decoration-none blue_tps"><i class="fa-solid fa-chart-pie me-2 big_icons"></i><span class="font_18">Estadísticas</span></a> </li>
                                 <li class="list-group-item">
-                                    <a href="/manage_emails" class="text-decoration-none blue_tps"><i class="fa-solid fa-envelope-open-text me-2 big_icons"></i><span class="font_18">Agregar Correos</span></a> </li>
+                                    <a href="/manage_emails" class="text-decoration-none blue_tps"><i class="fa-solid fa-envelope-open-text me-2 big_icons"></i><span class="font_18">Agregar Destinatarios</span></a> </li>
                             @endcan
                             @can('operator.manage')
                                 <div class="p-2">

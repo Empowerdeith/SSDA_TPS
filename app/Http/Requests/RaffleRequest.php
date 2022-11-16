@@ -24,7 +24,6 @@ class RaffleRequest extends FormRequest
     public function rules()
     {
         return [
-            'mail_form' => 'email:rfc,dns',
         ];
     }
 }
