@@ -32,13 +32,35 @@ class StatsController extends Controller
             //Log::info($row);
         }
 
+
+        foreach($notes as $empleado)
+        {
+            $name[] = $empleado["NAME"];
+            $counter[] = $empleado["VALOR"];
+        }
+
+        if(isset($empleado)){
+            $name = array_slice($name, 0, 5);
+        }
+        else {
+            $name=['No hay empleados sorteados aun'];
+            $counter=[0];
+        }
+        //$counter = array_slice($counter, 0, 5);
+
+        //$name = json_encode($name);
+        //$counter = json_encode($counter);
+
+        //Log::info($name);
+        //Log::info($counter);
+
         //Log::info($stats_data);
 
         oci_free_statement($stid);
         oci_free_statement($curs);
         oci_close($conn);
 
-        return view('stats.stats')->with(['notes' => $notes]);
+        return view('stats.stats')->with(['notes' => $notes,'counter' => $counter,'name' => $name]);
     }
 
  }

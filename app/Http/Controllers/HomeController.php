@@ -19,19 +19,14 @@ class HomeController extends Controller
 
         // Se asigna el ID del usuario
         $user_id = auth()->user()->id;
-        $maxlength=4096;
+        $maxlength=5000;
         // Aqui se hace BIND al input
         oci_bind_by_name($stmt,':user_id',$user_id,$maxlength);
         // Aqui se hace BIND al output
         oci_bind_by_name($stmt,':raffle_count',$raffle_count,$maxlength);
         oci_bind_by_name($stmt,':position',$position,$maxlength);
 
-
-
-
         oci_execute($stmt);
-
-        $time_raf = "  Aun no se han realizado sorteos  ";
 
         if($raffle_count > 0){
 
@@ -39,10 +34,10 @@ class HomeController extends Controller
             $stmt_time = oci_parse($conn,$sql_time);
 
             // Aqui se hace BIND al input
-            oci_bind_by_name($stmt_time,':user_id',$user_id,-1);
+            oci_bind_by_name($stmt_time,':user_id',$user_id,$maxlength);
 
             // Aqui se hace BIND al output
-            oci_bind_by_name($stmt_time,':time_raf',$time_raf,-1);
+            oci_bind_by_name($stmt_time,':time_raf',$time_raf,$maxlength);
 
             oci_execute($stmt_time);
 
