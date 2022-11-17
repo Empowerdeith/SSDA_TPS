@@ -24,6 +24,13 @@ class ManageUserController extends Controller
         return view('manageUsers.updateUser', compact('user'));
     }
 
+    
+    public function updatePasswordUserView($id){
+
+        $user = User::findOrFail($id);
+        return view('manageUsers.updatePasswordUser', compact('user'));
+    }
+
     public function updateUser(Request $request, $id){
 
         $user = User::findOrFail($id);
@@ -32,20 +39,32 @@ class ManageUserController extends Controller
             'name' => 'required|between:5,30',
             'username' => ['required','max:20',Rule::unique('users')->ignore($user->id),],
             'email' => ['required', Rule::unique('users')->ignore($user->id),],
-            'password' => 'required|between:8,20',
-            'password_confirmation' => 'required|same:password',
             'cargo' => ['required', 'max:35']
         ]);
 
         $user -> name = $request->name;
         $user -> username = $request->username;
         $user -> email = $request->email;
-        $user -> password = $request->password;
         $user -> cargo = $request->cargo;
 
         $user -> save();
 
         return redirect()->back()->with('success', 'Usuario Actualizado exitosamente.');
+    }
+
+    public function updatePasswordUser(Request $request, $id){
+
+        $user = User::findOrFail($id);
+
+        $this->validate($request,[
+            'password' => 'required|between:8,20',
+            'password_confirmation' => 'required|same:password',
+        ]);
+
+        $user -> password = $request->password;
+        $user -> save();
+
+        return redirect()->back()->with('success', 'Contraseña Actualizada exitosamente.');
     }
 
     public function deleteUser($id){
