@@ -54,6 +54,9 @@ Route::group(['middleware' => ['checkLogout','role:Admin']], function () {
 
     Route::get('/updateUserView/{id}',[ManageUserController::class, 'updateUserView'])->name('updateUserView');
     Route::post('/updateUser/{id}',[ManageUserController::class, 'updateUser'])->name('updateUser');
+    
+    Route::get('/updatePasswordUserView/{id}',[ManageUserController::class, 'updatePasswordUserView'])->name('updatePasswordUserView');
+    Route::post('/updatePasswordUser/{id}',[ManageUserController::class, 'updatePasswordUser'])->name('updatePasswordUser');
 
     Route::post('/deleteUser/{id}',[ManageUserController::class, 'deleteUser'])->name('deleteUser');
     //logs para admin
