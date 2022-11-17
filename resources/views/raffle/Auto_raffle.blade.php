@@ -32,6 +32,11 @@
                     </div>
                 </div>
             </form>
+            @if($errors->count())
+                @foreach ($errors->all() as $error)
+                    <div>{{ $error }}</div>
+                @endforeach
+            @endif
         </div>
         @if (isset($resultados)&& count($resultados)>0)
             <h2 class="blue_tps pb-2"><i class="fa-solid fa-clipboard-list me-3"></i>Listado del personal sorteado:</h2>

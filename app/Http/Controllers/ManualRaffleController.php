@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
-use App\Http\Requests\ManualRaffleRequests;
+use App\Http\Requests\CheckRaffleRequests;
+use App\Http\Requests\CheckFileRequest;
 use App\Models\User;
 use App\Models\Lista;
 use App\Models\ListaRaffle;
@@ -24,7 +25,7 @@ class ManualRaffleController extends Controller
     public function show(){
         return view('raffle.Manual_raffle');
     }
-    public function GenerateManualRaffle(ManualRaffleRequests $request){
+    public function GenerateManualRaffle(CheckFileRequest $request){
         $porcentaje_manual = request('porcentaje_manual'); //the percentage of randomness
         Session::put('percentage_manual', $porcentaje_manual);
         $resultados = array();
@@ -50,10 +51,11 @@ class ManualRaffleController extends Controller
     }
 
 
-    public function Save_Manual_Raffle(ManualRaffleRequests $request){
+    public function Save_Manual_Raffle(CheckRaffleRequests $request){
         //
         try{
-            if(!empty($_POST['RecipientsArr'])||!empty($_POST['ExtraRecipientsArr'])){
+            if(!empty($request->RecipientsArr)||!empty($request->ExtraRecipientsArr)){
+                //Log::info($_POST['ExtraRecipientsArr']);
                 if(Session::has('Lista_sorteados_m')){
                     $data_sorteados=Session::get('Lista_sorteados_m');
                 }
@@ -69,13 +71,13 @@ class ManualRaffleController extends Controller
                     $raffle=$data_sorteos_bd->id;
                     $Lista_usuario->raffles()->attach($raffle);
                 }
-                if(!empty($_POST['RecipientsArr'])){
-                    foreach($_POST['RecipientsArr'] as $DestinatariosEscogidos){
+                if(!empty($request->RecipientsArr)){
+                    foreach($request->RecipientsArr as $DestinatariosEscogidos){
                         Mail::to($DestinatariosEscogidos)->send(new Mailsend($data_sorteados));
                     }
                 }
-                if(!empty($_POST['ExtraRecipientsArr'])){
-                    foreach($_POST['ExtraRecipientsArr'] as $DestinatariosEscogidos){
+                if(!empty($request->ExtraRecipientsArr)){
+                    foreach($request->ExtraRecipientsArr as $DestinatariosEscogidos){
                         Mail::to($DestinatariosEscogidos)->send(new Mailsend($data_sorteados));
                     }
                 }

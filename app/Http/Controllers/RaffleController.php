@@ -11,7 +11,7 @@ use App\Models\Raffle;
 use App\Models\Recipients;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
-use App\Http\Requests\RaffleRequest;
+use App\Http\Requests\CheckRaffleRequests;
 use App\Mail\Mailsend;
 use Session;
 use Alert;
@@ -150,9 +150,9 @@ class RaffleController extends Controller
     }
 
 
-    public function SaveRaffle(RaffleRequest $request){
+    public function SaveRaffle(CheckRaffleRequests $request){
         try{
-            if(!empty($_POST['RecipientsArr'])||!empty($_POST['ExtraRecipientsArr'])){
+            if(!empty($request->RecipientsArr)||!empty($request->ExtraRecipientsArr)){
                 if(Session::has('Lista_sorteados')){
                     $data_sorteados_auto=Session::get('Lista_sorteados');
                     //Log::info($data_sorteados_auto);
@@ -169,13 +169,13 @@ class RaffleController extends Controller
                     $raffle=$data_sorteos_bd->id;
                     $Lista_usuario->raffles()->attach($raffle);
                 }
-                if(!empty($_POST['RecipientsArr'])){
-                    foreach($_POST['RecipientsArr'] as $DestinatariosEscogidos){
+                if(!empty($request->RecipientsArr)){
+                    foreach($request->RecipientsArr as $DestinatariosEscogidos){
                         Mail::to($DestinatariosEscogidos)->send(new Mailsend($data_sorteados_auto));
                     }
                 }
-                if(!empty($_POST['ExtraRecipientsArr'])){
-                    foreach($_POST['ExtraRecipientsArr'] as $DestinatariosEscogidos){
+                if(!empty($request->ExtraRecipientsArr)){
+                    foreach($request->ExtraRecipientsArr as $DestinatariosEscogidos){
                         Mail::to($DestinatariosEscogidos)->send(new Mailsend($data_sorteados_auto));
                     }
                 }

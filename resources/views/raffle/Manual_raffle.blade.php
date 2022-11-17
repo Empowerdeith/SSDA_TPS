@@ -34,7 +34,6 @@
                         </div>
                         <div class="pb-5">
                             <div class="alert-danger red_color">{{$errors -> first('texto_sorteados')}}</div>
-                            <div class="alert-danger red_color">{{$errors -> first('mail_form')}}</div>
                         </div>
                         <div class="text-center pb-3">
                             <input type="submit" class="btn btn-primary text-white btn-lg button-style" value="Realizar Sorteo">

@@ -17,15 +17,17 @@ class HomeController extends Controller
         $sql = 'BEGIN SP_COUNT_SORTEOS_USER(:user_id, :raffle_count, :position); END;';
         $stmt = oci_parse($conn,$sql);
 
-        // Aqui se hace BIND al input
-        oci_bind_by_name($stmt,':user_id',$user_id,-1);
-        $position = "                            ";
-        // Aqui se hace BIND al output
-        oci_bind_by_name($stmt,':raffle_count',$raffle_count,-1);
-        oci_bind_by_name($stmt,':position',$position,-1);
-
         // Se asigna el ID del usuario
         $user_id = auth()->user()->id;
+        $maxlength=4096;
+        // Aqui se hace BIND al input
+        oci_bind_by_name($stmt,':user_id',$user_id,$maxlength);
+        // Aqui se hace BIND al output
+        oci_bind_by_name($stmt,':raffle_count',$raffle_count,$maxlength);
+        oci_bind_by_name($stmt,':position',$position,$maxlength);
+
+
+
 
         oci_execute($stmt);
 
@@ -41,9 +43,6 @@ class HomeController extends Controller
 
             // Aqui se hace BIND al output
             oci_bind_by_name($stmt_time,':time_raf',$time_raf,-1);
-
-            // Se asigna el ID del usuario
-            $user_id = auth()->user()->id;
 
             oci_execute($stmt_time);
 
