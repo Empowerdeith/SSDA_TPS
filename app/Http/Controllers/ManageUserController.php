@@ -62,6 +62,7 @@ class ManageUserController extends Controller
         ]);
 
         $user -> password = $request->password;
+        
         $user -> save();
 
         return redirect()->back()->with('success', 'Contraseña Actualizada exitosamente.');
