@@ -14,10 +14,11 @@ return new class extends Migration
     public function up()
     {
         $command = "
-        CREATE OR REPLACE PROCEDURE SP_LAST_TIME (USER_N IN NUMBER, TIME_RAF OUT VARCHAR)
+        CREATE OR REPLACE PROCEDURE SP_LAST_TIME (USER_N IN NUMBER, TIME_RAF OUT SYS_REFCURSOR)
         AS
         BEGIN
-            SELECT TO_CHAR(CREATED_AT, 'YYYY/MM/DD HH24:MI:SS') INTO TIME_RAF FROM LISTA WHERE ID=(SELECT MAX(ID) FROM LISTA) AND USER_ID = USER_N;
+            OPEN TIME_RAF FOR
+            SELECT TO_CHAR(CREATED_AT, 'YYYY/MM/DD HH24:MI:SS')as TIME FROM LISTA WHERE ID=(SELECT MAX(ID) FROM LISTA) AND USER_ID = USER_N;
         END;";
 
         DB::connection()->getPdo()->exec($command);

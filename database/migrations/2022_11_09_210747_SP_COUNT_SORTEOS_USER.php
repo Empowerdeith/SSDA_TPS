@@ -13,11 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        $command = "create or replace PROCEDURE SP_COUNT_SORTEOS_USER (USER_N IN NUMBER, USER_COUNT OUT VARCHAR2, POSITION_C OUT VARCHAR2 )
+        $command = "create or replace PROCEDURE SP_COUNT_SORTEOS_USER (USER_N IN NUMBER, USER_COUNT OUT SYS_REFCURSOR, POSITION_C OUT SYS_REFCURSOR )
                     AS
                         begin
-                        select count(user_id) INTO USER_COUNT from lista where (user_id = USER_N);
-                        SELECT CARGO INTO POSITION_C FROM USERS WHERE (ID = USER_N);
+                        OPEN USER_COUNT FOR
+                        select count(user_id) as COUNTER from lista where (user_id = USER_N);
+                        OPEN POSITION_C FOR
+                        SELECT CARGO  FROM USERS WHERE (ID = USER_N);
                     end;"
                     ;
 
