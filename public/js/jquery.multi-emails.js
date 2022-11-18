@@ -36,11 +36,12 @@
                             if(!emailList.includes(element)){
                                 emailList.push(element);
                             }
+                            $("#check_destinatarios").hide();
                             //console.log(emailList);
                             let displayList = '';
 
                             emailList.forEach((value, ind) => {
-                                displayList += "<li style='background-color:"+hexToRgbA(settings.color)+";border-left: 3px solid"+settings.color+"'><input type='text' class='hide_style' name='ExtraRecipientsArr[]' value='"+value+"'readonly ><span class='float-right remove' data-index="+ind+">"+((settings.fontAwesome === true)?'<i class=\"fas fa-times\"></i>':'X')+"</span></li>"
+                                displayList += "<li style='background-color:"+hexToRgbA(settings.color)+";border-left: 3px solid"+settings.color+"'><input type='text' class='hide_style'  data-bs-toggle='tooltip' title='"+value+"' name='ExtraRecipientsArr[]' value='"+value+"'readonly ><span class='float-right remove' data-index="+ind+">"+((settings.fontAwesome === true)?'<i class=\"fas fa-times\"></i>':'X')+"</span></li>"
                             } )
                             let buildEmailList = '<div id="show-emails"><ul id="email-lists" style="color:'+settings.textColor+'">'+displayList+'</ul></div>'
                             if($("#show-emails").length){
@@ -57,7 +58,6 @@
                                 $("#show-emails").after(errrMessage);
                             }else{
                                 $('#email').parent().after(errrMessage);
-                                console.log($('#email').parent());
                             }
                         }
                     }
@@ -69,10 +69,14 @@
                 emailList.splice(index, 1);
                 let displayList = '';
                 emailList.forEach((value, ind) => {
-                    displayList += "<li style='background-color:"+hexToRgbA(settings.color)+";border-left: 3px solid"+settings.color+"'>"+value+"<span class='float-right remove' data-index="+ind+">"+((settings.fontAwesome === true)?'<i class=\"fas fa-times\"></i>':'X')+"</span></li>"
+
+                    displayList += "<li style='background-color:"+hexToRgbA(settings.color)+";border-left: 3px solid"+settings.color+"'><input type='text' class='hide_style'  data-bs-toggle='tooltip' title='"+value+"' name='ExtraRecipientsArr[]' value='"+value+"'readonly ><span class='float-right remove' data-index="+ind+">"+((settings.fontAwesome === true)?'<i class=\"fas fa-times\"></i>':'X')+"</span></li>"
                 } )
                 hiddenField.val(emailList);
                 $("#show-emails ul").html(displayList);
+                if($("#show-emails ul li").length==0){
+                    $("#check_destinatarios").show();
+                }
             })
 
             function hexToRgbA(hex){

@@ -83,7 +83,7 @@
                                     <tr>
                                         <th scope="col">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="checkAll" />
+                                                <input class="form-check-input input_header" type="checkbox" value="" id="checkAll" />
                                             </div>
                                         </th>
                                         <th scope="col">Nombre Completo</th>
@@ -108,12 +108,14 @@
                             </table>
                         </div>
                     </div>
-                    <div class="form-group col-md-6 pb-4">
-                        <h4 class="blue_tps"><i class="fa-solid fa-envelopes-bulk me-3"></i></i>Agregar Destinatarios adicionales:</h4>
-                        <p>En caso de ser necesario, puedes ingresar destinatarios adicionales.<br>Los correos electrónicos se deben ingresar separados por un carácter coma (,).<br><br>Ejemplo: correo1@ejemplo.com,correo2@ejemplo.com.</p>
-                        <input id="email-addresses" class="form-control" type="text" name="mail_form">
-                    </div>
                     <div class="form-group col-md-6">
+                        <h4 class="blue_tps"><i class="fa-solid fa-envelopes-bulk me-3"></i></i>Agregar Destinatarios adicionales:</h4>
+                        <p>En caso de ser necesario, puedes ingresar destinatarios adicionales.<br>Los correos electrónicos se deben ingresar separados por un carácter coma y finalmente presionar la tecla Intro, para agregarlos a la lista.<br><br>Ejemplo: correo1@ejemplo.com,correo2@ejemplo.com.</p>
+                        <input id="email-addresses" class="form-control" type="text" name="mail_form">
+                        <h5 class="blue_tps pt-3"><i class="fa-solid fa-envelope me-2"></i>Listado de Destinatarios adicionales:</h5>
+                        <p id="check_destinatarios">* No se han añadido destinatarios adicionales.</p>
+                    </div>
+                    <div class="form-group col-md-6 pt-5">
                         <input type="submit" class="btn btn-primary text-white show_confirm send_save_employees" value="Guardar y Enviar Sorteo">
                     </div>
                 </div>

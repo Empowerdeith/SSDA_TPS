@@ -21,7 +21,7 @@ class HistorialController extends Controller
         //Log::info($fromDate);
         $toDate   = $request->input('toDate');
         //Log::info($toDate);
-        $query = DB::select("select * from lista where to_char(created_at,'yyyy-mm-dd') >= to_date(?) and to_char(created_at,'yyyy-mm-dd') <= ?", [$fromDate,$toDate]);
+        $query = DB::select("select * from lista where to_char(created_at,'yyyy-mm-dd') >= to_date(?) and to_char(created_at,'yyyy-mm-dd') <= ? order by id", [$fromDate,$toDate]);
         //Log::info($query);
 
         return view('historial.historial',compact('query','fromDate','toDate','currentDate'));
