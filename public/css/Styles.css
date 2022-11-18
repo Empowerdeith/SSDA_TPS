@@ -278,6 +278,7 @@ i .big-icon{
     border-left-style: hidden;
     border-bottom-style: none;
     background-color: transparent;
+    width: 320px;
 }
 .hide_style:focus{
     outline: none;
@@ -288,4 +289,7 @@ i .big-icon{
 }
 .remclass2{
     font-size: 2rem!important;
+}
+.input_header{
+    border-color: white!important;
 }

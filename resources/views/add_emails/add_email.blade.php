@@ -79,7 +79,7 @@
                                         <td>
                                             <form class="mx-1 mx-md-4" action="{{route('recipients.Delete', $recipients->id)}}" method="POST">
                                                 @csrf
-                                                <button type="submit" class="btn btn-primary btn-sm delete_users" ><i class="fa-solid fa-x"></i></button>
+                                                <button type="submit" class="btn btn-primary btn-sm delete_destinatarios" ><i class="fa-solid fa-x"></i></button>
                                             </form>
                                         </td>
                                     </tr>

@@ -4,7 +4,8 @@ $('.send_save_employees').click(function(event) {
     var name = $(this).data("name");
 
     event.preventDefault();
-    if( $('#email-lists li').length > 0 || $("#tabla_destinatarios [type=checkbox]").is(':checked') ){
+    //console.log(($('#email-lists li').length > 0 || $("#tabla_destinatarios [type=checkbox]").is(':checked')) && $('#email').val().length == 0);
+    if( ($('#email-lists li').length > 0 || $("#tabla_destinatarios [type=checkbox]").is(':checked')) && $('#email').val().length == 0){
         Swal.fire({
             title: '¿Estás seguro que deseas guardar y enviar el personal sorteado?',
             icon: 'question',
@@ -25,6 +26,12 @@ $('.send_save_employees').click(function(event) {
                     },
                 });
             }
+        });
+    }
+    else if($('#email').val().length > 0){
+        Swal.fire({
+            icon: 'error',
+            title: '<h1 class="blue_tps font_25" >El o los Destinatarios no se han agregado a la lista de destinatarios adicionales, en caso de querer añadirlos, debes presionar la tecla Intro.</h1>',
         });
     }
     else{
@@ -51,6 +58,26 @@ $('.delete_users').click(function(event) {
         }).then((result) => {
         if (result.isConfirmed) {
             form2.submit();
+        }
+    })
+});
+
+$('.delete_destinatarios').click(function(event) {
+    var form3 =  $(this).closest("form");
+    var name = $(this).data("name");
+    event.preventDefault();
+    Swal.fire({
+        title: '¿Estás seguro que deseas Eliminar a este Destinatario?',
+        text: 'Se eliminará al destinatario de forma permanente.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#144578',
+        cancelButtonColor: '#144578',
+        confirmButtonText: 'Eliminar',
+        cancelButtonText: 'Cancelar'
+        }).then((result) => {
+        if (result.isConfirmed) {
+            form3.submit();
         }
     })
 });
