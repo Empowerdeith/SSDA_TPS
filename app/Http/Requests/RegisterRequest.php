@@ -25,7 +25,7 @@ class RegisterRequest extends FormRequest
     {
         return [
             'name' => 'required|between:5,30',
-            'rut'=> ['required', new CheckRut()],
+            'rut'=> ['required','unique:users', new CheckRut()],
             'username' => ['required','max:20','unique:users,username'],
             'email' =>'required|unique:users,email',
             'password' => 'required|between:8,20',
