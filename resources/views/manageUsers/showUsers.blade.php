@@ -4,7 +4,7 @@
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-lg-12 col-xl-11">
-                    <div class="card text-black" style="border-radius: 32px;">
+                    <div class="card text-black class_design" style="border-radius: 32px;">
                         <div class="card-body p-md-5">
                             <div class="row justify-content-center">
                                 <div class="col">
@@ -13,14 +13,14 @@
                                         <table table class="table table-bordered">
                                             <thead class="text-center blue_tps_bg text-white">
                                                 <tr>
-                                                    <th>Nombre</th>
-                                                    <th>Rut</th>
-                                                    <th>Usuario</th>
-                                                    <th>Email</th>
-                                                    <th>Cargo</th>
-                                                    <th>Perfil</th>
-                                                    <th>Contraseña</th>
-                                                    <th>Eliminar</th>
+                                                    <th scope="col">Nombre</th>
+                                                    <th scope="col">Rut</th>
+                                                    <th scope="col">Usuario</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Cargo</th>
+                                                    <th scope="col">Perfil</th>
+                                                    <th scope="col">Contraseña</th>
+                                                    <th scope="col">Eliminar</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="text-center">

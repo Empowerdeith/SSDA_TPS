@@ -1,8 +1,8 @@
 @extends('index.index_sidebar')
 @section('content_home')
 <div class="col-lg-12 col-xl-12 pt-3 pb-3">
-<div class="card text-black pt-3" style="border-radius: 32px;">
-    <h1 class="text-center blue_tps"><i class="fa-solid fa-calendar-days me-2 big_icons"></i>Historial de Sorteos</h1>
+<div class="card text-black pt-3 col-md-10 mx-md-auto class_design" style="border-radius: 32px;">
+    <h1 class="text-center blue_tps pt-5"><i class="fa-solid fa-calendar-days me-2 big_icons"></i>Historial de Sorteos</h1>
     <div class="pt-3">
         <div class="container">
             <form action="/historial" method ="GET">
@@ -38,17 +38,19 @@
                         </div>
                     </div>
                 </div>
-                <br>
+                <div class="row">
+                    <hr class="blue_tps">
+                </div>
             </form>
             @if(isset($query)&& count($query)>0)
                 <table id="datosTrabajador" class="table table-striped table-bordered">
                     <thead class="text-center blue_tps_bg text-white">
                         <tr>
-                            <th>Id</th>
-                            <th>Fecha</th>
-                            <th>Hora</th>
-                            <th>Detalle de Sorteo</th>
-                            <th>Descargar Excel</th>
+                            <th scope="col">Id</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Hora</th>
+                            <th scope="col">Detalle de Sorteo</th>
+                            <th scope="col">Descargar Excel</th>
                         </tr>
                     </thead>
                     <tbody class="text-center">

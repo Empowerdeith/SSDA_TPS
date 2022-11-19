@@ -2,9 +2,9 @@
 @section('content_home')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-12">
-            <div class="card shadow-2-strong">
-                <div class="card-body">
+        <div class="col-md-12">
+            <div class="card shadow-2-strong" style="border-radius: 32px;">
+                <div class="card-body class_design">
                     <h1 class="text-center blue_tps"><i class="fa-solid fa-envelope big_icons me-2"></i>Gestionar emails de Destinatarios:</h1>
                     <button type="button" class="btn btn-primary btn-block d-table my-5 mx-auto" data-bs-toggle="modal" data-bs-target="#ModalForm">
                         <i class="fa-solid me-2 fa-plus"></i>Agregar nuevo Destinatario</button>
@@ -54,11 +54,6 @@
                         <table class="table mx-auto mb-0">
                             <thead class="blue_tps_bg text-white text-center">
                                 <tr>
-                                    <th scope="col">
-                                        <div class="form-check">
-                                            <input class="form-check-input input_header" type="checkbox" value="" id="checkAll" />
-                                        </div>
-                                    </th>
                                     <th scope="col">Nombre Completo</th>
                                     <th scope="col">Cargo</th>
                                     <th scope="col">Email</th>
@@ -68,11 +63,6 @@
                             <tbody class="text-center">
                                 @foreach($recipients as $recipients)
                                     <tr>
-                                        <th scope="row">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-                                            </div>
-                                        </th>
                                         <td>{{$recipients->name}}</td>
                                         <td>{{$recipients->cargo}}</td>
                                         <td>{{$recipients->email}}</td>

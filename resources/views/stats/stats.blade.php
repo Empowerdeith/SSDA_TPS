@@ -9,11 +9,11 @@
             <table id="stats_table" class="table table-bordered">
                 <thead class="text-center blue_tps_bg text-white">
                     <tr>
-                    <th>N°</th>
-                    <th>Rut</th>
-                    <th>Nombre</th>
-                    <th>Cargo</th>
-                    <th>Cantidad</th>
+                    <th scope="col">N°</th>
+                    <th scope="col">Rut</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Cargo</th>
+                    <th scope="col">Cantidad</th>
                     </tr>
                 </thead>
                 <tbody class="text-center">
@@ -46,10 +46,10 @@
                     <table id="stats_table" class="table table-bordered">
                         <thead class="text-center blue_tps_bg text-white">
                             <tr>
-                            <th>Nombre</th>
-                            <th>Nombre usuario</th>
-                            <th>Cargo</th>
-                            <th>Cantidad</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Nombre usuario</th>
+                            <th scope="col">Cargo</th>
+                            <th scope="col">Cantidad</th>
                             </tr>
                         </thead>
                         <tbody class="text-center">
