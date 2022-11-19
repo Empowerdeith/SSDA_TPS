@@ -56,7 +56,7 @@
                                 <tr>
                                     <th scope="col">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="checkAll" />
+                                            <input class="form-check-input input_header" type="checkbox" value="" id="checkAll" />
                                         </div>
                                     </th>
                                     <th scope="col">Nombre Completo</th>
@@ -79,7 +79,7 @@
                                         <td>
                                             <form class="mx-1 mx-md-4" action="{{route('recipients.Delete', $recipients->id)}}" method="POST">
                                                 @csrf
-                                                <button type="submit" class="btn btn-primary btn-sm delete_destinatarios" ><i class="fa-solid fa-x"></i></button>
+                                                <a class="blue_tps delete_destinatarios" href="#"><i class="fa-solid fa-square-xmark big_icons"></i></a>
                                             </form>
                                         </td>
                                     </tr>
