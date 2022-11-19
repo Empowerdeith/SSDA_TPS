@@ -4,7 +4,7 @@
 <h1 class="text-center blue_tps pb-4"><i class="fa-solid fa-chart-pie me-2 big_icons"></i>Estadísticas</h1>
 @if (isset($notes)&&isset($result_cur_users))
     <div class="container">
-        <h2 class="blue_tps font_25">Cantidad de veces que el funcionario ha sido sorteado:</h2>
+        <h2 class="blue_tps font_25">Cantidad de veces que el empleado ha sido sorteado:</h2>
         <div class="table-responsive">
             <table id="stats_table" class="table table-bordered">
                 <thead class="text-center blue_tps_bg text-white">
