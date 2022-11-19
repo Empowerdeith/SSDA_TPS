@@ -24,8 +24,6 @@ class HomeController extends Controller
         // Se asigna el ID del usuario
         $user_id = auth()->user()->id;
 
-        //oci_bind_by_name($stid, ":cursbv", $curs, -1, OCI_B_CURSOR);
-
         // Aqui se hace BIND al input
         oci_bind_by_name($stmt,':user_id',$user_id,-1);
         // Aqui se hace BIND al output
@@ -38,7 +36,7 @@ class HomeController extends Controller
         $raffle_count_a = oci_fetch_array($curs_raffle_count, OCI_ASSOC+OCI_RETURN_NULLS);
         $raffle_count =  $raffle_count_a["COUNTER"];
 
-        Log::info($raffle_count);
+        //Log::info($raffle_count);
 
         $position_a = oci_fetch_array($curs_position, OCI_ASSOC+OCI_RETURN_NULLS);
         $position = $position_a["CARGO"];
@@ -64,7 +62,7 @@ class HomeController extends Controller
 
             $time_raf_a = oci_fetch_array($curs_time_raf, OCI_ASSOC+OCI_RETURN_NULLS);
 
-            Log::info($time_raf_a);
+            //Log::info($time_raf_a);
 
             $time_raf = $time_raf_a["TIME"];
 

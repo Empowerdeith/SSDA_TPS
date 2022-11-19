@@ -14,7 +14,6 @@ class ManageEmailController extends Controller
     public function show(){
 
         $recipients = Recipients::all();
-        //$recipients=DB::select('select * from recipients');
         return view('add_emails.add_email', compact('recipients'));
     }
 

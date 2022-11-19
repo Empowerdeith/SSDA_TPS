@@ -143,7 +143,6 @@ class RaffleController extends Controller
             array_splice($datos_filtrados, $x, 1);
         }
         //Log::info($resultados);
-        //$recipients = Recipients::all();
 
         Session::put('Lista_sorteados', $resultados);
         return view('raffle.Auto_raffle', compact('resultados','porcentaje','recipients'));

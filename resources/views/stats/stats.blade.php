@@ -1,100 +1,82 @@
 @extends('index.index_sidebar')
 @section('content_home')
-<script src='https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
 <h1 class="text-center blue_tps pb-4"><i class="fa-solid fa-chart-pie me-2 big_icons"></i>Estadísticas</h1>
-@if (isset($notes))
-<div class="container">
-    <h2 class="blue_tps font_25">Cantidad de veces que el funcionario ha sido sorteado:</h2>
-    <div class="table-responsive">
-        <table id="stats_table" class="table table-bordered">
-            <thead class="text-center blue_tps_bg text-white">
-                <tr>
-                <th>N°</th>
-                <th>Rut</th>
-                <th>Nombre</th>
-                <th>Cargo</th>
-                <th>Cantidad</th>
-                </tr>
-            </thead>
-            <tbody class="text-center">
-                @php
-                    $contador = 1;
-                @endphp
-                @foreach ( $notes as $row )
+@if (isset($notes)&&isset($result_cur_users))
+    <div class="container">
+        <h2 class="blue_tps font_25">Cantidad de veces que el empleado ha sido sorteado:</h2>
+        <div class="table-responsive">
+            <table id="stats_table" class="table table-bordered">
+                <thead class="text-center blue_tps_bg text-white">
                     <tr>
-                        <td>{{$contador}}</td>
-                        @php
-                            $contador+=1;
-                        @endphp
-                        <td>{{$row["RUT"]}}</td>
-                        <td>{{$row["NAME"]}}</td>
-                        <td>{{$row["CARGO"]}}</td>
-                        <td>{{$row["VALOR"]}}</td>
+                    <th scope="col">N°</th>
+                    <th scope="col">Rut</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Cargo</th>
+                    <th scope="col">Cantidad</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+                <tbody class="text-center">
+                    @php
+                        $contador = 1;
+                    @endphp
+                    @foreach ( $notes as $row )
+                        <tr>
+                            <td>{{$contador}}</td>
+                            @php
+                                $contador+=1;
+                            @endphp
+                            <td>{{$row["RUT"]}}</td>
+                            <td>{{$row["NAME"]}}</td>
+                            <td>{{$row["CARGO"]}}</td>
+                            <td>{{$row["VALOR"]}}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        <div class ="row pt-5">
+            <!--<div class="col-6">
+                <h2 class="blue_tps font_25">Gráfico que muestra algo:</h2>
+                <canvas id="myChart"></canvas>
+            </div>-->
+            <div class="col">
+                <h2 class="blue_tps font_25">Cantidad de sorteos realizados:</h2>
+                <div class="table-responsive">
+                    <table id="stats_table" class="table table-bordered">
+                        <thead class="text-center blue_tps_bg text-white">
+                            <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Nombre usuario</th>
+                            <th scope="col">Cargo</th>
+                            <th scope="col">Cantidad</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            @foreach ($result_cur_users as $element)
+                                <tr>
+                                    <td>{{$element["NAME"]}}</td>
+                                    <td>{{$element["USERNAME"]}}</td>
+                                    <td>{{$element["CARGO"]}}</td>
+                                    <td>{{$element["CANTIDAD"]}}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!--<script>
+            var canvasElement =$("#myChart");
+            var config = {
+                type: "bar",
+                data: {
+                    labels: ["uno","dos"],
+                    datasets: [{label: "number of items", data:[5,2]}],
+                },
+            };
+            var amazingChart = new Chart(canvasElement, config);
+        </script>-->
     </div>
-</div>
-
 @endif
-
-<br><br><br><br><br>
-
-<div class = 'row col-5' style="width:1000px; margin:0 auto;">
-    <canvas id="myChart"></canvas>
-</div>
-
-<script>
-    const name = [<?php echo '["' . implode('", "', $name) . '"]' ?>];
-    var counter = @json($counter);
-    const data = {
-        labels: name[0],
-        datasets: [{
-          label: 'Personas mas sorteadas',
-          data: counter,
-          backgroundColor: [
-            'rgba(255, 26, 104, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(0, 0, 0, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255, 26, 104, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)',
-            'rgba(0, 0, 0, 1)'
-          ],
-          borderWidth: 1
-        }]
-      };
-
-      // config
-      const config = {
-        type: 'bar',
-        data,
-        options: {
-          indexAxis: 'y',
-          scales: {
-            y: {
-              beginAtZero: true
-            }
-          }
-        }
-      };
-
-      // render init block
-      const myChart = new Chart(
-        document.getElementById('myChart'),
-        config
-      );
-</script>
-
-
 @endsection

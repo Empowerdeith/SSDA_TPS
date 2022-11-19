@@ -1,11 +1,11 @@
 @extends('index.index_sidebar')
 @section('content_home')
-<div class="card text-black pt-5 pb-5" style="border-radius: 32px;">
+<div class="card text-black col-md-10 pt-5 pb-5 mx-md-auto class_design" style="border-radius: 32px;">
     <div class="container">
         <div class="row">
             <div class="col">
                 <h1 class="text-center blue_tps"><i class="fa-solid fa-address-book me-3"></i>Sorteo Manual</h1>
-                <p class="text-center">
+                <p class="text-center mx-md-auto">
                 Este es el Sorteo Manual de test de drogas y alcohol, para utilizar este módulo debes subir un archivo en formato excel, seleccionar un porcentaje de sorteo y presionar realizar sorteo.
                 </p>
             </div>

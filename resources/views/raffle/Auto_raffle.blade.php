@@ -1,6 +1,6 @@
 @extends('index.index_sidebar')
 @section('content_home')
-<div class="card text-black pt-5 pb-5" style="border-radius: 32px;">
+<div class="card class_design col-md-10 text-black pt-5 pb-5 mx-md-auto" style="border-radius: 32px;">
     <div class="container">
         <div class="row">
             <div class="col">
