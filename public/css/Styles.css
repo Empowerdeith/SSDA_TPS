@@ -293,3 +293,10 @@ i .big-icon{
 .input_header{
     border-color: white!important;
 }
+
+.removeSelectedRecipients:hover{
+    color: goldenrod!important;
+}
+.class_design{
+    min-height: 700px;
+}
