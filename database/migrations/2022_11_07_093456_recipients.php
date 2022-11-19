@@ -21,10 +21,10 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('users_recipents', function (Blueprint $table) {
+        Schema::create('users_recipients', function (Blueprint $table) {
             $table->id();
             $table->integer('users_id')->unsigned();
-            $table->integer('recipents_id')->unsigned();
+            $table->integer('recipients_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('users_id')
@@ -32,7 +32,7 @@ return new class extends Migration
             ->on('users')
             ->onDelete('cascade');
 
-            $table->foreign('recipents_id')
+            $table->foreign('recipients_id')
             -> references('id')
             ->on('recipients')
             ->onDelete('cascade');
@@ -47,7 +47,7 @@ return new class extends Migration
     public function down()
     {
         
-        Schema::dropIfExists('users_recipents');
+        Schema::dropIfExists('users_recipients');
         Schema::dropIfExists('recipients');
     }
 };
