@@ -38,6 +38,8 @@ class StatsController extends Controller
         while (($row2 = oci_fetch_array($cursUsers, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
             $result_cur_users[]=$row2;
         }
+
+        //Log::info($result_cur_users);
         //$result_cur_users = oci_fetch_array($cursUsers, OCI_ASSOC+OCI_RETURN_NULLS);
 
         //Log::info($result_cur_users);
