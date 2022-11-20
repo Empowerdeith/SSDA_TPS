@@ -18,7 +18,7 @@ return new class extends Migration
         AS
         BEGIN
             OPEN TIME_RAF FOR
-            SELECT TO_CHAR(CREATED_AT, 'YYYY/MM/DD HH24:MI:SS')as TIME FROM LISTA WHERE ID=(SELECT MAX(ID) FROM LISTA) AND USER_ID = USER_N;
+            SELECT TO_CHAR(MAX(CREATED_AT), 'YYYY/MM/DD HH24:MI:SS') as TIME FROM LISTA WHERE USER_ID = USER_N;
         END;";
 
         DB::connection()->getPdo()->exec($command);
