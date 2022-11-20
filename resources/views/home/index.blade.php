@@ -24,8 +24,8 @@
                 <p class="card-text  font_24 blue_tps text-center">
                     @php
                         $valor_sorteo=0;
-                        if (isset($raffle_count)) {
-                            $valor_sorteo=$raffle_count;
+                        if (isset($raffle_count)&&$raffle_count[0]["COUNTER"]!=null) {
+                            $valor_sorteo=$raffle_count[0]["COUNTER"];
                         }
                     @endphp
                     <i class="fa-regular fa-address-book me-2"></i>{{$valor_sorteo}}
@@ -41,8 +41,8 @@
                 <p class="card-text  font_24 blue_tps text-center">
                     @php
                         $valor_time = "No hay fecha de sorteo";
-                        if (isset($time_raf)) {
-                            $valor_time=$time_raf;
+                        if (isset($time_raf)&&$time_raf[0]["TIME"]!=null) {
+                            $valor_time=$time_raf[0]["TIME"];
                         }
                     @endphp
                     <i class="fa-regular fa-clock me-2"></i>{{$valor_time}}
@@ -57,8 +57,8 @@
                 <p class="card-text font_24 blue_tps text-center">
                     @php
                         $valor_pos = "No hay cargo asociado";
-                        if (isset($position)) {
-                            $valor_pos=$position;
+                        if (isset($position)&&$position[0]["CARGO"]!=null) {
+                            $valor_pos=$position[0]["CARGO"];
                         }
                     @endphp
                     <i class="fa-regular fa-address-card me-2"></i>{{$valor_pos}}

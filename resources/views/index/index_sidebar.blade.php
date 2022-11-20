@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div class="col ps-md-2 pt-2">
-                <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" id="toggle_sidebar1" class="border rounded-3 p-1 text-decoration-none" style="font-size: 45px;  color:#144578;"><i class="bi bi-list"></i></a>
+                <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" id="toggle_sidebar1" class="p-1 text-decoration-none" style="font-size: 32px;  color:#144578;"><i class="bi bi-list bigger_icons"></i>Menú</a>
                 <div class="pt-4 pb-5">
                     @yield('content_home')
                 </div>

@@ -19,7 +19,6 @@ class HomeController extends Controller
         $curs_raffle_count = oci_new_cursor($conn);
         $curs_position = oci_new_cursor($conn);
         $curs_time_raf = oci_new_cursor($conn);
-        $time_raf = "No se han realizado sorteos aun";
 
         // Se asigna el ID del usuario
         $user_id = auth()->user()->id;
@@ -33,43 +32,43 @@ class HomeController extends Controller
         oci_execute($curs_raffle_count);  // Execute the REF CURSOR like a normal statement id
         oci_execute($curs_position);
 
-        $raffle_count_a = oci_fetch_array($curs_raffle_count, OCI_ASSOC+OCI_RETURN_NULLS);
-        $raffle_count =  $raffle_count_a["COUNTER"];
+        $raffle_count = array();
+        while (($curs_row_raffle = oci_fetch_array($curs_raffle_count, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
+            $raffle_count[]=$curs_row_raffle;
+        }
+        Log::info($raffle_count);
 
-        //Log::info($raffle_count);
-
-        $position_a = oci_fetch_array($curs_position, OCI_ASSOC+OCI_RETURN_NULLS);
-        $position = $position_a["CARGO"];
-
-        //Log::info($raffle_count);
-        //Log::info($position);
-
-
-        if($raffle_count > 0){
-
-            $sql_time = 'BEGIN SP_LAST_TIME(:user_id, :curs_time_raf); END;';
-            $stmt_time = oci_parse($conn,$sql_time);
-
-            // Aqui se hace BIND al input
-            oci_bind_by_name($stmt_time,':user_id',$user_id,-1);
-
-            // Aqui se hace BIND al output
-            oci_bind_by_name($stmt_time,':curs_time_raf',$curs_time_raf,-1, OCI_B_CURSOR);
-
-            oci_execute($stmt_time);
-
-            oci_execute($curs_time_raf);
-
-            $time_raf_a = oci_fetch_array($curs_time_raf, OCI_ASSOC+OCI_RETURN_NULLS);
-
-            //Log::info($time_raf_a);
-
-            $time_raf = $time_raf_a["TIME"];
-
-
+        $position = array();
+        while (($curs_row_position = oci_fetch_array($curs_position, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
+            $position[]=$curs_row_position;
         }
 
-        //Log::info($raffle_count);
+        Log::info($position);
+
+
+        //if($raffle_count){
+
+        $sql_time = 'BEGIN SP_LAST_TIME(:user_id, :curs_time_raf); END;';
+        $stmt_time = oci_parse($conn,$sql_time);
+
+        // Aqui se hace BIND al input
+        oci_bind_by_name($stmt_time,':user_id',$user_id,-1);
+
+        // Aqui se hace BIND al output
+        oci_bind_by_name($stmt_time,':curs_time_raf',$curs_time_raf,-1, OCI_B_CURSOR);
+
+        oci_execute($stmt_time);
+
+        oci_execute($curs_time_raf);
+
+
+        $time_raf = array();
+        while (($curs_row_timeraff = oci_fetch_array($curs_time_raf, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
+            $time_raf[]=$curs_row_timeraff;
+        }
+
+        Log::info($time_raf);
+
 
         return view('home.index')->with(['raffle_count' => $raffle_count,'time_raf' => $time_raf,'position' => $position]);
     }
