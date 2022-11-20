@@ -4,8 +4,8 @@ $('.send_save_employees').click(function(event) {
     var name = $(this).data("name");
 
     event.preventDefault();
-    //console.log(($('#email-lists li').length > 0 || $("#tabla_destinatarios [type=checkbox]").is(':checked')) && $('#email').val().length == 0);
-    if( ($('#email-lists li').length > 0 || $("#tabla_destinatarios [type=checkbox]").is(':checked')) && $('#email').val().length == 0){
+
+    if( ($('#email-lists li').length > 0 || $("#tabla_destinatarios [name='RecipientsArr[]'][type=checkbox]").is(':checked')) && $('#email').val().length == 0){
         Swal.fire({
             title: '¿Estás seguro que deseas guardar y enviar el personal sorteado?',
             icon: 'question',
