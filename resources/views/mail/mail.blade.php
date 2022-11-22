@@ -76,9 +76,9 @@
                                         @php
                                             $number+=1;
                                         @endphp
-                                        <td>{{$row[0]}}</td>
-                                        <td>{{$row[1]}}</td>
-                                        <td>{{$row[2]}}</td>
+                                        <td>{{$row["rut"]}}</td>
+                                        <td>{{$row["nombre"]}}</td>
+                                        <td>{{$row["cargo"]}}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
