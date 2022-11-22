@@ -15,14 +15,6 @@ class UploadedContentImport implements ToCollection, WithHeadingRow
     */
     public function collection(Collection $collection)
     {
-        Validator::make($collection->toArray(), [
-            '*.rut' => 'required',
-            '*.nombre' => 'required',
-            '*.cargo' => 'required',
-        ])->validate();
-
-        //Log::info($collection);
-
-        //return $collection;
+        
     }
 }
