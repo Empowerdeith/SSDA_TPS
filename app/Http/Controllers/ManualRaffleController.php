@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\Mailsend;
 use Alert;
 use Redirect;
+use App\Imports\UploadedContentImport;
 
 
 class ManualRaffleController extends Controller
@@ -31,16 +32,27 @@ class ManualRaffleController extends Controller
         $resultados = array();
         $recipients = Recipients::all();
         try {
-            //log::info($request!=null);
+
             if($request->file('texto_sorteados')!=null){
-                $data_participantes=Excel::toArray(null, $request->file('texto_sorteados'))[0];// tomamos la primera página de excel
+                //$data_participantes=Excel::import(new UploadedContentImport, $request->file('texto_sorteados'));
+                //$data_participantes=Excel::toArray(null, $request->file('texto_sorteados'))[0];// tomamos la primera página de excel
+                $data_participantes=Excel::toArray(new UploadedContentImport, $request->file('texto_sorteados'))[0];
+                //$data_participantes=Excel::toCollection(new UploadedContentImport, $request->file('texto_sorteados'));
                 //Log::info($data_participantes);
                 $todo=count($data_participantes)*$porcentaje_manual/100;
+                //Log::info($todo);
                 for ($i=0; $i < $todo ; $i++) {
                     $x= rand(0,count($data_participantes)-1);
-                    $resultados[]=$data_participantes[$x];
+
+                    array_push($resultados, [
+                        "rut" => $data_participantes[$x]["rut"],
+                        "nombre" => $data_participantes[$x]["nombre"],
+                        "cargo" => $data_participantes[$x]["cargo"]
+                    ]);
+
                     array_splice($data_participantes, $x, 1);
                 }
+                //Log::info($resultados);
                 Session::put('Lista_sorteados_m', $resultados);
 
             }
@@ -55,7 +67,6 @@ class ManualRaffleController extends Controller
         //
         try{
             if(!empty($request->RecipientsArr)||!empty($request->ExtraRecipientsArr)){
-                //Log::info($_POST['ExtraRecipientsArr']);
                 if(Session::has('Lista_sorteados_m')){
                     $data_sorteados=Session::get('Lista_sorteados_m');
                 }
@@ -64,9 +75,9 @@ class ManualRaffleController extends Controller
                 ]);
                 foreach ($data_sorteados as $i => $row) {
                     $data_sorteos_bd=Raffle::create([
-                        'rut' => $row[0],
-                        'name'=> $row[1],
-                        'cargo' => $row[2],
+                        'rut' => $row["rut"],
+                        'name'=> $row["nombre"],
+                        'cargo' => $row["cargo"],
                     ]);
                     $raffle=$data_sorteos_bd->id;
                     $Lista_usuario->raffles()->attach($raffle);

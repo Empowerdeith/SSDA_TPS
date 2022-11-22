@@ -38,35 +38,6 @@ class StatsController extends Controller
         while (($row2 = oci_fetch_array($cursUsers, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
             $result_cur_users[]=$row2;
         }
-
-        //Log::info($result_cur_users);
-        //$result_cur_users = oci_fetch_array($cursUsers, OCI_ASSOC+OCI_RETURN_NULLS);
-
-        //Log::info($result_cur_users);
-
-        /*foreach($notes as $empleado)
-        {
-            $name[] = $empleado["NAME"];
-            $counter[] = $empleado["VALOR"];
-        }
-
-        if(isset($empleado)){
-            $name = array_slice($name, 0, 5);
-        }
-        else {
-            $name=['No hay empleados sorteados aun'];
-            $counter=[0];
-        }*/
-        //$counter = array_slice($counter, 0, 5);
-
-        //$name = json_encode($name);
-        //$counter = json_encode($counter);
-
-        /*Log::info($name);
-        Log::info($counter);*/
-
-        //Log::info($stats_data);
-
         //se vacían los statements de oci
         oci_free_statement($stmt_users);
         oci_free_statement($cursUsers);
@@ -74,7 +45,6 @@ class StatsController extends Controller
         oci_free_statement($curs);
         oci_close($conn);
 
-        //return view('stats.stats')->with(['notes' => $notes,'counter' => $counter,'name' => $name]);
         return view('stats.stats')->with(['notes' => $notes,'result_cur_users'=> $result_cur_users]);
     }
 

@@ -1,6 +1,5 @@
 @extends('index.index_sidebar')
 @section('content_home')
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
 <h1 class="text-center blue_tps pb-4"><i class="fa-solid fa-chart-pie me-2 big_icons"></i>Estadísticas</h1>
 @if (isset($notes)&&isset($result_cur_users))
     <div class="container">
@@ -36,10 +35,6 @@
             </table>
         </div>
         <div class ="row pt-5">
-            <!--<div class="col-6">
-                <h2 class="blue_tps font_25">Gráfico que muestra algo:</h2>
-                <canvas id="myChart"></canvas>
-            </div>-->
             <div class="col">
                 <h2 class="blue_tps font_25">Cantidad de sorteos realizados:</h2>
                 <div class="table-responsive">
@@ -66,17 +61,6 @@
                 </div>
             </div>
         </div>
-        <!--<script>
-            var canvasElement =$("#myChart");
-            var config = {
-                type: "bar",
-                data: {
-                    labels: ["uno","dos"],
-                    datasets: [{label: "number of items", data:[5,2]}],
-                },
-            };
-            var amazingChart = new Chart(canvasElement, config);
-        </script>-->
     </div>
 @endif
 @endsection

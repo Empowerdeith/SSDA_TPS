@@ -127,22 +127,28 @@ class RaffleController extends Controller
                 if($check_license==False||$check_date_license==False){
                     if ($element["empleado"]=="SI") {
                         $datos_filtrados[] = array(
-                            $element["empleadoRut"],
-                            $element["nombreCompleto"],
-                            $element["TrabajoCargo"]
+                            "rut" => $element["empleadoRut"],
+                            "nombre" => $element["nombreCompleto"],
+                            "cargo" => $element["TrabajoCargo"]
                         );
                     }
                 }
             }
         }
+        Log::info($datos_filtrados);
         $todo=count($datos_filtrados)*$porcentaje/100;
         $resultados = array();
         for ($i=0; $i < $todo ; $i++) {
             $x= rand(0,count($datos_filtrados)-1);
-            $resultados[]=$datos_filtrados[$x];
+            //$resultados[]=$datos_filtrados[$x];
+            array_push($resultados, [
+                "rut" => $datos_filtrados[$x]["rut"],
+                "nombre" => $datos_filtrados[$x]["nombre"],
+                "cargo" => $datos_filtrados[$x]["cargo"]
+            ]);
             array_splice($datos_filtrados, $x, 1);
         }
-        //Log::info($resultados);
+        Log::info($resultados);
 
         Session::put('Lista_sorteados', $resultados);
         return view('raffle.Auto_raffle', compact('resultados','porcentaje','recipients'));
@@ -161,9 +167,9 @@ class RaffleController extends Controller
                 ]);
                 foreach ($data_sorteados_auto as $i => $row) {
                     $data_sorteos_bd=Raffle::create([
-                        'rut' => $row[0],
-                        'name'=> $row[1],
-                        'cargo' => $row[2],
+                        'rut' => $row["rut"],
+                        'name'=> $row["nombre"],
+                        'cargo' => $row["cargo"],
                     ]);
                     $raffle=$data_sorteos_bd->id;
                     $Lista_usuario->raffles()->attach($raffle);
