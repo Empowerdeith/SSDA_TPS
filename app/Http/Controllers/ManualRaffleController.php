@@ -19,7 +19,7 @@ use App\Mail\Mailsend;
 use Alert;
 use Redirect;
 use App\Imports\UploadedContentImport;
-
+use Illuminate\Support\Facades\Validator;
 
 class ManualRaffleController extends Controller
 {
@@ -37,6 +37,11 @@ class ManualRaffleController extends Controller
                 //$data_participantes=Excel::import(new UploadedContentImport, $request->file('texto_sorteados'));
                 //$data_participantes=Excel::toArray(null, $request->file('texto_sorteados'))[0];// tomamos la primera página de excel
                 $data_participantes=Excel::toArray(new UploadedContentImport, $request->file('texto_sorteados'))[0];
+                Validator::make($data_participantes, [
+                    '*.rut' => 'required',
+                    '*.nombre' => 'required',
+                    '*.cargo' => 'required',
+                ])->validate();
                 //$data_participantes=Excel::toCollection(new UploadedContentImport, $request->file('texto_sorteados'));
                 //Log::info($data_participantes);
                 $todo=count($data_participantes)*$porcentaje_manual/100;

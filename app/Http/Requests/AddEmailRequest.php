@@ -26,7 +26,7 @@ class AddEmailRequest extends FormRequest
         return [
             'name' => ['required','max:35'],
             'cargo' => ['required', 'max:35'],
-            'email' => ['required','email:rfc,dns'],
+            'email' => ['required','unique:recipients','email:rfc,dns'],
         ];
     }
 }
