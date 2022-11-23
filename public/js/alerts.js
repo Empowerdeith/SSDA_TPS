@@ -1,7 +1,6 @@
 
 $('.send_save_employees').click(function(event) {
     var form =  $(this).closest("form");
-    var name = $(this).data("name");
 
     event.preventDefault();
 
@@ -44,7 +43,6 @@ $('.send_save_employees').click(function(event) {
 
 $('.delete_users').click(function(event) {
     var form2 =  $(this).closest("form");
-    var name = $(this).data("name");
     event.preventDefault();
     Swal.fire({
         title: '¿Estás seguro que deseas Eliminar a este Usuario?',
@@ -64,7 +62,6 @@ $('.delete_users').click(function(event) {
 
 $('.delete_destinatarios').click(function(event) {
     var form3 =  $(this).closest("form");
-    //var name = $(this).data("name");
     event.preventDefault();
     Swal.fire({
         title: '¿Estás seguro que deseas Eliminar a este Destinatario?',
@@ -92,8 +89,3 @@ $("form").keypress(function(e){
         return false;
     }
 })
-$(window).resize(function(){
-    if ($(window).width() > 720) {
-        $("#toggle_sidebar1").attr('aria-expanded','true');
-    }
-});
