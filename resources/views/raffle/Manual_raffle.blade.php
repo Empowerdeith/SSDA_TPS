@@ -32,13 +32,17 @@
                         <div class="file-upload-wrapper">
                             <input type="file" id="input-file-now" class="file-upload" name="texto_sorteados" accept=".xls,.xlsx"/>
                         </div>
-                        <div class="pb-5">
-                            <div class="alert-danger red_color">{{$errors -> first('texto_sorteados')}}</div>
-                        </div>
-                        <div class="text-center pb-3">
+                        @if ($errors->has('texto_sorteados')||$errors->has('error_excel'))
+                            <div class="pt-5 alert-danger red_color font-weight-bold text-center">
+                                <div>{{$errors -> first('texto_sorteados')}}</div>
+                                <div>{!!$errors -> first('error_excel')!!}</div>
+                            </div>
+                        @endif
+                        <div class="text-center pt-5 pb-3">
                             <input type="submit" class="btn btn-primary text-white btn-lg button-style" value="Realizar Sorteo">
                         </div>
                     </div>
+
                 </div>
             </form>
         </div>
