@@ -45,8 +45,9 @@
                                         </h6>
                                         <p>
                                         Puede realizar el sorteo de forma "manual". Para ello obtienes la información de los trabajadores de Buk, necesitas crear un excel
-                                        con 3 columnas sin encabezado. En la primera columna ingresas los Rut de los trabajadores, en la segunda sus nombres y en la tercera sus cargos correspondientes. Luego Ingresasa
-                                        a "Sorteo Manual", defines el porcentaje, cargas el archivo excel descrito anterioremente y presionar "Realizar Sorteo".
+                                        con 3 columnas con encabezado de Rut, nombre y cargo. En la primera columna ingresas los Rut de los trabajadores, en la segunda sus nombres y 
+                                        en la tercera sus cargos correspondientes. Luego Ingresa a "Sorteo Manual", defines el porcentaje, cargas el 
+                                        archivo excel descrito anterioremente y presionar "Realizar Sorteo".
                                         </p>
                                     </div>
 
