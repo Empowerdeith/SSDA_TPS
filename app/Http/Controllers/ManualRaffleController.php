@@ -34,16 +34,19 @@ class ManualRaffleController extends Controller
         try {
 
             if($request->file('texto_sorteados')!=null){
-                //$data_participantes=Excel::import(new UploadedContentImport, $request->file('texto_sorteados'));
-                //$data_participantes=Excel::toArray(null, $request->file('texto_sorteados'))[0];// tomamos la primera página de excel
+
                 $data_participantes=Excel::toArray(new UploadedContentImport, $request->file('texto_sorteados'))[0];
-                Validator::make($data_participantes, [
+
+                $validator = Validator::make($data_participantes, [
                     '*.rut' => 'required',
                     '*.nombre' => 'required',
                     '*.cargo' => 'required',
-                ])->validate();
-                //$data_participantes=Excel::toCollection(new UploadedContentImport, $request->file('texto_sorteados'));
-                //Log::info($data_participantes);
+                ]);
+                if ($validator->fails()) {
+                    return redirect('/raffle_manual')
+                                ->withErrors(['error_excel' => '*El archivo adjunto, no posee todos los datos requeridos de los empleados.<br>Por favor recordar que el formato es el siguiente: Rut, Nombre, Cargo.'])
+                                ->withInput();
+                }
                 $todo=count($data_participantes)*$porcentaje_manual/100;
                 //Log::info($todo);
                 for ($i=0; $i < $todo ; $i++) {
