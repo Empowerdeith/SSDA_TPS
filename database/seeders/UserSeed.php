@@ -19,9 +19,9 @@ class UserSeed extends Seeder
         User::create([
             'name' => 'Manolo Sanchéz',
             'rut' => '105635677',
-            'username' => 'Admin',
+            'username' => 'Admin22',
             'email' => 'sorteotps2@gmail.com',
-            'password' => '12345678', // 12345678
+            'password' => 'Testtps2022',
             'cargo' => 'Administrador del sistema',
         ])->assignRole('Admin');
     }
