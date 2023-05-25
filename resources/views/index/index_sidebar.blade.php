@@ -4,7 +4,7 @@
     <div class="container-fluid height_class">
         <div class="row flex-nowrap height_class">
             <div class="col-auto px-0 py-0 border-0" style="background-color: #144578;">
-                <div id="sidebar" class="collapse collapse-horizontal"style="background-color: #144578;">
+                <div id="sidebar" class="collapse collapse-horizontal show"style="background-color: #144578;">
                     <div id="sidebar-nav" class="list-group border-0 rounded-none">
                         <div class="p-2 pb-4">
                             <a href="/home" class="text-decoration-none"><h4 class="text-white"><i class="fa-sharp fa-solid fa-house me-2"></i>Operaciones Disponibles</h4></a>
