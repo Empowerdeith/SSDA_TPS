@@ -2,6 +2,25 @@
 
 ## [UNRELEASED]
 
+## v3.4.0 - 2023-06-15
+
+- feat: Added SQLT_BOL to bind type #128
+- fix: #127
+
+## v3.3.1 - 2023-03-15
+
+- fix: getAttribute returning array instead of null #124
+- fix #123
+
+## v3.3.0 - 2023-02-20
+
+- feat: stringify support in pdo via oci 8 #122
+
+## v3.2.5 - 2022-12-21
+
+- fix: Don't suppress exceptions when connecting #121
+- fix https://github.com/yajra/laravel-oci8/issues/662
+
 ## v3.2.4 - 2022-06-12
 
 - Fix #109 PHP8.1 support #110

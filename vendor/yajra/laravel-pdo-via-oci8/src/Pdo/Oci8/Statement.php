@@ -348,6 +348,10 @@ class Statement extends PDOStatement
                 $this->blobObjects[$parameter] = &$variable;
                 break;
 
+            case SQLT_BOL:
+                $ociType = SQLT_BOL;
+                break;
+
             default:
                 $ociType = SQLT_CHR;
                 break;
@@ -462,6 +466,8 @@ class Statement extends PDOStatement
         $nullToString = ($this->getAttribute(PDO::ATTR_ORACLE_NULLS) == PDO::NULL_TO_STRING);
         // Convert empty string to null
         $nullEmptyString = ($this->getAttribute(PDO::ATTR_ORACLE_NULLS) == PDO::NULL_EMPTY_STRING);
+
+        $stringifyFetch = $this->getStringify();
 
         // Determine the fetch mode
         switch ($fetchMode) {
@@ -587,7 +593,16 @@ class Statement extends PDOStatement
                             $object->$field = $this->loadLob($value);
                         }
                     } else {
-                        $object->$field = $value;
+                        $ociFieldIndex = is_int($field) ? $field : array_search($field, array_keys($rs));
+                        if ($stringifyFetch) {
+                            $object->$field = $value;
+                        } else {
+                            if (oci_field_type($this->sth, $ociFieldIndex + 1) == 'NUMBER') {
+                                $object->$field = $this->castToNumeric($value);
+                            } else {
+                                $object->$field = $value;
+                            }
+                        }
                     }
                 }
 
@@ -599,6 +614,39 @@ class Statement extends PDOStatement
         }
 
         return false;
+    }
+
+    /**
+     * Retrieve stringify boolean in attribute .
+     *
+     * @return bool The attribute value.
+     */
+    public function getStringify(): bool
+    {
+        if (is_array($this->getAttribute(PDO::ATTR_STRINGIFY_FETCHES)) && empty($this->getAttribute(PDO::ATTR_STRINGIFY_FETCHES))) {
+            return true;
+        } elseif ($this->getAttribute(PDO::ATTR_STRINGIFY_FETCHES)) {
+            return true;
+        } elseif (! $this->getAttribute(PDO::ATTR_STRINGIFY_FETCHES)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * number value return as string from oracle.
+     *
+     * @param  $value
+     * @return float|int|string
+     */
+    private function castToNumeric($value)
+    {
+        if (is_numeric($value)) {
+            return $val = $value + 0;
+        }
+
+        return $value;
     }
 
     /**

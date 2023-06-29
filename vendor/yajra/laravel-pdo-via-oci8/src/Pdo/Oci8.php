@@ -137,14 +137,21 @@ class Oci8 extends PDO
     {
         $sessionMode = array_key_exists('session_mode', $options) ? $options['session_mode'] : OCI_DEFAULT;
 
-        if (array_key_exists(PDO::ATTR_PERSISTENT, $options) && $options[PDO::ATTR_PERSISTENT]) {
-            $this->dbh = @oci_pconnect($username, $password, $dsn, $charset, $sessionMode);
-        } else {
-            $this->dbh = @oci_connect($username, $password, $dsn, $charset, $sessionMode);
+        try {
+            if (array_key_exists(PDO::ATTR_PERSISTENT, $options) && $options[PDO::ATTR_PERSISTENT]) {
+                $this->dbh = oci_pconnect($username, $password, $dsn, $charset, $sessionMode);
+            } else {
+                $this->dbh = oci_connect($username, $password, $dsn, $charset, $sessionMode);
+            }
+
+            if (! $this->dbh) {
+                $e = oci_error();
+            }
+        } catch (\Throwable $t) {
+            $e = ['code' => $t->getCode(), 'message' => $t->getMessage()];
         }
 
-        if (! $this->dbh) {
-            $e = oci_error();
+        if (isset($e)) {
             throw new Oci8Exception($e['message'], $e['code']);
         }
     }
@@ -331,9 +338,9 @@ class Oci8 extends PDO
     private function isNamedParameterable(string $statement): bool
     {
         return ! preg_match('/^alter+ +table/', strtolower(trim($statement))) and ! preg_match(
-                '/^create+ +table/',
-                strtolower(trim($statement))
-            );
+            '/^create+ +table/',
+            strtolower(trim($statement))
+        );
     }
 
     /**
@@ -482,7 +489,7 @@ class Oci8 extends PDO
             return $this->options[$attribute];
         }
 
-        return [];
+        return null;
     }
 
     /**
@@ -564,7 +571,7 @@ class Oci8 extends PDO
     /**
      * Set the client identifier.
      *
-     * @param $identifier
+     * @param  $identifier
      * @return bool
      */
     public function setClientIdentifier($identifier): bool
